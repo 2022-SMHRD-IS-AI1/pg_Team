@@ -123,7 +123,6 @@ public class Member_DAO {
 			double mass = dto.getMass();
 			double waist = dto.getWaist();
 			double hip = dto.getHip();
-			// 체질량 수치 계산
 			double BMI = mass / Math.pow(height / 100, 2);
 			double RFM = (64 - 20 * (height / waist) + 10 * sex);
 			double BAI = (hip / ((height / 100) * Math.sqrt(height)));
