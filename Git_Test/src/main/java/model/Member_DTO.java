@@ -41,11 +41,11 @@ public class Member_DTO {
 		this.waist = waist;
 		this.hip = hip;
 		this.upload = upload;
-		this.BMI = mass / Math.pow(height/100, 2);
+		this.BMI = mass / Math.pow(height / 100, 2);
 		this.RFM = (64 - 20 * (height / waist) + 10 * sex);
-		this.BAI = (100 * hip);
-		this.WHR = 1;
-		this.WHtR = 12;
+		this.BAI = (hip / ((height / 100) * Math.sqrt(height)));
+		this.WHR = waist / hip;
+		this.WHtR = waist / height;
 	}
 
 }
