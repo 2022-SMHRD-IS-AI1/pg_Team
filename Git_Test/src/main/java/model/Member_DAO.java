@@ -94,6 +94,7 @@ public class Member_DAO {
 			while (rs.next()) {
 				// dto setter로 바꾸기
 				Member_DTO result_dto = new Member_DTO();
+				result_dto.setId(dto.getId());
 
 				// 홈화면에 보여줄 DB에서 가져온 정보 날짜순으로 들고오기
 				// arraylist에 유저의 모든 업로드 add(dto)
