@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/login.css">
-<script type="jquery-3.4.1.js"></script>
 </head>
 <body>
 	<section class="login-form">
 		<h1>로그인</h1>
-		<form action="">
+		<form action="" method="post">
 			<div class="int-area">
 				<input type="text" name="id" id="id" autocomplete="off" required>
 				<label for="id">USER NAME</label>
@@ -19,12 +18,14 @@
 				<label for="id">PASSWORD</label>
 			</div>
 			<div class="btn-area">
-				<button type="submit">LOGIN</button>
+				<button id="btn" name="btn" type="submit">LOGIN</button>
 			</div>
 		</form>
 		<div class="caption">
-			<a href="">회원가입</a>
+			<p>비밀번호를 잊어버리셨나요? <a href="findpw.html">비밀번호 찾기</a></p>
+			
 		</div>
 	</section>
+	
 </body>
 </html>
