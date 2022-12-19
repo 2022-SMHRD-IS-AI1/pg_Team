@@ -7,9 +7,9 @@ public class Member_DTO {
 	// 회원가입
 	private String full_name;
 	private String email;
-	private int year;
-	private int month;
-	private int day;
+	private int birth_year;
+	private int birth_month;
+	private int birth_day;
 	private int sex;
 	// 신체정보
 	private double height;
@@ -22,7 +22,6 @@ public class Member_DTO {
 	private double BAI;
 	private double WHR;
 	private double WHtR;
-
 	// 생성자 회원가입
 
 	// 생성자 로그인
@@ -60,28 +59,28 @@ public class Member_DTO {
 		this.email = email;
 	}
 
-	public int getYear() {
-		return year;
+	public int getBirth_year() {
+		return birth_year;
 	}
 
-	public void setYear(int year) {
-		this.year = year;
+	public void setBirth_year(int birth_year) {
+		this.birth_year = birth_year;
 	}
 
-	public int getMonth() {
-		return month;
+	public int getBirth_month() {
+		return birth_month;
 	}
 
-	public void setMonth(int month) {
-		this.month = month;
+	public void setBirth_month(int birth_month) {
+		this.birth_month = birth_month;
 	}
 
-	public int getDay() {
-		return day;
+	public int getBirth_day() {
+		return birth_day;
 	}
 
-	public void setDay(int day) {
-		this.day = day;
+	public void setBirth_day(int birth_day) {
+		this.birth_day = birth_day;
 	}
 
 	public int getSex() {

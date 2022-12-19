@@ -105,12 +105,12 @@ h1 {
 
 .intro-text {
 	width: 100%;
-	margin: 231px auto 231px auto;
-	text-align: center;
+	margin: 100px auto 231px 100px;
+	text-align: left;
 }
 
 .intro-text>h1, .intro-text>h4 {
-	color: #fff;
+	color: #000;
 }
 
 /* main-text0 */
