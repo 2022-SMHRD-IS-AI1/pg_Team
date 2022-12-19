@@ -41,7 +41,7 @@ h1 {
 .searchArea {
 	width: 300px;
 	height: 40px;
-	background-color: rgb(0, 0, 0, 0.5);
+	background-color: rgb(0, 0, 0, 0);
 	border-radius: 5px;
 	margin-top: 24px;
 }
@@ -55,7 +55,8 @@ h1 {
 	padding-left: 10px;
 }
 
-.searchArea>form>span {
+.searchArea>a>span {
+	display: none;
 	width: 50px;
 	color: #fff;
 	font-weight: bold;
@@ -74,7 +75,7 @@ h1 {
 }
 
 .nav>li>a {
-	color: #fff;
+	color: #000;
 }
 
 .amount {
