@@ -92,7 +92,13 @@ public class Member_DAO {
 			// ResultSet 리턴
 			rs = psmt.executeQuery();
 			while (rs.next()) {
+				// dto setter로 바꾸기
+				Member_DTO result_dto = new Member_DTO();
+				result_dto.setId(dto.getId());
+
 				// 홈화면에 보여줄 DB에서 가져온 정보 날짜순으로 들고오기
+				// arraylist에 유저의 모든 업로드 add(dto)
+				user_body_info.add(dto);
 
 			}
 
@@ -112,9 +118,31 @@ public class Member_DAO {
 			// DB에 연결
 			getConn();
 
+			String id = dto.getId();
+			int sex = dto.getSex();
+			double height = dto.getHeight();
+			double mass = dto.getMass();
+			double waist = dto.getWaist();
+			double hip = dto.getHip();
+			double BMI = mass / Math.pow(height / 100, 2);
+			double RFM = (64 - 20 * (height / waist) + 10 * sex);
+			double BAI = (hip / ((height / 100) * Math.sqrt(height)));
+			double WHR = waist / hip;
+			double WHtR = waist / height;
+
 			// SQL문 실행 준비
-			String sql = "신체 정보 업로드하는 sql문 작성해라 서연아";
+			String sql = "INSERT INTO FROM MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUE (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setDouble(2, height);
+			psmt.setDouble(3, mass);
+			psmt.setDouble(4, waist);
+			psmt.setDouble(5, hip);
+			psmt.setDouble(6, BMI);
+			psmt.setDouble(7, RFM);
+			psmt.setDouble(8, BAI);
+			psmt.setDouble(9, WHR);
+			psmt.setDouble(10, WHtR);
 
 			// 실행
 			// 변화한 행의 개수 리턴
