@@ -45,7 +45,7 @@ public class Member_DTO {
 		this.RFM = (64 - 20 * (height / waist) + 10 * sex);
 		this.BAI = (100 * hip);
 		this.WHR = 1;
-		this.WHtR = 1;
+		this.WHtR = 12;
 	}
 
 }
