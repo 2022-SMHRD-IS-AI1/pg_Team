@@ -26,16 +26,16 @@ public class Join_Service extends HttpServlet {
 		dto.setId(request.getParameter("id"));
 		dto.setPw(request.getParameter("pw"));
 		dto.setFull_name(request.getParameter("full_name"));
-		dto.setBirth_year(Integer.valueOf(request.getParameter("year")));
-		dto.setBirth_month(Integer.valueOf(request.getParameter("month")));
-		dto.setBirth_day(Integer.valueOf(request.getParameter("day")));
+		dto.setB_year(Integer.valueOf(request.getParameter("b_year")));
+		dto.setB_month(Integer.valueOf(request.getParameter("b_month")));
+		dto.setB_day(Integer.valueOf(request.getParameter("b_day")));
 		dto.setSex(Integer.valueOf(request.getParameter("sex")));
 
 		Member_DAO dao = new Member_DAO();
 		int row = dao.join(dto);
 
 		// ID 중복확인
-		
+
 		String nextPage = "";
 		if (row == 1) {
 			// row가 1이면 회원가입 정보가 1개 정확히 입력되어 성공한 것
