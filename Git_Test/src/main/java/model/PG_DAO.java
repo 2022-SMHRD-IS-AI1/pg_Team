@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Member_DAO {
+public class PG_DAO {
 
 	// DB 연결을 위한 객체
 	Connection conn = null;
@@ -51,7 +51,7 @@ public class Member_DAO {
 	}
 
 	// 회원가입 메소드
-	public int join(Member_DTO dto) {
+	public int join(Join_DTO j_dto) {
 		int row = 0;
 		try {
 			// DB에 연결
@@ -60,14 +60,14 @@ public class Member_DAO {
 			// SQL문 실행 준비
 			String sql = "INSERT INTO MEMBER_JOIN_INFO VALUES(?,?,?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, "ID");
-			psmt.setString(2, "PW");
-			psmt.setString(3, "FULL_NAME");
-			psmt.setString(4, "EMAIL");
-			psmt.setString(5, "B_YEAR");
-			psmt.setString(6, "B_MONTH");
-			psmt.setString(7, "B_DAY");
-			psmt.setString(8, "SEX");
+			psmt.setString(1, j_dto.getId());
+			psmt.setString(2, j_dto.getPw());
+			psmt.setString(3, j_dto.getFull_name());
+			psmt.setString(4, j_dto.getEmail());
+			psmt.setInt(5, j_dto.getB_year());
+			psmt.setInt(6, j_dto.getB_month());
+			psmt.setInt(7, j_dto.getB_day());
+			psmt.setInt(8, j_dto.getSex());
 
 			/**
 			 * 중복된 ID로 회원가입해보고 로직 수정하기
@@ -86,27 +86,51 @@ public class Member_DAO {
 	}
 
 	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
-	public ArrayList<Member_DTO> login_member(Member_DTO dto) {
-		ArrayList<Member_DTO> user_body_info = new ArrayList<>();
+	public ArrayList<Body_DTO> login_member() {
+		ArrayList<Body_DTO> user_body_info = new ArrayList<Body_DTO>();
 		try {
 			// DB에 연결
 			getConn();
 
 			// SQL문 실행 준비
-			String sql = "로그인 sql문 적어라 서연아";
+			/**
+			 * 2022/12/21에 사는 미래의 박서연에게 이거 Query 너무 길어 뷰로 만들어서 DB에 저장하고 View로 query 문 다시 짜라
+			 */
+			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
+			String sql = "SELECT J.FULL_NAME, J.B_YEAR, J.B_MONTH, J.B_DAY, J.SEX, B.* FROM MEMBER_JOIN_INFO RIGHT OUTER JOIN MEMBER_BODY_INFO ON MEMBER_JOIN_INFO.ID = MEMBER_BODY_INFO.ID WHERE ID = ? AND PW = ?";
+
 			psmt = conn.prepareStatement(sql);
 
 			// 실행
 			// ResultSet 리턴
 			rs = psmt.executeQuery();
+			// 대충 모든 업로드 기록을 확인하겠다는 반복문
 			while (rs.next()) {
 				// dto setter로 바꾸기
-				Member_DTO result_dto = new Member_DTO();
-				result_dto.setId(dto.getId());
+				Body_DTO b_dto = new Body_DTO();
+
+				b_dto.setId(rs.getString("ID"));
+				b_dto.setFull_name(rs.getString("FULL_NAME"));
+				b_dto.setEmail(rs.getString("EMAIL"));
+				b_dto.setB_year(rs.getInt("B_YEAR"));
+				b_dto.setB_month(rs.getInt("B_MONTH"));
+				b_dto.setB_day(rs.getInt("B_DAY"));
+				b_dto.setSex(rs.getInt("SEX"));
+
+				b_dto.setHeight(rs.getDouble("HEIGHT"));
+				b_dto.setMass(rs.getDouble("MASS"));
+				b_dto.setWaist(rs.getDouble("WAIST"));
+				b_dto.setHip(rs.getDouble("HIP"));
+				b_dto.setUpload(rs.getString("UPLOAD"));
+				b_dto.setBMI(rs.getDouble("BMI"));
+				b_dto.setRFM(rs.getDouble("RFM"));
+				b_dto.setBAI(rs.getDouble("BAI"));
+				b_dto.setWHR(rs.getDouble("WHR"));
+				b_dto.setWHTR(rs.getDouble("SHTR"));
 
 				// 홈화면에 보여줄 DB에서 가져온 정보 날짜순으로 들고오기
 				// arraylist에 유저의 모든 업로드 add(dto)
-				user_body_info.add(dto);
+				user_body_info.add(b_dto);
 
 			}
 
@@ -120,23 +144,23 @@ public class Member_DAO {
 
 	// 신체정보 업로드 메소드
 	// id, height, mass, waist, hip, (upload는 DB 서버시간 사용 나머지는 계산)
-	public int upload(Member_DTO dto) {
+	public int upload(Body_DTO b_dto) {
 		int row = 0;
 		try {
 			// DB에 연결
 			getConn();
 
-			String id = dto.getId();
-			int sex = dto.getSex();
-			double height = dto.getHeight();
-			double mass = dto.getMass();
-			double waist = dto.getWaist();
-			double hip = dto.getHip();
-			double BMI = mass / Math.pow(height / 100, 2);
-			double RFM = (64 - 20 * (height / waist) + 10 * sex);
-			double BAI = (hip / ((height / 100) * Math.sqrt(height)));
-			double WHR = waist / hip;
-			double WHtR = waist / height;
+			String id = b_dto.getId();
+			int sex = b_dto.getSex();
+			double height = b_dto.getHeight();
+			double mass = b_dto.getMass();
+			double waist = b_dto.getWaist();
+			double hip = b_dto.getHip();
+			double BMI = b_dto.getMass() / Math.pow(b_dto.getHeight() / 100, 2);
+			double RFM = (64 - 20 * (b_dto.getHeight() / b_dto.getWaist()) + 10 * b_dto.getSex());
+			double BAI = (b_dto.getHip() / ((b_dto.getHeight() / 100) * Math.sqrt(b_dto.getHeight())));
+			double WHR = b_dto.getWaist() / b_dto.getHip();
+			double WHtR = b_dto.getWaist() / b_dto.getHeight();
 
 			// SQL문 실행 준비
 			String sql = "INSERT INTO FROM MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUE (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
