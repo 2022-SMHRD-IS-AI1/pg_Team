@@ -1,14 +1,15 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Member_DAO;
-import model.Member_DTO;
+import model.Join_DTO;
+import model.PG_DAO;
 
 @WebServlet("/Join_Service")
 public class Join_Service extends HttpServlet {
@@ -22,17 +23,19 @@ public class Join_Service extends HttpServlet {
 
 		// 회원가입 할때 필요한 데이터 가져와서 Member_DTO에 담기
 		// 회원가입 정보를 담은 Member_DTO를 Member_DAO로 DB에 전송하기
-		Member_DTO dto = new Member_DTO();
-		dto.setId(request.getParameter("id"));
-		dto.setPw(request.getParameter("pw"));
-		dto.setFull_name(request.getParameter("full_name"));
-		dto.setB_year(Integer.valueOf(request.getParameter("b_year")));
-		dto.setB_month(Integer.valueOf(request.getParameter("b_month")));
-		dto.setB_day(Integer.valueOf(request.getParameter("b_day")));
-		dto.setSex(Integer.valueOf(request.getParameter("sex")));
+		Join_DTO j_dto = new Join_DTO();
+		PG_DAO dao = new PG_DAO();
+		// dto 에 담기
+		j_dto.setId(request.getParameter("id"));
+		j_dto.setPw(request.getParameter("pw"));
+		j_dto.setFull_name(request.getParameter("full_name"));
+		j_dto.setB_year(Integer.valueOf(request.getParameter("b_year")));
+		j_dto.setB_month(Integer.valueOf(request.getParameter("b_month")));
+		j_dto.setB_day(Integer.valueOf(request.getParameter("b_day")));
+		j_dto.setSex(Integer.valueOf(request.getParameter("sex")));
 
-		Member_DAO dao = new Member_DAO();
-		int row = dao.join(dto);
+		// 회원가입 메소드 실행
+		int row = dao.join(j_dto);
 
 		// ID 중복확인
 
@@ -46,7 +49,5 @@ public class Join_Service extends HttpServlet {
 			// 회원가입이 잘못 되었다면 다시 회원가입 화면을 띄워주고 문구 출력
 			nextPage = "join.html";
 		}
-
 	}
-
 }
