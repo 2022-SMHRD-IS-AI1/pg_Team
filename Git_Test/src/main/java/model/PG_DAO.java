@@ -97,7 +97,7 @@ public class PG_DAO {
 			 * 2022/12/21에 사는 미래의 박서연에게 이거 Query 너무 길어 뷰로 만들어서 DB에 저장하고 View로 query 문 다시 짜라
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
-			String sql = "SELECT J.FULL_NAME, J.B_YEAR, J.B_MONTH, J.B_DAY, J.SEX, B.* FROM MEMBER_JOIN_INFO RIGHT OUTER JOIN MEMBER_BODY_INFO ON MEMBER_JOIN_INFO.ID = MEMBER_BODY_INFO.ID WHERE ID = ? AND PW = ?";
+			String sql = "SELECT * FROM MEMBER_JOIN_INFO RIGHT OUTER JOIN MEMBER_BODY_INFO ON MEMBER_JOIN_INFO.ID = MEMBER_BODY_INFO.ID WHERE ID = ? AND PW = ?";
 
 			psmt = conn.prepareStatement(sql);
 
