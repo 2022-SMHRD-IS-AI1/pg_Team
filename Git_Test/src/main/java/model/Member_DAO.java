@@ -51,7 +51,6 @@ public class Member_DAO {
 	}
 
 	// 회원가입 메소드
-	// id, pw, full_name, year, month, day, sex
 	public int join(Member_DTO dto) {
 		int row = 0;
 		try {
@@ -59,10 +58,20 @@ public class Member_DAO {
 			getConn();
 
 			// SQL문 실행 준비
-			String sql = "회원가입 sql문 적어라 서연아";
+			String sql = "INSERT INTO MEMBER_JOIN_INFO VALUES(?,?,?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, "ID");
+			psmt.setString(2, "PW");
+			psmt.setString(3, "FULL_NAME");
+			psmt.setString(4, "EMAIL");
+			psmt.setString(5, "B_YEAR");
+			psmt.setString(6, "B_MONTH");
+			psmt.setString(7, "B_DAY");
+			psmt.setString(8, "SEX");
 
-			// 이미 존재하는 ID로 로그인해보고 로직 수정하기
+			/**
+			 * 중복된 ID로 회원가입해보고 로직 수정하기
+			 */
 
 			// 실행
 			// 변화한 행의 개수 리턴
@@ -76,8 +85,7 @@ public class Member_DAO {
 		return row;
 	}
 
-	// 로그인 메소드
-	// id, pw
+	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
 	public ArrayList<Member_DTO> login_member(Member_DTO dto) {
 		ArrayList<Member_DTO> user_body_info = new ArrayList<>();
 		try {
