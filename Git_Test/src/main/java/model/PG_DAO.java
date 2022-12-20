@@ -69,10 +69,6 @@ public class PG_DAO {
 			psmt.setInt(7, j_dto.getB_day());
 			psmt.setInt(8, j_dto.getSex());
 
-			/**
-			 * 중복된 ID로 회원가입해보고 로직 수정하기
-			 */
-
 			// 실행
 			// 변화한 행의 개수 리턴
 			row = psmt.executeUpdate();
@@ -86,7 +82,7 @@ public class PG_DAO {
 	}
 
 	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
-	public ArrayList<Body_DTO> login_member() {
+	public ArrayList<Body_DTO> login() {
 		ArrayList<Body_DTO> user_body_info = new ArrayList<Body_DTO>();
 		try {
 			// DB에 연결
@@ -94,10 +90,10 @@ public class PG_DAO {
 
 			// SQL문 실행 준비
 			/**
-			 * 2022/12/21에 사는 미래의 박서연에게 이거 Query 너무 길어 뷰로 만들어서 DB에 저장하고 View로 query 문 다시 짜라
+			 * 2022/12/21에 사는 미래의 박서연에게 이거 sql파일에 뷰로 만들어서 DB에 저장하고 View로 query 문 다시 짜라
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
-			String sql = "SELECT * FROM MEMBER_JOIN_INFO RIGHT OUTER JOIN MEMBER_BODY_INFO ON MEMBER_JOIN_INFO.ID = MEMBER_BODY_INFO.ID WHERE ID = ? AND PW = ?";
+			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -156,11 +152,11 @@ public class PG_DAO {
 			double mass = b_dto.getMass();
 			double waist = b_dto.getWaist();
 			double hip = b_dto.getHip();
-			double BMI = b_dto.getMass() / Math.pow(b_dto.getHeight() / 100, 2);
-			double RFM = (64 - 20 * (b_dto.getHeight() / b_dto.getWaist()) + 10 * b_dto.getSex());
-			double BAI = (b_dto.getHip() / ((b_dto.getHeight() / 100) * Math.sqrt(b_dto.getHeight())));
-			double WHR = b_dto.getWaist() / b_dto.getHip();
-			double WHtR = b_dto.getWaist() / b_dto.getHeight();
+			double BMI = mass / Math.pow(height / 100, 2);
+			double RFM = (64 - 20 * (height / waist) + 10 * sex);
+			double BAI = (hip / (height / 100) * Math.sqrt(height));
+			double WHR = waist / hip;
+			double WHtR = waist / height;
 
 			// SQL문 실행 준비
 			String sql = "INSERT INTO FROM MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";

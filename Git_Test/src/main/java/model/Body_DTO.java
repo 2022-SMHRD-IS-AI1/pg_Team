@@ -21,12 +21,6 @@ public class Body_DTO extends Join_DTO {
 	}
 
 	// 신체정보 생성자
-
-	// 신체 정보 getter setter
-	public double getHeight() {
-		return height;
-	}
-
 	public Body_DTO(double height, double mass, double waist, double hip, String upload) {
 		super();
 		this.height = height;
@@ -44,6 +38,11 @@ public class Body_DTO extends Join_DTO {
 		this.BAI = 0;
 		this.WHR = 0;
 		this.WHTR = 0;
+	}
+
+	// 신체 정보 getter setter
+	public double getHeight() {
+		return height;
 	}
 
 	public void setHeight(double height) {
