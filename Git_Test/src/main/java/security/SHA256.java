@@ -19,5 +19,4 @@ public class SHA256 {
 		}
 		return builder.toString();
 	}
-
 }

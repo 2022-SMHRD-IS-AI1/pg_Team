@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import security.SHA256;
+
 public class PG_DAO {
 	// DB 연결을 위한 객체
 	Connection conn = null;
@@ -78,7 +80,7 @@ public class PG_DAO {
 	}
 
 	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
-	public ArrayList<Body_DTO> login() {
+	public ArrayList<Body_DTO> login(Join_DTO j_dto) {
 		ArrayList<Body_DTO> user_body_info = new ArrayList<Body_DTO>();
 		try {
 			// DB에 연결
@@ -90,8 +92,13 @@ public class PG_DAO {
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
 			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
-
+			SHA256 sha256 = new SHA256();
+			String id = j_dto.getId();
+			String pw = j_dto.getPw();
+			String hash_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, hash_pw);
 
 			// 실행
 			// ResultSet 리턴
@@ -123,7 +130,6 @@ public class PG_DAO {
 				// 홈화면에 보여줄 DB에서 가져온 정보 날짜순으로 들고오기
 				// arraylist에 유저의 모든 업로드 add(dto)
 				user_body_info.add(b_dto);
-
 			}
 
 		} catch (Exception e) {

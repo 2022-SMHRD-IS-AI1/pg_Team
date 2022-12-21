@@ -16,6 +16,19 @@ public class Join_DTO {
 	private int b_day;
 	private int sex;
 
+	// 아이디 솔트
+
+	// 비밀번호 해시화
+	public String hash(String pw) {
+		SHA256 sha256 = new SHA256();
+		try {
+			return sha256.encrypt(pw);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	// 기본 생성자
 	public Join_DTO() {
 		super();
@@ -32,19 +45,6 @@ public class Join_DTO {
 		this.b_month = b_month;
 		this.b_day = b_day;
 		this.sex = sex;
-	}
-	// 아이디 솔트
-	
-
-	// 비밀번호 해시화
-	public String hash(String pw) {
-		SHA256 sha256 = new SHA256();
-		try {
-			return sha256.encrypt(pw);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	// 회원 정보 getter setter
