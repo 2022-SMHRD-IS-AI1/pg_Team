@@ -7,27 +7,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PG_DAO {
+import security.SHA256;
 
+public class PG_DAO {
 	// DB 연결을 위한 객체
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	String name = null;
+	// 보안을 위한 객체 생성
+	SHA256 sha256 = new SHA256();
 
 	// DB 연결
 	public void getConn() {
 		try {
 			// 드라이버 클래스 동적로딩
 			Class.forName("oracle.jdbc.OracleDriver");
-
 			// DB와 연결 객체 생성
 			String url = "여기는 스마트인재개발원 DB 서버임ㅇㅇ 미래의 서연이가 수정할 계획임";
 			String username = "ㅇㅇ";
 			String password = "ㅇㅇ";
-
 			conn = DriverManager.getConnection(url, username, password);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,9 +59,12 @@ public class PG_DAO {
 
 			// SQL문 실행 준비
 			String sql = "INSERT INTO MEMBER_JOIN_INFO VALUES(?,?,?,?,?,?,?,?)";
+			// 회원가입할 때 pw는 해시화 하여 담기
+			String pw = j_dto.getPw();
+			String hashing_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, j_dto.getId());
-			psmt.setString(2, j_dto.getPw());
+			psmt.setString(2, hashing_pw);
 			psmt.setString(3, j_dto.getFull_name());
 			psmt.setString(4, j_dto.getEmail());
 			psmt.setInt(5, j_dto.getB_year());
@@ -82,7 +85,7 @@ public class PG_DAO {
 	}
 
 	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
-	public ArrayList<Body_DTO> login() {
+	public ArrayList<Body_DTO> login(Join_DTO j_dto) {
 		ArrayList<Body_DTO> user_body_info = new ArrayList<Body_DTO>();
 		try {
 			// DB에 연결
@@ -94,8 +97,14 @@ public class PG_DAO {
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
 			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
+			// 로그인 할때 pw를 hash pw로 바꿔서 sql query에 담기
 
+			String id = j_dto.getId();
+			String pw = j_dto.getPw();
+			String hashing_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, hashing_pw);
 
 			// 실행
 			// ResultSet 리턴
@@ -127,7 +136,6 @@ public class PG_DAO {
 				// 홈화면에 보여줄 DB에서 가져온 정보 날짜순으로 들고오기
 				// arraylist에 유저의 모든 업로드 add(dto)
 				user_body_info.add(b_dto);
-
 			}
 
 		} catch (Exception e) {

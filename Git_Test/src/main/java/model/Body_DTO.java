@@ -28,11 +28,8 @@ public class Body_DTO extends Join_DTO {
 		this.waist = waist;
 		this.hip = hip;
 		this.upload = upload;
-		/**
-		 * @2022/12/20 의 박서연이 미래의 박서연에게
-		 * 
-		 * @체질량 지수 계산하는 수식 써넣어라
-		 */
+
+		// DAO에서 계산해서 넣으니까 신경쓸 필요 없음
 		this.BAI = 0;
 		this.RFM = 0;
 		this.BAI = 0;

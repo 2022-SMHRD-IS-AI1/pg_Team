@@ -1,5 +1,7 @@
 package model;
 
+import security.SHA256;
+
 public class Join_DTO {
 	// 로그인
 	private String id;
@@ -11,6 +13,19 @@ public class Join_DTO {
 	private int b_month;
 	private int b_day;
 	private int sex;
+
+	// 아이디 솔트
+
+	// 비밀번호 해시화
+	public String hash(String pw) {
+		SHA256 sha256 = new SHA256();
+		try {
+			return sha256.encrypt(pw);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	// 기본 생성자
 	public Join_DTO() {
