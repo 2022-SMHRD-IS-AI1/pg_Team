@@ -98,6 +98,7 @@ public class PG_DAO {
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
 			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
 			// 로그인 할때 pw를 hash pw로 바꿔서 sql query에 담기
+
 			String id = j_dto.getId();
 			String pw = j_dto.getPw();
 			String hash_pw = sha256.encrypt(pw);
