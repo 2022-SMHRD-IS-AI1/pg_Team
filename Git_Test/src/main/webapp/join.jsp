@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -28,7 +30,6 @@
 			</header>
 
 			<!-- INPUT -->
-			<form action="#" method = "post">
 			<section>
 				<div class="info" id="info__id">
 					<div id="id-input">
@@ -75,7 +76,6 @@
 				<div class="exist" align="right">
 					<span>이미 회원이신가요?</span> <a href="login.html">로그인 하러가기</a>
 				</div>
-			</form>
 			</div>
 		</div>
 	</div>
