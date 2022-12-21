@@ -157,26 +157,10 @@ section {
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
   font-size: 14px;
 }
-
 /* SECTION - EMAIL */
-.info#info__email {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.info#info__email input {
-  width: 90%;
-}
-
-.info#info__email span {
-  font-size: 14px;
-  margin: 0 3px;
-}
-
-.info .box#domain-list option {
-  font-size: 14px;
-  background-color: #ffffff;
+#info__email{
+	width : 400px;
+	hight : 50px;
 }
 
 /* SECTION - BIRTH */
