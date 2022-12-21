@@ -61,10 +61,10 @@ public class PG_DAO {
 			String sql = "INSERT INTO MEMBER_JOIN_INFO VALUES(?,?,?,?,?,?,?,?)";
 			// 회원가입할 때 pw는 해시화 하여 담기
 			String pw = j_dto.getPw();
-			String hash_pw = sha256.encrypt(pw);
+			String hashing_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, j_dto.getId());
-			psmt.setString(2, hash_pw);
+			psmt.setString(2, hashing_pw);
 			psmt.setString(3, j_dto.getFull_name());
 			psmt.setString(4, j_dto.getEmail());
 			psmt.setInt(5, j_dto.getB_year());
@@ -101,10 +101,10 @@ public class PG_DAO {
 
 			String id = j_dto.getId();
 			String pw = j_dto.getPw();
-			String hash_pw = sha256.encrypt(pw);
+			String hashing_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
-			psmt.setString(2, hash_pw);
+			psmt.setString(2, hashing_pw);
 
 			// 실행
 			// ResultSet 리턴
