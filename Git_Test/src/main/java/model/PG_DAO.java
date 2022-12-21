@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PG_DAO {
-
 	// DB 연결을 위한 객체
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -20,14 +19,11 @@ public class PG_DAO {
 		try {
 			// 드라이버 클래스 동적로딩
 			Class.forName("oracle.jdbc.OracleDriver");
-
 			// DB와 연결 객체 생성
 			String url = "여기는 스마트인재개발원 DB 서버임ㅇㅇ 미래의 서연이가 수정할 계획임";
 			String username = "ㅇㅇ";
 			String password = "ㅇㅇ";
-
 			conn = DriverManager.getConnection(url, username, password);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

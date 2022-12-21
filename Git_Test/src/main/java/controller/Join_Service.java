@@ -17,6 +17,10 @@ public class Join_Service extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		
+		
 
 		// request 인코딩
 		request.setCharacterEncoding("utf-8");
@@ -25,6 +29,8 @@ public class Join_Service extends HttpServlet {
 		// 회원가입 정보를 담은 Member_DTO를 Member_DAO로 DB에 전송하기
 		Join_DTO j_dto = new Join_DTO();
 		PG_DAO dao = new PG_DAO();
+		
+		
 		// dto 에 담기
 		j_dto.setId(request.getParameter("id"));
 		j_dto.setPw(request.getParameter("pw"));
