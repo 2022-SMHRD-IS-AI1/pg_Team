@@ -1,7 +1,5 @@
 package model;
 
-import java.security.NoSuchAlgorithmException;
-
 import security.SHA256;
 
 public class Join_DTO {
