@@ -15,6 +15,8 @@ public class PG_DAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	String name = null;
+	// 보안을 위한 객체 생성
+	SHA256 sha256 = new SHA256();
 
 	// DB 연결
 	public void getConn() {
@@ -57,9 +59,12 @@ public class PG_DAO {
 
 			// SQL문 실행 준비
 			String sql = "INSERT INTO MEMBER_JOIN_INFO VALUES(?,?,?,?,?,?,?,?)";
+			// 회원가입할 때 pw는 해시화 하여 담기
+			String pw = j_dto.getPw();
+			String hash_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, j_dto.getId());
-			psmt.setString(2, j_dto.getPw());
+			psmt.setString(2, hash_pw);
 			psmt.setString(3, j_dto.getFull_name());
 			psmt.setString(4, j_dto.getEmail());
 			psmt.setInt(5, j_dto.getB_year());
@@ -92,14 +97,13 @@ public class PG_DAO {
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
 			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
-			SHA256 sha256 = new SHA256();
+			// 로그인 할때 pw를 hash pw로 바꿔서 sql query에 담기
 			String id = j_dto.getId();
 			String pw = j_dto.getPw();
 			String hash_pw = sha256.encrypt(pw);
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, hash_pw);
-			
 
 			// 실행
 			// ResultSet 리턴
