@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,54 +30,67 @@
 			</header>
 
 			<!-- INPUT -->
-			<section>
-				<div class="info" id="info__id">
-					<div id="id-input">
-						<input name="id" class="box" type="text"
-							placeholder="아이디를 입력해주세요." />
+			<form action="#" methoid="post">
+				<section>
+					<div class="info" id="info__id">
+						<div id="id-input">
+							<input name="id" class="box" type="text"
+								placeholder="아이디를 입력해주세요." required="required" />
+						</div>
 					</div>
-				</div>
-				<div class="info" id="info__pw">
-					<input name="pw" class="box" type="password"
-						placeholder="비밀번호를 입력해주세요." />
-				</div>
-				<div class="info" id="info__pwRe">
-					<input name="pw_c" class="box" type="password" placeholder="비밀번호를 재입력해주세요." />
-				</div>
-				<div class="info" id="info__email">
-					<input class="box" type="email" placeholder="이메일을 입력해주세요." />
-				</div>
-				<div class="info" id="info__birth">
-					<div id="birth-flex">
-						<select class="box" id="birth-year" name="b_year">
-							<option disabled selected>출생 연도</option>
-						</select> <select class="box" id="birth-month" name="b_month">
-							<option disabled selected>월</option>
-						</select> <select class="box" id="birth-day" name="b_day">
-							<option disabled selected>일</option>
-						</select>
+					<div class="info" id="info__pw">
+						<input name="pw" class="box" type="password"
+							placeholder="비밀번호를 입력해주세요." required="required"/>
 					</div>
-				</div>
-				<!-- <div id="print-date"></div> -->
-				<div class="info" id="info__name">
-					<input name="name" class="box" type="text" placeholder="이름을 입력해주세요.">
-				</div>
-				<div class="info" id="info__sex" style="font-size: 12pt;"
-					align="center">
-					<span class=ra_man> 남성<input class="radio_input" name="sex" class="box" type="radio" value="man">
-					</span> <span> 여성<input class="radio_input" name="sex" class="box" type="radio" value="woman">
-					</span>
-				</div>
-			</section>
-			<div id="sec_bot">
-				<div id="result-fail"></div>
-				<!-- <input type = "submit" valeu ="회원가입"> -->
-				<button id="submit">가입하기</button>
-				<div class="exist" align="right">
-					<span>이미 회원이신가요?</span> <a href="login.html">로그인 하러가기</a>
-				</div>
-			</div>
+					<div class="info" id="info__pwRe">
+						<input name="pw_c" class="box" type="password"
+							placeholder="비밀번호를 재입력해주세요." required="required"/>
+					</div>
+					<div class="info" id="info__email">
+						<input name = "email" class="box" type="email" placeholder="이메일을 입력해주세요." required="required"/>
+					</div>
+					<div class="info" id="info__birth">
+						<div id="birth-flex" required="required">
+							<input id = "year_input" class = "box" type = "text" name = "b_year" placeholder="년">
+							<select class = "box" name = "b_month" placeholder="월" id = s_m>
+								<option>월</option>
+								<option value = "1">1</option>
+								<option value = "2">2</option>
+								<option value = "3">3</option>
+								<option value = "4">4</option>
+								<option value = "5">5</option>
+								<option value = "6">6</option>
+								<option value = "7">7</option>
+								<option value = "8">8</option>
+								<option value = "9">9</option>
+								<option value = "10">10</option>
+								<option value = "11">11</option>
+								<option value = "12">12</option>
+							</select>
+							<input id = "day_input" class = "box" type = "text" name = "b_day" placeholder="일">
+						</div>
+					</div>
+					<!-- <div id="print-date"></div> -->
+					<div class="info" id="info__name">
+						<input name="name" class="box" type="text"
+							placeholder="이름을 입력해주세요." required="required">
+					</div>
+					<div class="info" id="info__sex" style="font-size: 12pt;"
+						align="center">
+						<span class=ra_man> 남성<input class="radio_input" name="sex" class="box" type="radio" value="0"></span>
+						<span> 여성<input class="radio_input" name="sex" class="box" type="radio" value="1"></span>
+					</div>
+				</section>
+				<div id="sec_bot">
+					<div id="result-fail"></div>
+					<!-- <input type = "submit" valeu ="회원가입"> -->
+					<button id="submit">가입하기</button>
+					<div class="exist" align="right">
+						<span>이미 회원이신가요?</span> <a href="login.html">로그인 하러가기</a>
+					</div>
+			</form>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

@@ -16,6 +16,13 @@ body {
 	border: 1px
 	
 }
+#year_input, #day_input, #s_m{
+	width : 40%
+	
+}
+#s_m{
+	width: 60px;
+}
 .ra_man{
 	margin-right: 20px;
 }
@@ -169,7 +176,8 @@ section {
 }
 
 .info#info__birth select {
-  margin-left : 7px;
+  margin-left : 20px;
+  margin-right : 20px;
   color: #a0a0a0;
 }
 
