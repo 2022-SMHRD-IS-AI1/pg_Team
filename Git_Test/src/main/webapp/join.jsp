@@ -30,7 +30,7 @@
 			</header>
 
 			<!-- INPUT -->
-			<form action="#" methoid="post">
+			<form action="Join_Service" methoid="post">
 				<section>
 					<div class="info" id="info__id">
 						<div id="id-input">
