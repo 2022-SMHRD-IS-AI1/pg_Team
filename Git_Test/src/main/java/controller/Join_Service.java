@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
+
+//github.com/2022-SMHRD-IS-AI1/pg_Team.git
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Join_DTO;
 import model.PG_DAO;
+import security.SHA256;
 
 @WebServlet("/Join_Service")
 public class Join_Service extends HttpServlet {
@@ -24,12 +27,28 @@ public class Join_Service extends HttpServlet {
 
 		// 회원가입 할때 필요한 데이터 가져와서 Member_DTO에 담기
 		// 회원가입 정보를 담은 Member_DTO를 Member_DAO로 DB에 전송하기
+		SHA256 sha256 = new SHA256();
 		Join_DTO j_dto = new Join_DTO();
 		PG_DAO dao = new PG_DAO();
 
 		// pw해시화 이후 dto 에 담기
-		String hash_pw = request.getParameter("pw");
+
+		String pw = request.getParameter("pw");
+		String pw_c = request.getParameter("pw_c");
+
+		// pw, pw_c가 다르면 돌아가라 애송이
+		if (!pw.equals(pw_c)) {
+			
+		}
+
 		j_dto.setId(request.getParameter("id"));
+
+		String hash_pw = "";
+		try {
+			hash_pw = sha256.encrypt(pw);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 		j_dto.setPw(hash_pw);
 		j_dto.setFull_name(request.getParameter("full_name"));
 		j_dto.setB_year(Integer.valueOf(request.getParameter("b_year")));
