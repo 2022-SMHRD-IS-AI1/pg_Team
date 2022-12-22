@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import model.Body_DTO;
 import model.Join_DTO;
@@ -45,19 +44,23 @@ public class Login_Service extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Join_DTO j_dto = new Join_DTO(id, hash_pw);
 
 		PG_DAO dao = new PG_DAO();
+		Join_DTO j_dto = new Join_DTO(id, hash_pw);
 		Join_DTO user_info = dao.login(j_dto);
+		ArrayList<Body_DTO> body_info = dao.reload(j_dto);
 
 		// 로그인 결과
 		String nextPage = "";
 		if (user_info != null) {
 			// 로그인에 성공하면 실패코드 세션 삭제
-			// 로그인된 회원 정보 저장
+			// 회원 정보 세션으로 저장
 			nextPage = "user_main.jsp";
 			session.removeAttribute("fail_code");
+			// 로그인에 성공하면 비밀번호를 제외한 회원정보를 반환
+			// 로그인에 성공하면 회원의 모든 신체 기록을 반환
 			session.setAttribute("user_info", user_info);
+			session.setAttribute("body_info", body_info);
 		} else {
 			// 실패코드 -1 : id, pw 불일치
 			nextPage = "login.jsp";

@@ -57,3 +57,18 @@ CREATE SEQUENCE NUM_BOARD
 	MAXVALUE 99999999
 	NOCYCLE
 	NOCACHE
+	
+	
+	
+	
+	
+	
+	
+
+select * from MEMBER_JOIN_INFO;
+	
+	
+	
+	
+	
+	

@@ -36,10 +36,10 @@ public class Upload_Service extends HttpServlet {
 		Body_DTO b_dto = new Body_DTO(height, mass, waist, hip);
 
 		int row = dao.upload(j_dto, b_dto);
-
+		ArrayList<Body_DTO> body_info = dao.reload(j_dto);
 		if (row == 1) {
-			// 신체정보가 잘 업로드되면 세션 수정
-			session.setAttribute("user_info", dao.reload(j_dto));
+			// 신체정보가 잘 업로드되면 body_info 세션 수정
+			session.setAttribute("body_info", body_info);
 		} else {
 			System.out.println("정보수정 실패");
 		}

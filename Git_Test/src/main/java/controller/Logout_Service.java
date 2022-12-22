@@ -19,6 +19,7 @@ public class Logout_Service extends HttpServlet {
 		// 로그아웃하면 회원의 정보 세션 삭제
 		HttpSession session = request.getSession();
 		session.removeAttribute("user_info");
+		session.removeAttribute("body_info");
 
 		RequestDispatcher rd = request.getRequestDispatcher("");
 		rd.forward(request, response);

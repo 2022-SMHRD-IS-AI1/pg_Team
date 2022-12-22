@@ -23,9 +23,9 @@ public class PG_DAO {
 			// 드라이버 클래스 동적로딩
 			Class.forName("oracle.jdbc.OracleDriver");
 			// DB와 연결 객체 생성
-			String url = "여기는 스마트인재개발원 DB 서버임ㅇㅇ 미래의 서연이가 수정할 계획임";
-			String username = "ㅇㅇ";
-			String password = "ㅇㅇ";
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+			String username = "cgi_4_1220_4";
+			String password = "smhrd4";
 			conn = DriverManager.getConnection(url, username, password);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,7 +118,8 @@ public class PG_DAO {
 	}
 
 	// 신체정보 모두 가져오는 메소드
-	public int reload(Join_DTO j_dto) {
+	public ArrayList<Body_DTO> reload(Join_DTO j_dto) {
+		ArrayList<Body_DTO> user_info = new ArrayList<>();
 		try {
 			// DB에 연결
 			getConn();
@@ -142,13 +143,15 @@ public class PG_DAO {
 				b_dto.setBAI(rs.getDouble("BAI"));
 				b_dto.setWHR(rs.getDouble("WHR"));
 				b_dto.setWHTR(rs.getDouble("SHTR"));
+
+				user_info.add(b_dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return 0;
+		return user_info;
 
 	}
 
