@@ -64,6 +64,29 @@
 /***********************************************************************************************/
 /* =Common Styles */
 /***********************************************************************************************/
+/*윤제 수정*/
+.ob_info{
+	font-size: 20px;
+}
+
+#physical{ 
+	color: black;
+	font-size: 30px;
+	padding-top: 20px;
+}
+#line_chart{
+	margin-left: 0px;
+}
+#line_explane{
+	padding-left: 5px
+}
+
+
+
+
+
+/*윤제 수정*/
+
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -85,12 +108,14 @@ a {
           transition: all .25s ease-in-out;
 }
 
+
+
 a:hover, a:focus {
   text-decoration: none;
 }
 
 img {
-  max-width: 100%;
+  max-width: 50%;
 }
 
 .dark-bg {
@@ -162,7 +187,7 @@ h3 {
 }
 
 h4 {
-  font-size: 15px;
+  font-size: 27px;
 }
 
 h5 {
@@ -1835,7 +1860,9 @@ ul.features-list li {
 }
 
 .creative-content-left, .creative-content-right {
-  padding-top: 100px;
+  padding-top: 170px;
+  padding-left: 100px;
+  
 }
 
 #creative-section-1 h2, #creative-section-2 h2, #features-app-section-1 h2, #features-app-section-2 h2 {
