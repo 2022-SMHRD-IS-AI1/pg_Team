@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import security.SHA256;
 
 public class PG_DAO {
+
 	// DB 연결을 위한 객체
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -79,8 +80,8 @@ public class PG_DAO {
 	}
 
 	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
-	public ArrayList<Body_DTO> login(Join_DTO j_dto) {
-		ArrayList<Body_DTO> user_body_info = new ArrayList<Body_DTO>();
+	public Join_DTO login(Join_DTO j_dto) {
+		Join_DTO result_dto = new Join_DTO();
 		try {
 			// DB에 연결
 			getConn();
@@ -100,18 +101,36 @@ public class PG_DAO {
 			// 실행
 			// ResultSet 리턴
 			rs = psmt.executeQuery();
-			// 대충 모든 업로드 기록을 확인하겠다는 반복문
-			while (rs.next()) {
-				// dto setter로 바꾸기
-				Body_DTO b_dto = new Body_DTO();
+			// pw를 제외한 회원 정보 가져오기
+			result_dto.setId(rs.getString("ID"));
+			result_dto.setFull_name(rs.getString("FULL_NAME"));
+			result_dto.setEmail(rs.getString("EMAIL"));
+			result_dto.setB_year(rs.getInt("B_YEAR"));
+			result_dto.setB_month(rs.getInt("B_MONTH"));
+			result_dto.setB_day(rs.getInt("B_DAY"));
+			result_dto.setSex(rs.getInt("SEX"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result_dto;
+	}
 
-				b_dto.setId(rs.getString("ID"));
-				b_dto.setFull_name(rs.getString("FULL_NAME"));
-				b_dto.setEmail(rs.getString("EMAIL"));
-				b_dto.setB_year(rs.getInt("B_YEAR"));
-				b_dto.setB_month(rs.getInt("B_MONTH"));
-				b_dto.setB_day(rs.getInt("B_DAY"));
-				b_dto.setSex(rs.getInt("SEX"));
+	// 신체정보 모두 가져오는 메소드
+	public int reload(Join_DTO j_dto) {
+		try {
+			// DB에 연결
+			getConn();
+
+			// SQL문 실행 준비
+			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, j_dto.getId());
+
+			while (rs.next()) {
+				Body_DTO b_dto = new Body_DTO();
 
 				b_dto.setHeight(rs.getDouble("HEIGHT"));
 				b_dto.setMass(rs.getDouble("MASS"));
@@ -123,35 +142,30 @@ public class PG_DAO {
 				b_dto.setBAI(rs.getDouble("BAI"));
 				b_dto.setWHR(rs.getDouble("WHR"));
 				b_dto.setWHTR(rs.getDouble("SHTR"));
-
-				// 홈화면에 보여줄 DB에서 가져온 정보 날짜순으로 들고오기
-				// arraylist에 유저의 모든 업로드 add(dto)
-				user_body_info.add(b_dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return user_body_info;
+		return 0;
+
 	}
 
 	// 신체정보 업로드 메소드
 	// id, height, mass, waist, hip, (upload는 DB 서버시간 사용 나머지는 계산)
-	public int upload(Body_DTO b_dto) {
+	public int upload(Join_DTO j_dto, Body_DTO b_dto) {
 		int row = 0;
 		try {
 			// DB에 연결
 			getConn();
 
-			String id = b_dto.getId();
-			int sex = b_dto.getSex();
 			double height = b_dto.getHeight();
 			double mass = b_dto.getMass();
 			double waist = b_dto.getWaist();
 			double hip = b_dto.getHip();
 			double BMI = mass / Math.pow(height / 100, 2);
-			double RFM = (64 - 20 * (height / waist) + 12 * sex);
+			double RFM = (64 - 20 * (height / waist) + 12 * j_dto.getSex());
 			double BAI = (hip / (height / 100) * Math.sqrt(height));
 			double WHR = waist / hip;
 			double WHtR = waist / height;
@@ -159,7 +173,7 @@ public class PG_DAO {
 			// SQL문 실행 준비
 			String sql = "INSERT INTO FROM MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
+			psmt.setString(1, j_dto.getId());
 			psmt.setDouble(2, height);
 			psmt.setDouble(3, mass);
 			psmt.setDouble(4, waist);

@@ -1,6 +1,6 @@
 package model;
 
-public class Body_DTO extends Join_DTO {
+public class Body_DTO {
 
 	// 입력
 	private double height;
@@ -21,13 +21,12 @@ public class Body_DTO extends Join_DTO {
 	}
 
 	// 신체정보 생성자
-	public Body_DTO(double height, double mass, double waist, double hip, String upload) {
+	public Body_DTO(double height, double mass, double waist, double hip) {
 		super();
 		this.height = height;
 		this.mass = mass;
 		this.waist = waist;
 		this.hip = hip;
-		this.upload = upload;
 
 		// DAO에서 계산해서 넣으니까 신경쓸 필요 없음
 		this.BAI = 0;
