@@ -71,16 +71,19 @@ public class Join_Service extends HttpServlet {
 
 		// ID 중복확인
 
-		String nextPage = "join.jsp";
+		String nextPage = "";
 		if (row == 1) {
 			// 로그인에 성공하면 실패코드 세션 삭제
 			session.removeAttribute("fail_code");
-			nextPage = "main.html";
+			nextPage = "";
 		} else {
 			// 실패코드 0 : 중복된 아이디가 존재한다.
 			// 실패코드 1 : 비밀번호가 서로다르다.
 			session.setAttribute("fail_code", fail_code == 0 ? 0 : 1);
+			nextPage = "join.jsp";
 		}
+		// 회원가입에 실패하면 다시 회원가입
+		// 회원가입에 성공하면 메인화면
 		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
 	}
