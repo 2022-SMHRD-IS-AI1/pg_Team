@@ -1180,13 +1180,13 @@
 							<ul class="footer-social-links">
 								<li><a href="#">Facebook</a></li>
 								<li><a href="#">Twitter</a></li>
-								<li><a href="#">Dribbble</a></li>
-								<li><a href="#">Behance</a></li>
+								<li><a href="#">instagram</a></li>
+								<li><a href="#">youtube</a></li>
 								<li><a href="#">Pinterest</a></li>
 							</ul>
 							<p class="copyright">
-								&copy; 2016 Salient - Created By <a
-									href="http://templatestock.co">Template Stock</a>
+								Created By <a
+									href="">Physical gallery</a>
 							</p>
 						</div>
 						<!-- End col-sm-8 -->
