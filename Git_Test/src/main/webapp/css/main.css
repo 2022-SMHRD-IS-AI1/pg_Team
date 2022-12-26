@@ -68,6 +68,7 @@ h1 {
 	justify-content: flex-end;
 	line-height: 86px;
 	width: calc(1280px - 300px);
+	margin-left: 100px;
 }
 
 .nav>li {

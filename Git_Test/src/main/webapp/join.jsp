@@ -103,7 +103,7 @@
 					<!-- <input type = "submit" valeu ="회원가입"> -->
 					<button id="submit">가입하기</button>
 					<div class="exist" align="right">
-						<span>이미 회원이신가요?</span> <a href="login.html">로그인 하러가기</a>
+						<span>이미 회원이신가요?</span> <a href="login.jsp">로그인 하러가기</a>
 					</div>
 			</form>
 		</div>

@@ -1,7 +1,5 @@
 package model;
 
-import security.SHA256;
-
 public class Join_DTO {
 	// 로그인
 	private String id;

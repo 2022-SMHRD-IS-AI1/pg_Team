@@ -57,3 +57,21 @@ CREATE SEQUENCE NUM_BOARD
 	MAXVALUE 99999999
 	NOCYCLE
 	NOCACHE
+<<<<<<< HEAD
+=======
+	
+	
+	
+	
+	
+	
+	
+
+select * from MEMBER_JOIN_INFO;
+	
+	
+	
+	
+	
+	
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI1/pg_Team.git
