@@ -57,6 +57,9 @@ public class Join_Service extends HttpServlet {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
+		for (int i = 0; i<500;i++) {
+			System.out.println(hash_pw.length());
+		}
 		String id = request.getParameter("id");
 		String full_name = request.getParameter("full_name");
 		String email = request.getParameter("email");
@@ -75,7 +78,7 @@ public class Join_Service extends HttpServlet {
 		if (row == 1) {
 			// 로그인에 성공하면 실패코드 세션 삭제
 			session.removeAttribute("fail_code");
-			nextPage = "";
+			nextPage = "Main.jsp";
 		} else {
 			// 실패코드 0 : 중복된 아이디가 존재한다.
 			// 실패코드 1 : 비밀번호가 서로다르다.

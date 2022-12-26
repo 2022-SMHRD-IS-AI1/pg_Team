@@ -72,6 +72,7 @@ public class PG_DAO {
 			row = psmt.executeUpdate();
 
 		} catch (Exception e) {
+			System.out.println(row);
 			e.printStackTrace();
 		} finally {
 			close();

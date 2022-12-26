@@ -45,7 +45,7 @@
 			</header>
 
 			<!-- INPUT -->
-			<form action="Join_Service" methoid="post">
+			<form action="Join_Service" method="post">
 				<section>
 					<div class="info" id="info__id">
 						<div id="id-input">
@@ -67,29 +67,24 @@
 					</div>
 					<div class="info" id="info__birth">
 						<div id="birth-flex" required="required">
-							<input id="year_input" class="box" type="text" name="b_year"
+							<input id="year_input" class="box" type="number" name="b_year"
 								placeholder="년"> <select class="box" name="b_month"
 								placeholder="월" id=s_m>
 								<option>월</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select> <input id="day_input" class="box" type="text" name="b_day"
+								<%
+								for (int i = 1; i <= 12; i++) {
+								%>
+								<option value="1"><%=i%></option>
+								<%
+								}
+								%>
+							</select> <input id="day_input" class="box" type="number" name="b_day"
 								placeholder="일">
 						</div>
 					</div>
 					<!-- <div id="print-date"></div> -->
 					<div class="info" id="info__name">
-						<input name="name" class="box" type="text"
+						<input name="full_name" class="box" type="text"
 							placeholder="이름을 입력해주세요." required="required">
 					</div>
 					<div class="info" id="info__sex" style="font-size: 12pt;"
