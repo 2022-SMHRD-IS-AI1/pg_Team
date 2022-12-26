@@ -10,7 +10,7 @@
 <body>
 	<section class="login-form">
 		<h1>로그인</h1>
-		<form action="" method="post">
+		<form action="Login_Service" method="post">
 			<div class="int-area">
 				<input type="text" name="id" id="id" autocomplete="off" required>
 				<label for="id">USER NAME</label>

@@ -61,11 +61,11 @@ CREATE SEQUENCE NUM_BOARD
 	
 	
 	
-	
-	
+
+
 	
 
-select * from MEMBER_JOIN_INFO;
+select id from MEMBER_JOIN_INFO;
 	
 	
 	

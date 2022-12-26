@@ -105,19 +105,19 @@
 
 		<!-- Hero
   ================================================== -->
-		<form action="#" method="post">
+		<form action="Upload_Service" method="post">
 			<div id="pro_info" align="center">
 				<h3 id = "pro_title">내 신체 정보 입력</h3>
 				<fieldset class="field">
 					<div class="in_field">
 					<table>
 						<tr align="center">
-							<td class = "pro_info">신창</td>
+							<td class = "pro_info">신장</td>
 							<td class = "pro_info">체중</td>
 						</tr>
 						<tr align="center">
-							<td class = "pro_info"> <input type = "text" name = "" class = "pro_input"> </td>
-							<td class = "pro_info"> <input type="text" name = "" class = "pro_input"> </td>
+							<td class = "pro_info"> <input type = "number" name = "height" class = "pro_input"> </td>
+							<td class = "pro_info"> <input type="number" name = "mass" class = "pro_input"> </td>
 						</tr>
 						<tr>
 						<td><br></td>
@@ -127,8 +127,8 @@
 							<td class = "pro_info">엉덩이 둘레</td>
 						</tr>
 						<tr align="center">
-							<td class = "pro_info"> <input type = "text" name = "" class = "pro_input"> </td>
-							<td class = "pro_info"> <input type="text" name = "" class = "pro_input"> </td>
+							<td class = "pro_info"> <input type = "number" name = "waist" class = "pro_input"> </td>
+							<td class = "pro_info"> <input type="number" name = "hip" class = "pro_input"> </td>
 						</tr>
 					</table>
 					</div>

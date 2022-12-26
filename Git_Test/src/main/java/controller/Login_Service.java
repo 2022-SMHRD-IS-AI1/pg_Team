@@ -55,7 +55,7 @@ public class Login_Service extends HttpServlet {
 		if (user_info != null) {
 			// 로그인에 성공하면 실패코드 세션 삭제
 			// 회원 정보 세션으로 저장
-			nextPage = "user_main.jsp";
+			nextPage = "Main_login.jsp";
 			session.removeAttribute("fail_code");
 			// 로그인에 성공하면 비밀번호를 제외한 회원정보를 반환
 			// 로그인에 성공하면 회원의 모든 신체 기록을 반환
