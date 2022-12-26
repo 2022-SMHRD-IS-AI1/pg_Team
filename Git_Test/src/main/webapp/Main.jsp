@@ -632,10 +632,10 @@
 
 		  <div class="col-sm-5 creative-content-right animated out" data-animation="fadeInRight" data-delay="0">
               <div class="section_header" id = "header_section">
-                <h2>Creative project</h2> 
+                <h2>내 비만도 관리</h2> 
               </div> <!-- End section_header -->
 		<div id = line_explane>
-		 <p> Lorem ipsum <span>dolor</span> sit amet, consectetur adipisicing elit.Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		 <p>BMI 이외의 RFM, BAI, WHR, WHtR의 보다 정확한 방법으로 비만도를 관리할 수 있습니다.</p>
 		</div>
               <div class="view-more">
                 
