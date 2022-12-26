@@ -41,6 +41,7 @@ public class Login_Service extends HttpServlet {
 		String hash_pw = "";
 		try {
 			hash_pw = sha256.encrypt(pw);
+			System.out.println(hash_pw);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

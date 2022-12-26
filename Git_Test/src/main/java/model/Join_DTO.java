@@ -12,7 +12,9 @@ public class Join_DTO {
 	private int b_day;
 	private int sex;
 
-	// 아이디 솔트
+	public String toString() {
+		return String.format("id : %s\npw : %s\nfull_name : %s", this.id, this.pw, this.full_name);
+	}
 
 	// 기본 생성자
 	public Join_DTO() {
