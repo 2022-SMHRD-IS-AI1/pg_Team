@@ -1,3 +1,4 @@
+<%@page import="model.Join_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -49,9 +50,15 @@
 					<a class="navbar-brand" id=physical href="Main.jsp">Physical
 						gallery</a>
 				</div>
+
+				<%
+				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
+				String full_name = user_info.getFull_name();
+				System.out.print(user_info.toString());
+				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="My_page.jsp">User님 환영합니다.</a></li>
+						<li><a href="My_page.jsp"><%=full_name%>님 환영합니다.</a></li>
 						<!-- 윤제 로그인하면 아이디로 바껴야 함 -->
 						<li><a href="My_body.jsp">내 몸 관리</a></li>
 						<li><a href="disease.jsp">비만 관련 질병</a></li>
@@ -66,33 +73,38 @@
 
 		<form action="Upload_Service" method="post">
 			<div id="pro_info" align="center">
-				<h3 id = "pro_title">내 신체 정보 입력</h3>
+				<h3 id="pro_title">내 신체 정보 입력</h3>
 				<fieldset class="field">
 					<div class="in_field">
-					<table>
-						<tr align="center">
-							<td class = "pro_info">신장</td>
-							<td class = "pro_info">체중</td>
-						</tr>
-						<tr align="center">
-							<td class = "pro_info"> <input type = "number" name = "height" class = "pro_input" required="required" step="0.1"> </td>
-							<td class = "pro_info"> <input type="number" name = "mass" class = "pro_input" required="required" step="0.1"> </td>
-						</tr>
-						<tr>
-						<td><br></td>
-						</tr>
-						<tr align="center">
-							<td class = "pro_info">허리 둘레</td>
-							<td class = "pro_info">엉덩이 둘레</td>
-						</tr>
-						<tr align="center">
-							<td class = "pro_info"> <input type = "number" name = "waist" class = "pro_input" required="required" step="0.1"> </td>
-							<td class = "pro_info"> <input type="number" name = "hip" class = "pro_input" required="required" step="0.1"> </td>
-						</tr>
-					</table>
+						<table>
+							<tr align="center">
+								<td class="pro_info">신장</td>
+								<td class="pro_info">체중</td>
+							</tr>
+							<tr align="center">
+								<td class="pro_info">
+									<input type="number" name="height" class="pro_input" required="required" step="0.1">
+								</td>
+								<td class="pro_info">
+									<input type="number" name="mass"class="pro_input" required="required" step="0.1">
+								</td>
+							</tr>
+							<tr align="center">
+								<td class="pro_info">허리 둘레</td>
+								<td class="pro_info">엉덩이 둘레</td>
+							</tr>
+							<tr align="center">
+								<td class="pro_info">
+									<input type="number" name="waist" class="pro_input" required="required" step="0.1">
+								</td>
+								<td class="pro_info">
+									<input type="number" name="hip" class="pro_input" required="required" step="0.1">
+								</td>
+							</tr>
+						</table>
 					</div>
-					<div id = "result_input">
-					<input type="submit" value = "결과보기" id = "result_button">
+					<div id="result_input">
+						<input type="submit" value="결과보기" id="result_button">
 					</div>
 				</fieldset>
 			</div>
@@ -122,7 +134,7 @@
 												<h6>BMI</h6>
 												<p>어떻게 재는지랑 이런거 써주세요</p>
 											</div>
-										</div> 
+										</div>
 									</li>
 									<li>
 										<div class="left-features-box animated out"
@@ -131,7 +143,7 @@
 												<h6>RFM</h6>
 												<p>어떻게 재는지랑 이런거 써주세요</p>
 											</div>
-										</div> 
+										</div>
 									</li>
 									<li>
 										<div class="left-features-box animated out"
@@ -140,7 +152,7 @@
 												<h6>BMR</h6>
 												<p>어떻게 재는지랑 이런거 써주세요</p>
 											</div>
-										</div> 
+										</div>
 									</li>
 									<li>
 										<div class="left-features-box animated out"
@@ -149,7 +161,7 @@
 												<h6>BAI</h6>
 												<p>어떻게 재는지랑 이런거 써주세요</p>
 											</div>
-										</div> 
+										</div>
 									</li>
 								</ul>
 							</div>
@@ -212,8 +224,7 @@
 								<li><a href="#">Pinterest</a></li>
 							</ul>
 							<p class="copyright">
-								Created By <a
-									href="">Physical gallery</a>
+								Created By <a href="">Physical gallery</a>
 							</p>
 						</div>
 					</div>
