@@ -35,15 +35,12 @@
 	%>
 	<div class="container">
 		<div class="content">
-			<!-- HEADER -->
 			<header>
 				<div id="title">
 					<h2>회원가입</h2>
 					<h3><%=join_str%></h3>
 				</div>
 			</header>
-
-			<!-- INPUT -->
 			<form action="Join_Service" method="post">
 				<section>
 					<div class="info" id="info__id">
@@ -81,7 +78,6 @@
 								placeholder="일">
 						</div>
 					</div>
-					<!-- <div id="print-date"></div> -->
 					<div class="info" id="info__name">
 						<input name="full_name" class="box" type="text"
 							placeholder="이름을 입력해주세요." required="required">
@@ -95,7 +91,6 @@
 				</section>
 				<div id="sec_bot">
 					<div id="result-fail"></div>
-					<!-- <input type = "submit" valeu ="회원가입"> -->
 					<button id="submit">가입하기</button>
 					<div class="exist" align="right">
 						<span>이미 회원이신가요?</span> <a href="login.jsp">로그인 하러가기</a>
