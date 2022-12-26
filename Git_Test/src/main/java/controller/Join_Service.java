@@ -57,9 +57,6 @@ public class Join_Service extends HttpServlet {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		for (int i = 0; i<500;i++) {
-			System.out.println(hash_pw.length());
-		}
 		String id = request.getParameter("id");
 		String full_name = request.getParameter("full_name");
 		String email = request.getParameter("email");

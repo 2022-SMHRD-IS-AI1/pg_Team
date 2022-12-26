@@ -21,9 +21,8 @@
 <body>
 	<%
 	String join_str = "가입을 통해 더 다양한 서비스를 만나보세요!";
-	int check = 0;
 	try {
-		check = Integer.valueOf(request.getParameter("check"));
+		int check = (int) session.getAttribute("fail_code");
 		if (check == 0) {
 			join_str = "중복된 아이디가 존재합니다.";
 		} else {

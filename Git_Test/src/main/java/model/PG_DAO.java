@@ -72,9 +72,9 @@ public class PG_DAO {
 			row = psmt.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println(row);
 			e.printStackTrace();
 		} finally {
+			System.out.println(String.format("row는 %d으로 나옴", row));
 			close();
 		}
 		return row;
