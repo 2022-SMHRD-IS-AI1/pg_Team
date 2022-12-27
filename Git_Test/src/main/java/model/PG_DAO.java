@@ -145,7 +145,7 @@ public class PG_DAO {
 				b_dto.setRFM(rs.getDouble("RFM"));
 				b_dto.setBAI(rs.getDouble("BAI"));
 				b_dto.setWHR(rs.getDouble("WHR"));
-				b_dto.setWHTR(rs.getDouble("SHTR"));
+				b_dto.setWHTR(rs.getDouble("WHTR"));
 
 				user_info.add(b_dto);
 			}
@@ -177,7 +177,7 @@ public class PG_DAO {
 			double WHtR = waist / height;
 
 			// SQL문 실행 준비
-			String sql = "INSERT INTO FROM MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
+			String sql = "INSERT INTO MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, j_dto.getId());
 			psmt.setDouble(2, height);

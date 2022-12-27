@@ -46,9 +46,8 @@ SELECT * FROM MEMBER_JOIN_INFO J FULL OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.
 SELECT * FROM MEMBER_BODY_INFO WHERE ID = 'qkrtjdus';
 
 
-insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,5);
-insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,5);
-insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,5);
+
+
 
 
 
