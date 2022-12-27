@@ -91,7 +91,7 @@ public class PG_DAO {
 			 * 2022/12/21에 사는 미래의 박서연에게 이거 sql파일에 뷰로 만들어서 DB에 저장하고 View로 query 문 다시 짜라
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
-			String sql = "SELECT * FROM MEMBER_JOIN_INFO J LEFT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
+			String sql = "SELECT * FROM MEMBER_JOIN_INFO WHERE ID = ? AND PW = ?";
 			// hash는 Service에서 다 했다.
 
 			psmt = conn.prepareStatement(sql);

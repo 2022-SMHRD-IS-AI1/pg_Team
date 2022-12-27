@@ -54,8 +54,12 @@ insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,
 
 select * from MEMBER_JOIN_INFO;
 	
+SELECT *
+FROM MEMBER_JOIN_INFO
+WHERE ID = 'qkrtjdus' AND PW = '4b6a8c32273e6516cbb7c0cfdc474eba7e49b6d5e3c6cf3e29984e6cb85a9bd3';
 	
-	
-	
+SELECT *
+FROM MEMBER_JOIN_INFO
+WHERE ID = 'qkrtjdus';
 	
 	
