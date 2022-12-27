@@ -55,7 +55,6 @@
 				<%
 				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
 				String full_name = user_info.getFull_name();
-				System.out.print(user_info.toString());
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">

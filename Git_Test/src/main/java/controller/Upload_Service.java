@@ -26,6 +26,7 @@ public class Upload_Service extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Join_DTO j_dto = (Join_DTO) session.getAttribute("user_info");
+		System.out.println("내 아이디는 " + j_dto.getId());
 
 		// id, height, mass, waist, hip
 		double height = Double.valueOf(request.getParameter("height"));
