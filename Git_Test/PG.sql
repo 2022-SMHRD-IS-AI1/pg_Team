@@ -43,20 +43,14 @@ CREATE TABLE MEMBER_BODY_INFO (
 	
 SELECT * FROM MEMBER_JOIN_INFO J FULL OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = 'qkrtjdus' and J.PW = '4b6a8c32273e6516cbb7c0cfdc474eba7e49b6d5e3c6cf3e29984e6cb85a9bd3';
 
-
-4b6a8c32273e6516cbb7c0cfdc474eba7e49b6d5e3c6cf3e29984e6cb85a9bd3
-4b6a8c32273e6516cbb7c0cfdc474eba7e49b6d5e3c6cf3e29984e6cb85a9bd3
+SELECT * FROM MEMBER_BODY_INFO WHERE ID = 'qkrtjdus';
 
 
 insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,5);
 insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,5);
 insert into MEMBER_BODY_INFO values('qkrtjdus', 123,123,123,123,SYSDATE,1,2,3,4,5);
 
-delete from MEMBER_BODY_INFO
-where id = 'qkrtjdus';
 
-delete from MEMBER_JOIN_INFO
-where id = 'qkrtjdus';
 
 select * from MEMBER_JOIN_INFO;
 	

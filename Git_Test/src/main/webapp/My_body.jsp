@@ -118,46 +118,39 @@
 		</div>
 		<div class = "y_menu">
 			<div class="user_info">
-				<table class="info">
-					<img src="css/image/menu.png">
-					<tr>
-						<td>키</td>
-						<td> <input type="text"> </td>
-					</tr>
-					<tr>
-						<td>허리둘레</td>
-						<td> <input type="text"> </td>
-					</tr>
-					<tr>
-						<td>엉덩이둘레</td>
-						<td> <input type="text"> </td>
-					</tr>
-					<tr>
-						<td>몸무게</td>
-						<td> <input type="text"> </td>
-					</tr>
-				</table>
-							
-			</div>
+				<div class="height">
+					<input type="text" placeholder="키">
+				</div>
+				<div class="img">
+					<img src="css/image/userinfo.png">
+					<div class="waist">
+						<input type="text" placeholder="허리둘레">
+					</div>
+					<div class="hip">
+						<input type="text" placeholder="엉덩이둘레">
+					</div>				
+				</div>
+				<div class="weight">
+					<input type="text" placeholder="몸무게">
+				</div>
+			</div>			
 		</div>
 		<div class = "y_main">main ~~차트 자리~~</div>
 		<div class = "y_top"></div>
 		<div class = "y_aside"></div>
 		<div class = "y_bottom"></div>
-		<div class = "y_footer">footer</div>
+		<div class = "y_footer"></div>
 	</div>
 	
 =======
 		<div class="y_container">
-			<div class="y_header">
-				<h1>USER 님은 비만 입니다</h1>
-			</div>
-			<div class="y_menu">menu</div>
-			<div class="y_main">main</div>
-			<div class="y_top">top</div>
-			<div class="y_aside">aside</div>
-			<div class="y_bottom">bottom</div>
-			<div class="y_footer">footer</div>
+			<div class="y_header"></div>
+			<div class="y_menu"></div>
+			<div class="y_main"></div>
+			<div class="y_top"></div>
+			<div class="y_aside"></div>
+			<div class="y_bottom"></div>
+			<div class="y_footer"></div>
 		</div>
 
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI1/pg_Team.git
