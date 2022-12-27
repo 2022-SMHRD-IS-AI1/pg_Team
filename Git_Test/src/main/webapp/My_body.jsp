@@ -94,8 +94,9 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="My_page.jsp"><%=full_name%>님 환영합니다.</a></li>
 						<!-- 윤제 로그인하면 아이디로 바껴야 함 -->
-						<li><a href="">내 몸 관리</a></li>
+						<li class="active"><a href="">내 몸 관리</a></li>
 						<li><a href="disease.jsp">비만 관련 질병</a></li>
+						<li><a href="Member_board.jsp">게시판</a></li>
 						<li><a href="Main.jsp">로그아웃</a></li>
 						<!-- 윤제 로그아웃하면 세션 삭제 -->
 					</ul>

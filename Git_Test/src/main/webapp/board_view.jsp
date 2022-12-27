@@ -108,7 +108,7 @@
 			</div>
 			<div class = "bt_wrap">
 				<a href="Member_board.jsp" class = "on">목록</a>
-				<a href="board_edit.jsp">수정</a>
+				<a href="edit_password.jsp">수정</a>
 			</div>
 		</div>
 	</div>

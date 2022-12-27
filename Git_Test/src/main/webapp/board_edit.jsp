@@ -98,7 +98,7 @@
 			</div>
 			</form>
 			<div class = "bt_wrap">
-				<a href="Member_board.jsp" class = "on">수정</a>
+				<a href="Member_board.jsp" class = "on">수정완료</a>
 				<a href="Member_board.jsp">취소</a>
 			</div>
 		</div>
