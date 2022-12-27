@@ -114,13 +114,13 @@
 				<h3>기본 정보</h3>
 				<fieldset class = "field">
 					<div class = "in_field">
-					<label>이름 : </label> <input type="text" name="name"
+					<label class = "label_inp">이름 : </label> <input type="text" name="name"
 						required="required" class="input_info"> <br>
 					<hr>
-					<label>비밀번호 : </label> <input type="password" name="pw"
+					<label class = "label_inp">비밀번호 : </label> <input type="password" name="pw"
 						required="required" class="input_info" id = "pw_i"> <br>
 					<hr>
-					<label>비밀번호 확인 : </label> <input type="password" name="pw_c"
+					<label class = "label_inp">비밀번호 확인 : </label> <input type="password" name="pw_c"
 						required="required" class="input_info" id = "pw_c_i">
 						</div>
 				</fieldset>
@@ -131,7 +131,7 @@
 			<h3>연락처 정보</h3>
 				<fieldset class = "field">
 					<div class="in_field">
-					<label>이메일 : </label> <input type="email" name="email"
+					<label class = "label_inp">이메일 : </label> <input type="email" name="email"
 						required="required" class="input_info" id = "email_i">
 						</div>
 				</fieldset>

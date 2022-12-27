@@ -19,6 +19,7 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/Main_login.css">
+<link rel="stylesheet" href="assets/css/slides.css">
 <link rel="stylesheet" href="assets/css/animate.css">
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/et-line-font/style.css">
@@ -76,31 +77,29 @@
 				<h3 id="pro_title">내 신체 정보 입력</h3>
 				<fieldset class="field">
 					<div class="in_field">
-						<table>
-							<tr align="center">
-								<td class="pro_info">신장</td>
-								<td class="pro_info">체중</td>
+						<table id="input_table">
+
+							<tr align="center" height="50px">
+								<td class="pro_info"><strong>신장</strong></td>
+								<td class="pro_info"><strong>체중</strong></td>
+								<td class="pro_info"><strong>허리 둘레</strong></td>
+								<td class="pro_info"><strong>엉덩이 둘레</strong></td>
 							</tr>
 							<tr align="center">
-								<td class="pro_info">
-									<input type="number" name="height" class="pro_input" required="required" step="0.1">
+								<td class="pro_info"><input placeholder="cm" type="number"
+									name="height" class="pro_input" required="required" step="0.1">
 								</td>
-								<td class="pro_info">
-									<input type="number" name="mass"class="pro_input" required="required" step="0.1">
+								<td class="pro_info"><input placeholder="kg" type="number"
+									name="mass" class="pro_input" required="required" step="0.1">
 								</td>
-							</tr>
-							<tr align="center">
-								<td class="pro_info">허리 둘레</td>
-								<td class="pro_info">엉덩이 둘레</td>
-							</tr>
-							<tr align="center">
-								<td class="pro_info">
-									<input type="number" name="waist" class="pro_input" required="required" step="0.1">
+								<td class="pro_info"><input placeholder="cm" type="number"
+									name="waist" class="pro_input" required="required" step="0.1">
 								</td>
-								<td class="pro_info">
-									<input type="number" name="hip" class="pro_input" required="required" step="0.1">
+								<td class="pro_info"><input placeholder="cm" type="number"
+									name="hip" class="pro_input" required="required" step="0.1">
 								</td>
 							</tr>
+							<tr style="height: 50px;">
 						</table>
 					</div>
 					<div id="result_input">
@@ -109,7 +108,51 @@
 				</fieldset>
 			</div>
 		</form>
-		<section>
+
+		<!-- <img alt="" src="assets/images/bmi_img.jfif">
+		<img alt="" src="assets/images/bmi_img.jfif">
+		<img alt="" src="assets/images/bmi_img.jfif">
+		<img alt="" src="assets/images/bmi_img.jfif">
+		 <div class="slider"> -->
+		<div class="y_section">
+			<input type="radio" name="slide" id="slide01" checked="checked">
+			<input type="radio" name="slide" id="slide02">
+			<input type="radio" name="slide" id="slide03">
+
+			<div class="y_slidewrap">
+				<ul class="y_slidelist">
+					<li>
+						<a> 
+							<label for="slide03" class="y_left"></label> 
+							<img src="assets/images/bmi_img.jfif"> 
+							<label for="slide02" class="y_right"></label>
+						</a>
+						<a>시기다른 래퍼들의 반대편을 바라보던 래퍼들의 배포</a>
+					</li>
+					<li>
+						<a>
+							<label for="slide01" class="y_left"></label>
+							<img src="assets/images/bmi_img.jfif">
+							<label for="slide03" class="y_right"></label>
+						</a>
+					</li>
+					<li>
+						<a>
+							<label for="slide02" class="y_left"></label>
+							<img src="assets/images/bmi_img.jfif">
+							<label for="slide01" class="y_right"></label>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- <section>
 			<div id="features-section" class="pad-sec">
 				<div class="container">
 					<div class="title-section text-center animated out"
@@ -210,32 +253,36 @@
 					</div>
 				</div>
 			</div>
-		</section>
-		<footer>
-			<div id="footer-section" class="text-center">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-8 col-sm-offset-2">
-							<ul class="footer-social-links">
-								<li><a href="#">Facebook</a></li>
-								<li><a href="#">Twitter</a></li>
-								<li><a href="#">instagram</a></li>
-								<li><a href="#">youtube</a></li>
-								<li><a href="#">Pinterest</a></li>
-							</ul>
-							<p class="copyright">
-								Created By <a href="">Physical gallery</a>
-							</p>
-						</div>
+		</section> -->
+
+
+	<footer>
+		<div id="footer-section" class="text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<ul class="footer-social-links">
+							<li><a href="#">Facebook</a></li>
+							<li><a href="#">Twitter</a></li>
+							<li><a href="#">instagram</a></li>
+							<li><a href="#">youtube</a></li>
+							<li><a href="#">Pinterest</a></li>
+						</ul>
+						<p class="copyright">
+							Created By <a href="">Physical gallery</a>
+						</p>
 					</div>
 				</div>
 			</div>
-		</footer>
+		</div>
+	</footer>
 	</div>
+
 
 	<div class="back-to-top">
 		<i class="fa fa-angle-up fa-3x"></i>
 	</div>
+	<script src="assets/js/slides.js"></script>
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
