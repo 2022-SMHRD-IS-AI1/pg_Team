@@ -24,8 +24,7 @@
 			</div>
 		</form>
 		<div class="caption">
-			<p>비밀번호를 잊어버리셨나요? <a href="findpw.jsp">비밀번호 찾기</a></p>
-			
+			<p>비밀번호를 잊어버리셨나요? <a href="findpw.jsp">비밀번호 찾기</a></p>		
 		</div>
 	</section>
 	
