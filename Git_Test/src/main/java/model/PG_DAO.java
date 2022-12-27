@@ -74,13 +74,12 @@ public class PG_DAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			System.out.println(String.format("row는 %d으로 나옴", row));
 			close();
 		}
 		return row;
 	}
 
-	// 로그인 메소드 (업로드한 모든 정보도 가져와야한다)
+	// 로그인 메소드
 	public Join_DTO login(Join_DTO j_dto) {
 		Join_DTO result_dto = new Join_DTO();
 		try {
@@ -92,8 +91,8 @@ public class PG_DAO {
 			 * 2022/12/21에 사는 미래의 박서연에게 이거 sql파일에 뷰로 만들어서 DB에 저장하고 View로 query 문 다시 짜라
 			 */
 			// 대충 로그인한 아이디로 조건 줘서 회원 정보랑 신체 정보 조인한 이후 업로드한 정보 가져오겠다는 Query
-			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
-			// 로그인 할때 pw를 hash pw로 바꿔서 sql query에 담기
+			String sql = "SELECT * FROM MEMBER_JOIN_INFO J LEFT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ? AND J.PW = ?";
+			// hash는 Service에서 다 했다.
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, j_dto.getId());
@@ -103,13 +102,16 @@ public class PG_DAO {
 			// ResultSet 리턴
 			rs = psmt.executeQuery();
 			// pw를 제외한 회원 정보 가져오기
-			result_dto.setId(rs.getString("ID"));
-			result_dto.setFull_name(rs.getString("FULL_NAME"));
-			result_dto.setEmail(rs.getString("EMAIL"));
-			result_dto.setB_year(rs.getInt("B_YEAR"));
-			result_dto.setB_month(rs.getInt("B_MONTH"));
-			result_dto.setB_day(rs.getInt("B_DAY"));
-			result_dto.setSex(rs.getInt("SEX"));
+			if (rs.next()) {
+				System.out.println(rs.getString("ID"));
+				result_dto.setId(rs.getString("ID"));
+				result_dto.setFull_name(rs.getString("FULL_NAME"));
+				result_dto.setEmail(rs.getString("EMAIL"));
+				result_dto.setB_year(rs.getInt("B_YEAR"));
+				result_dto.setB_month(rs.getInt("B_MONTH"));
+				result_dto.setB_day(rs.getInt("B_DAY"));
+				result_dto.setSex(rs.getInt("SEX"));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -130,6 +132,7 @@ public class PG_DAO {
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, j_dto.getId());
+			rs = psmt.executeQuery();
 
 			while (rs.next()) {
 				Body_DTO b_dto = new Body_DTO();
