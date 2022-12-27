@@ -4,7 +4,7 @@
 .y_section .slidewrap{
 	max-width: 600px;
 	margin: 0 auto;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .y_section .y_slidelist{
 	white-space:nowrap;

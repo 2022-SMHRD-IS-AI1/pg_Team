@@ -86,7 +86,7 @@
 							class="icon-bar"></span>
 					</button>
 					<!-- 홈으로 돌아오게 -->
-					<a class="navbar-brand" id=physical href="Main.jsp">Physical
+					<a class="navbar-brand" id=physical href="Main_login.jsp">Physical
 						gallery</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->

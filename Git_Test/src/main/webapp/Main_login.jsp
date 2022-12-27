@@ -48,7 +48,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" id=physical href="Main.jsp">Physical
+					<a class="navbar-brand" id=physical href="Main_login.jsp">Physical
 						gallery</a>
 				</div>
 
@@ -114,45 +114,8 @@
 		<img alt="" src="assets/images/bmi_img.jfif">
 		<img alt="" src="assets/images/bmi_img.jfif">
 		 <div class="slider"> -->
-		<div class="y_section">
-			<input type="radio" name="slide" id="slide01" checked="checked">
-			<input type="radio" name="slide" id="slide02">
-			<input type="radio" name="slide" id="slide03">
 
-			<div class="y_slidewrap">
-				<ul class="y_slidelist">
-					<li>
-						<a> 
-							<label for="slide03" class="y_left"></label> 
-							<img src="assets/images/bmi_img.jfif"> 
-							<label for="slide02" class="y_right"></label>
-						</a>
-						<a>시기다른 래퍼들의 반대편을 바라보던 래퍼들의 배포</a>
-					</li>
-					<li>
-						<a>
-							<label for="slide01" class="y_left"></label>
-							<img src="assets/images/bmi_img.jfif">
-							<label for="slide03" class="y_right"></label>
-						</a>
-					</li>
-					<li>
-						<a>
-							<label for="slide02" class="y_left"></label>
-							<img src="assets/images/bmi_img.jfif">
-							<label for="slide01" class="y_right"></label>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-	<!-- <section>
+	<section>
 			<div id="features-section" class="pad-sec">
 				<div class="container">
 					<div class="title-section text-center animated out"
@@ -253,7 +216,7 @@
 					</div>
 				</div>
 			</div>
-		</section> -->
+		</section>
 
 
 	<footer>

@@ -54,13 +54,13 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" id=physical href="Main.jsp">Physical
+					<a class="navbar-brand" id=physical href="Main_login.jsp">Physical
 						gallery</a>
 				</div>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="My_page.jsp">User님 환영합니다.</a></li>
-						<li><a href="">내 몸 관리</a></li>
+						<li><a href="My_body.jsp">내 몸 관리</a></li>
 						<li class="active"><a href="disease.jsp">비만 관련 질병</a></li>
 						<li><a href="Main.jsp">로그아웃</a></li>
 					</ul>
