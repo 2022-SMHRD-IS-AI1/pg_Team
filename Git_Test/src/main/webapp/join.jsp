@@ -16,7 +16,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="css/join.css?">
 </head>
 <body>
 	<%
