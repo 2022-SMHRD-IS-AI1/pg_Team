@@ -106,12 +106,53 @@
 		<!-- Hero
   ================================================== -->
 	<div class = "y_container">
-		<div class = "y_header">header</div>
-		<div class = "y_menu">menu</div>
-		<div class = "y_main">main</div>
-		<div class = "y_top">top</div>
-		<div class = "y_aside">aside</div>
-		<div class = "y_bottom">bottom</div>
+		<div class = "y_header">
+			<h1>USER 님은 복부 비만 입니다.</h1>
+		</div>
+		<div class = "y_menu">
+			<div class="user_info">
+				<table class="input_info">
+					<img src="https://cdn-icons-png.flaticon.com/512/10/10522.png">
+					<tr>
+						<td>키 </td>
+						<td><input type="text" name="info"></td>
+					</tr>
+					<tr>
+						<td>몸무게 </td>
+						<td><input type="text" name="info"></td>
+					</tr>
+					<tr>
+						<td>허리둘레 </td>
+						<td><input type="text" name="info"></td>
+					</tr>
+				</table>				
+			</div>
+		</div>
+		<div class = "y_main">main ~~차트 자리~~</div>
+		<div class = "y_top">
+			<div class="mean">
+				<h5>정의</h5>
+			</div>
+			<div class="info">
+				<p>복부비만은 배에 과도한 지방이 축적된 상태로, 한국인 허리둘레 기준으로 남자 90cm(35.4인치), 여자 85cm(33.5인치) 이상인 경우에 해당된다.</p>
+			</div>
+		</div>
+		<div class = "y_aside">
+			<div class="mean">
+				<h5>증상</h5>
+			</div>
+			<div class="info">
+				<p>뚜렷한 증상이 없는 경우가 많다. 전체적으로 체중이 증가하면서 허리둘레가 늘어나 자각하게 되지만 체중이 정상인 경우에도 복부비만인 경우가 있다. 내장지방 축적으로 인해 횡격막이 과다 신장되어 호흡운동 시 폐의 움직임을 방해하면, 수면 중 코를 골다가 호흡을 멈추는 수면 무호흡증을 유발할 수 있다.</p>
+			</div>
+		</div>
+		<div class = "y_bottom">
+			<div class="mean">
+				<h5>원인</h5>
+			</div>
+			<div class="info">
+				<p>내장지방이 축적되는 이유는 나이의 증가, 과식, 운동 부족, 흡연, 유전적 영향 등이 복합적으로 관여하는 것으로 알려져 있다. 남자의 경우 군대에서 제대한 후 또는 결혼 직후이며, 여자가 복부 비만이 되는 시기는 폐경기 이후이다.</p>
+			</div>
+		</div>
 		<div class = "y_footer">footer</div>
 	</div>
 	
