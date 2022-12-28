@@ -1,5 +1,6 @@
+<%@page import="model.Join_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 	Salient by TEMPLATE STOCK
@@ -61,6 +62,11 @@
 
 </head>
 <body>
+	<%
+	Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
+	String full_name = user_info.getFull_name();
+	System.out.print(full_name);
+	%>
 
 	<!-- Preload the Whole Page -->
 	<div id="preloader">
@@ -80,16 +86,17 @@
 							class="icon-bar"></span>
 					</button>
 					<!-- 홈으로 돌아오게 -->
-					<a class="navbar-brand" id=physical href="Main.jsp">Physical
+					<a class="navbar-brand" id=physical href="Main_login.jsp">Physical
 						gallery</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="My_page.jsp">User님 환영합니다.</a></li>
+						<li><a href="My_page.jsp"><%=full_name%>님 환영합니다.</a></li>
 						<!-- 윤제 로그인하면 아이디로 바껴야 함 -->
-						<li><a href="">내 몸 관리</a></li>
+						<li class="active"><a href="">내 몸 관리</a></li>
 						<li><a href="disease.jsp">비만 관련 질병</a></li>
+						<li><a href="Member_board.jsp">게시판</a></li>
 						<li><a href="Main.jsp">로그아웃</a></li>
 						<!-- 윤제 로그아웃하면 세션 삭제 -->
 					</ul>
@@ -105,16 +112,49 @@
 
 		<!-- Hero
   ================================================== -->
+<<<<<<< HEAD
 	<div class = "y_container">
-		<div class = "y_header">header</div>
-		<div class = "y_menu">menu</div>
-		<div class = "y_main">main</div>
-		<div class = "y_top">top</div>
-		<div class = "y_aside">aside</div>
-		<div class = "y_bottom">bottom</div>
-		<div class = "y_footer">footer</div>
+		<div class = "y_header">
+			<h1>USER 님은 복부 비만 입니다.</h1>
+		</div>
+		<div class = "y_menu">
+			<div class="user_info">
+				<div class="height">
+					<input type="text" placeholder="키">
+				</div>
+				<div class="img">
+					<img src="css/image/userinfo.png">
+					<div class="waist">
+						<input type="text" placeholder="허리둘레">
+					</div>
+					<div class="hip">
+						<input type="text" placeholder="엉덩이둘레">
+					</div>				
+				</div>
+				<div class="weight">
+					<input type="text" placeholder="몸무게">
+				</div>
+			</div>			
+		</div>
+		<div class = "y_main">main ~~차트 자리~~</div>
+		<div class = "y_top"></div>
+		<div class = "y_aside"></div>
+		<div class = "y_bottom"></div>
+		<div class = "y_footer"></div>
 	</div>
 	
+=======
+		<div class="y_container">
+			<div class="y_header"></div>
+			<div class="y_menu"></div>
+			<div class="y_main"></div>
+			<div class="y_top"></div>
+			<div class="y_aside"></div>
+			<div class="y_bottom"></div>
+			<div class="y_footer"></div>
+		</div>
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI1/pg_Team.git
 
 
 		<!-- Footer
@@ -132,8 +172,7 @@
 								<li><a href="#">Pinterest</a></li>
 							</ul>
 							<p class="copyright">
-								Created By <a
-									href="">Physical gallery</a>
+								Created By <a href="">Physical gallery</a>
 							</p>
 						</div>
 						<!-- End col-sm-8 -->

@@ -8,15 +8,19 @@
 	box-sizing: border-box;
 }
 
+p {
+	color: #333;
+}
+
 body {
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	/* background: url("image/11061155_47903.jpg") no-repeat center; */
-	background: orange;
-	background-size: cover;
+	line-height: 24px;
+	letter-spacing: 1.2px;
+	-webkit-font-smoothing: antialiased;
 }
 
 body::before {
@@ -26,6 +30,53 @@ body::before {
 	background-color: rgba(0,0,0,0);
 }
 
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 450px;
+  min-width: 450px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin:auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f8f8f8;
+  border-radius: 40px;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header  {
+  width: 100%;
+}
+
+header h2 {
+  display: inline;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+section {
+  margin: 0px 0 0px 0;
+}
+
+.title {
+	margin-top: 50px;
+    margin-bottom: 45px;
+}
+
 .login-form {
 	position: relative;
 	z-index: 2;
@@ -33,7 +84,7 @@ body::before {
 	
 .login-form h1{
 	font-size: 50px;
-	color: #fff;
+	color: #333;
 	text-align: center;
 	margin-bottom: 60px;
 }
@@ -48,15 +99,24 @@ body::before {
 	margin-top: 0;
 }
 
-.int-area input {
-	width: 100%;
-	padding: 20px 10px 10px;
-	background-color: transparent;
-	border: none;
-	border-bottom: 1px solid #999;
-	font-size: 18px;
-	color: #fff;
-	outline: none;
+.box {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 5px 0 5px 15px;
+  border-radius: 4px;
+  border: 1px solid #d9d6d6;
+  color: #383838;
+  font-weight: 400;
+  font-family: 'Montserrat', 'Pretendard', sans-serif;
+}
+
+.box::placeholder {
+  color: #a0a0a0;
+}
+
+.box:focus {
+  outline: 1px solid #fc6e51;
 }
 
 .int-area label {
@@ -67,19 +127,6 @@ body::before {
 	transition: top .5s ease;
 }
 
-.int-area label.warning {
-	color: red !important;
-	animation: warning;
-	animation-iteration-count: 3;
-}
-
-.int-area input:focus + label,
-.int-area input:valid + label {
-	top: -2px;
-	font-size: 13px;
-	color: #166cea;
-}
-
 .btn-area {
 	margin-top: 30px;
 }
@@ -87,7 +134,8 @@ body::before {
 .btn-area button {
 	width: 100%;
 	height: 50px;
-	background: 166cea;
+	background: #fc6e51;
+	color: #f8f8f8;
 	font-size: 20px;
 	border: none;
 	border-radius: 25px;
@@ -99,14 +147,14 @@ body::before {
 	text-align: center;
 }
 
-.caaption p {
-	color: #999;
+.caaption > p {
+	color: #333;
 	text-decoration: none;
 }
 
 .caption a {
 	font-size: 15px;
-	color:#000;
+	color:#585858;
 	text-decoration: none;
 }
 

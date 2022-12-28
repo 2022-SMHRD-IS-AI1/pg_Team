@@ -43,7 +43,7 @@ public class Upload_Service extends HttpServlet {
 		} else {
 			System.out.println("정보수정 실패");
 		}
-		String nextPage = "";
+		String nextPage = "My_body.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
 	}

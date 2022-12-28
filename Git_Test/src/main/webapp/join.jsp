@@ -16,35 +16,32 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="css/join.css?">
 </head>
 <body>
 	<%
 	String join_str = "가입을 통해 더 다양한 서비스를 만나보세요!";
-	int check = 0;
 	try {
-		check = Integer.valueOf(request.getParameter("check"));
+		int check = (int) session.getAttribute("fail_code");
 		if (check == 0) {
 			join_str = "중복된 아이디가 존재합니다.";
 		} else {
 			join_str = "비밀번호가 서로 일치하지 않습니다.";
 		}
 	} catch (Exception e) {
-		e.printStackTrace();
+		System.out.println("그 뭐냐 처음 들어와서 회원가입 실패 코드가 아직 없음ㅇㅇ");
+	} finally {
 	}
 	%>
 	<div class="container">
 		<div class="content">
-			<!-- HEADER -->
 			<header>
 				<div id="title">
 					<h2>회원가입</h2>
 					<h3><%=join_str%></h3>
 				</div>
 			</header>
-
-			<!-- INPUT -->
-			<form action="Join_Service" methoid="post">
+			<form action="Join_Service" method="post">
 				<section>
 					<div class="info" id="info__id">
 						<div id="id-input">
@@ -66,29 +63,23 @@
 					</div>
 					<div class="info" id="info__birth">
 						<div id="birth-flex" required="required">
-							<input id="year_input" class="box" type="text" name="b_year"
+							<input id="year_input" class="box" type="number" name="b_year"
 								placeholder="년"> <select class="box" name="b_month"
 								placeholder="월" id=s_m>
 								<option>월</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select> <input id="day_input" class="box" type="text" name="b_day"
+								<%
+								for (int i = 1; i <= 12; i++) {
+								%>
+								<option><%=i%></option>
+								<%
+								}
+								%>
+							</select> <input id="day_input" class="box" type="number" name="b_day"
 								placeholder="일">
 						</div>
 					</div>
-					<!-- <div id="print-date"></div> -->
 					<div class="info" id="info__name">
-						<input name="name" class="box" type="text"
+						<input name="full_name" class="box" type="text"
 							placeholder="이름을 입력해주세요." required="required">
 					</div>
 					<div class="info" id="info__sex" style="font-size: 12pt;"
@@ -100,7 +91,6 @@
 				</section>
 				<div id="sec_bot">
 					<div id="result-fail"></div>
-					<!-- <input type = "submit" valeu ="회원가입"> -->
 					<button id="submit">가입하기</button>
 					<div class="exist" align="right">
 						<span>이미 회원이신가요?</span> <a href="login.jsp">로그인 하러가기</a>

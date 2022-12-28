@@ -65,6 +65,18 @@
 /* =Common Styles */
 /***********************************************************************************************/
 /*윤제 수정*/
+/*owl*/
+
+
+/*owl*/
+
+
+
+
+#input_table{
+	margin-top: 100px;
+
+	}
 .ob_info{
 	font-size: 20px;
 }
@@ -86,25 +98,31 @@
 	margin:50px;
 }
 .field{
-	background-color : yellow;
-	border: 1px solid gray;
-	border-radius: 20px;
-	margin: 50px;
+	background-image: url('http://general.kosso.or.kr/html/user/core/view/reaction/header/kosso/inc/images/new/common-bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: 0px solid gray;
+	margin: 0px;
 	margin-top: 20px;
-	height: 300px;
+	width:100%;
+	height: 400px;
+	box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
 }
 #pro_title{
 	margin-top: 30px;
 }
 .in_field{
-	margin-top: 30px;
+	margin-top: 60px;
 }
 .pro_input{
-	margin:0px 20px 0px 20px;
+	margin:0px 50px 0px 50px;
 	border:0px solid;
 	width: 300px;
 	height: 50px;
-	border-radius: 20px;
+	font-size: 20px;
+	border-radius: 5px;
+	color: black;
+	text-align: right;
 }
 #result_input{
 	margin-top: 20px;
@@ -119,12 +137,15 @@
 	width: 250px;
 	height: 50px;
 }
-#result_botton:hover{
+#result_button:hover{
 	border:0px solid;
 	border-radius : 20px;
 	background-color: #fc6e51;
 }
-
+.pro_info{
+	font-size: 25px;
+	color: white;
+}
 
 
 /*윤제 수정*/

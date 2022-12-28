@@ -80,24 +80,13 @@
 #line_explane{
 	padding-left: 5px
 }
-.y_container{
-	display: grid;
-	grid-gap: 10px;
-	height:100vh;
-	grid-template-columns: 300px 1fr 300px;
-	grid-template-rows: 100px 150px 1fr 150px 100px;
-	grid-template-areas: 'header header header'
-	                     'menu main top'
-	                     'menu main aside'
-	                     'menu main bottom'
-	                     'footer footer footer';
-	                     
-	                  
-}
+
+
+
 .y_container > div{
-	background-color: skyblue;
+	background-color: rgba(0,0,0,0);
 	padding: 20px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	display: grid;
 	justify-items: center;
 	align-items: center;
@@ -107,19 +96,73 @@
 }
 .y_menu{
 	grid-area:menu;
+	float: left;
 }
+
+img {
+	max-width: 100%;
+	background-size: cover;
+	float: left;
+}
+
+.user_info > .height > input {
+	border: none;
+	border-bottom: 1px solid #999;
+	margin-bottom: 20px;
+}
+
+.img > .waist {
+	position: absolute;
+	margin-top: 194px;
+	margin-left: 15%;
+}
+
+.img > .hip {
+	position: absolute;
+	margin-top: 250px;
+	margin-left: 18%;
+}
+
+.user_info > .img > .waist > input {
+	border: none;
+	border-bottom: 1px solid #999;
+}
+
+.user_info > .img > .hip > input {
+	border: none;
+	border-bottom: 1px solid #999;
+}
+
+.user_info > .weight > input {
+	border: none;
+	border-bottom: 1px solid #999;
+	margin-top: 20px;
+}
+
+input:focus {
+	outline: none;
+}
+
 .y_main{
 	grid-area:main;
 }
+
 .y_top{
 	grid-area:top;
 }
+
 .y_aside{
 	grid-area:aside;
 }
+
+.y_aside > .mean {
+	position: absolute;
+}
+
 .y_bottom{
 	grid-area:bottom;
 }
+
 .y_footer{
 	grid-area:footer;
 }
@@ -155,11 +198,6 @@ a {
 
 a:hover, a:focus {
   text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  margin-top: 50px;
 }
 
 .dark-bg {

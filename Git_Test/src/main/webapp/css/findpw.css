@@ -1,41 +1,100 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 
+@import
+	url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap')
+	;
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
 }
 
 body {
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1.2px;
+	line-height: 24px;
+  	-webkit-font-smoothing: antialiased;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	/* background: url("image/11061155_47903.jpg") no-repeat center; */
-	background: orange;
+	background: white;
 	background-size: cover;
 }
 
 body::before {
 	content: "";
-	position: absolute; z-index: 1;
-	top: 0; right: 0; bottom: 0; left: 0;
-	background-color: rgba(0,0,0,0);
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
 
 .findpw-form {
 	position: relative;
 	z-index: 2;
 }
-	
-.findpw-form h1{
-	font-size: 50px;
-	color: #fff;
+
+#h1_p > h2 {
+	font-size: 40px;
+	color: #333;
 	text-align: center;
 	margin-bottom: 60px;
+}
+
+span {
+	font-size: 1em;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 400px;
+  min-width: 450px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin:auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f8f8f8;
+  border-radius: 40px;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header  {
+  width: 100%;
+}
+
+header h2 {
+  display: inline;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+section {
+  margin: 0px 0 0px 0;
+}
+
+.title {
+	margin-top: 50px;
+    margin-bottom: 45px;
 }
 
 .findpw-form p {
@@ -54,30 +113,23 @@ body::before {
 	margin-top: 0;
 }
 
-.int-area input {
-	width: 100%;
-	padding: 20px 10px 10px;
-	background-color: transparent;
-	border: none;
-	border-bottom: 1px solid #999;
-	font-size: 18px;
-	color: #fff;
-	outline: none;
+.box {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 5px 0 5px 15px;
+  border-radius: 4px;
+  border: 1px solid #d9d6d6;
+  color: #383838;
+  font-weight: 400;
 }
 
-.int-area label {
-	position: absolute;
-	left: 10px; top: 15px;
-	font-size: 18px;
-	color: #999;
-	transition: top .5s ease;
+.box::placeholder {
+  color: #a0a0a0;
 }
 
-.int-area input:focus + label,
-.int-area input:valid + label {
-	top: -2px;
-	font-size: 13px;
-	color: #166cea;
+.box:focus {
+  outline: 1px solid #fc6e51;
 }
 
 .btn-area {
@@ -87,9 +139,14 @@ body::before {
 .btn-area button {
 	width: 100%;
 	height: 50px;
-	background: 166cea;
+	background: #fc6e51;
+	color: #f8f8f8;
 	font-size: 20px;
 	border: none;
 	border-radius: 25px;
 	cursor: pointer;
+}
+
+#btn:hover {
+	background-color: #fc6e51;
 }

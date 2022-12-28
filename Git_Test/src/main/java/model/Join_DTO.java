@@ -12,8 +12,7 @@ public class Join_DTO {
 	private int b_day;
 	private int sex;
 
-	// 아이디 솔트
-
+	
 	// 기본 생성자
 	public Join_DTO() {
 		super();
