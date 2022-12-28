@@ -52,7 +52,7 @@ public class Login_Service extends HttpServlet {
 
 		// 로그인 결과
 		String nextPage = "";
-		if (user_info != null) {
+		if (user_info.getId() != null) {
 			// 로그인에 성공하면 실패코드 세션 삭제
 			// 회원 정보 세션으로 저장
 			nextPage = "Main_login.jsp";

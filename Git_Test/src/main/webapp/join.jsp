@@ -70,7 +70,7 @@
 								<%
 								for (int i = 1; i <= 12; i++) {
 								%>
-								<option value="1"><%=i%></option>
+								<option><%=i%></option>
 								<%
 								}
 								%>

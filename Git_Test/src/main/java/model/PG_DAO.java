@@ -103,6 +103,7 @@ public class PG_DAO {
 			rs = psmt.executeQuery();
 			// pw를 제외한 회원 정보 가져오기
 			if (rs.next()) {
+				System.out.println(rs.getString("ID") + rs.getString("FULL_NAME") + rs.getString("EMAIL"));
 				result_dto.setId(rs.getString("ID"));
 				result_dto.setFull_name(rs.getString("FULL_NAME"));
 				result_dto.setEmail(rs.getString("EMAIL"));
