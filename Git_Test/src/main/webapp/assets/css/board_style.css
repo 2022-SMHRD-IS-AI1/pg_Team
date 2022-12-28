@@ -178,6 +178,9 @@ a{
 .board_write{
 	border-top: 2px solid #000;
 }
+.y_title{
+	border-bottom: 1px solid #ddd;
+}
 .board_write .y_title, .board_write .info{
 	padding: 15px;
 	padding-bottom: 0px;
@@ -232,4 +235,8 @@ a{
 	box-sizing: border-box;
 	border : 0;
 	resize: vertical;
+}
+.title_sort{
+	margin-left: 900px;
+	margin-bottom: 10px;
 }
