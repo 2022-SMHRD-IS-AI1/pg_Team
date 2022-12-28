@@ -75,23 +75,27 @@
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
 		<div class = "board_list_wrap">
-		<form action="board_Service" method="post">
-			<div class = "board_write">
-				<div class = "y_title">
-					<dl>
-						<dt>제목</dt>
-						<dd> <input type = "text" name = "b_title" placeholder="제목 입력" required="required"> </dd>
-					</dl>
+			<form action="board_Service" method="post">
+				<div class="board_write">
+					<div class="y_title">
+						<dl>
+							<dt>제목</dt>
+							<dd>
+								<input type="text" name="b_title" placeholder="제목 입력"
+									required="required">
+							</dd>
+						</dl>
+					</div>
+					<div class="cont">
+						<textarea name="b_content" placeholder="내용 입력" required="required"></textarea>
+					</div>
 				</div>
-				<div class = "cont">
-					<textarea name = "b_content" placeholder="내용 입력" required="required"></textarea>
+				<div class="bt_wrap">
+				<input type = "submit" value = "등록">
+					<!-- <a href="Member_board.jsp" class="on">등록</a>  -->
+					<a href="Member_board.jsp">취소</a>
 				</div>
-			</div>
 			</form>
-			<div class = "bt_wrap">
-				<a href="Member_board.jsp" class = "on">등록</a>
-				<a href="Member_board.jsp">취소</a>
-			</div>
 		</div>
 	</div>
 
