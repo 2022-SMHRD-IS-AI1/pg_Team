@@ -1,3 +1,6 @@
+<%@page import="model.Board_DAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Board_DTO"%>
 <%@page import="model.Join_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -76,6 +79,13 @@
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
 		<div class = "board_view_wrap">
+		<%
+		Board_DTO dto = new Board_DTO();
+		ArrayList<Board_DTO> list = new ArrayList<>(); 
+		Board_DAO dao = new Board_DAO();
+		
+		list = dao.getList();
+		%>
 			<div class = "board_view">
 				<div class = "title">
 					글 제목이 들어갑니다.
@@ -83,7 +93,7 @@
 				<div class = "info">
 					<dl>
 						<dt>번호</dt>
-						<dd>1</dd>
+						<dd><%=  %></dd>
 					</dl>
 					<dl>
 						<dt>글쓴이</dt>

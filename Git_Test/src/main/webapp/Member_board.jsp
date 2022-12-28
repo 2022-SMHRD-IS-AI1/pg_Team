@@ -107,7 +107,7 @@
 				
 				<% for(int i = 0; i<list.size(); i++){ %>
 					<div class = "num"><%=list.get(i).getB_num()%></div>
-					<div class = "title"><a href = "board_view.jsp?b_num="><%=list.get(i).getB_title()%></a></div>
+					<div class = "title"><a href = "board_view.jsp?b_num="<%=list.get(i).getB_num()%>><%=list.get(i).getB_title()%></a></div>
 					<div class = "writer"><%=list.get(i).getID()%></div>
 					<div class = "date"><%=list.get(i).getB_date()%></div>
 					<div class = "count">33</div>
