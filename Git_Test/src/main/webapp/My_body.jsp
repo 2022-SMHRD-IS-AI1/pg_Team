@@ -1,4 +1,4 @@
-<%@page import="model.Join_DTO"%>
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -63,9 +63,9 @@
 </head>
 <body>
 	<%
-	Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
-	String full_name = user_info.getFull_name();
-	System.out.print(full_name);
+	User_DTO user_info = (User_DTO) session.getAttribute("user_info");
+		String full_name = user_info.getFull_name();
+		System.out.print(full_name);
 	%>
 
 	<!-- Preload the Whole Page -->

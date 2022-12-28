@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Board_DAO {
-	
+
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -46,7 +46,8 @@ public class Board_DAO {
 			e.printStackTrace();
 		}
 	}
-	
+
+	// 게시글 등록
 	public int write(Board_DTO dto) {
 		try {
 			getConn();
@@ -55,44 +56,48 @@ public class Board_DAO {
 			psmt.setString(1, dto.getID());
 			psmt.setString(2, dto.getB_title());
 			psmt.setString(3, dto.getB_content());
-			
+
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return cnt;
 	}
-	
-	ArrayList<Board_DTO> list = new ArrayList<>();
-	
-	public ArrayList<Board_DTO> getList(){
+
+	// 게시글 정보 불러오기
+	public ArrayList<Board_DTO> board_reload(int sort_code) {
+		// 0은 최신순으로
+		ArrayList<Board_DTO> list = new ArrayList<>();
 		try {
 			getConn();
-			String sql = "select * from member_board order by b_num";
+			String sql = "select * from member_board order by b_num DESC";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			while(rs.next()) {
-				
+			while (rs.next()) {
+
 				int num = rs.getInt(1);
 				String id = rs.getString(2);
 				String date = rs.getString(3);
 				String title = rs.getString(4);
 				String content = rs.getString(5);
-				
+
 				Board_DTO dto = new Board_DTO(num, id, date, title, content);
-				
+
 				list.add(dto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return list;
 	}
 
-	
+	// 게시글 수정
+	public void name() {
+
+	}
 
 }

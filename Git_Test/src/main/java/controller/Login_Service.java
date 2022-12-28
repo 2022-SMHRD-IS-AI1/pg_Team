@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Body_DTO;
-import model.Join_DTO;
-import model.PG_DAO;
+import model.User_DTO;
+import model.Info_DAO;
 import security.SHA256;
 
 @WebServlet("/Login_Service")
@@ -45,9 +45,9 @@ public class Login_Service extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		PG_DAO dao = new PG_DAO();
-		Join_DTO j_dto = new Join_DTO(id, hash_pw);
-		Join_DTO user_info = dao.login(j_dto);
+		Info_DAO dao = new Info_DAO();
+		User_DTO j_dto = new User_DTO(id, hash_pw);
+		User_DTO user_info = dao.login(j_dto);
 		ArrayList<Body_DTO> body_info = dao.reload(j_dto);
 
 		// 로그인 결과
