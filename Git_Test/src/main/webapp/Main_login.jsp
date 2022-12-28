@@ -54,7 +54,7 @@
 
 				<%
 				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
-						String full_name = user_info.getFull_name();
+				String full_name = user_info.getFull_name();
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -115,7 +115,7 @@
 		<img alt="" src="assets/images/bmi_img.jfif">
 		 <div class="slider"> -->
 
-	<section>
+		<section>
 			<div id="features-section" class="pad-sec">
 				<div class="container">
 					<div class="title-section text-center animated out"
@@ -138,7 +138,8 @@
 
 											<div class="features-box-content">
 												<h6>BMI</h6>
-												<p>체질량지수라고 부르며 자신의 몸무게(kg)/신장(m)×신장(m)로 BMI가 25.0 이상부터는 비만으로 판정합니다.</p>
+												<p>체질량지수라고 부르며 자신의 몸무게(kg)/신장(m)×신장(m)로 BMI가 25.0 이상부터는
+													비만으로 판정합니다.</p>
 											</div>
 										</div>
 									</li>
@@ -147,7 +148,9 @@
 											data-animation="fadeInLeft" data-delay="0">
 											<div class="features-box-content">
 												<h6>RFM</h6>
-												<p>상대지방지수라고 부르며 기준 수치는 64입니다. 공식은 64 - (20 × (신장(m)/허리둘레(m)))입니다. 여성의 경우 12를 더한 76 - (20 × (신장(m)/허리둘레(m)))입니다.</p>
+												<p>상대지방지수라고 부르며 기준 수치는 64입니다. 공식은 64 - (20 ×
+													(신장(m)/허리둘레(m)))입니다. 여성의 경우 12를 더한 76 - (20 ×
+													(신장(m)/허리둘레(m)))입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -156,8 +159,9 @@
 											data-animation="fadeInLeft" data-delay="0">
 											<div class="features-box-content">
 												<h6>BMR</h6>
-												<p>기초대사율이라고 부르며 간단한 측정법은 0.75(1분 맥박수 + 0.74×맥폭)-72입니다. 맥폭은 최고혈압과 최저혈압의 차를 말합니다.
-												BMR이 10% 이내이면 정상범위, +10% 이상이면 기초대사항진, -10% 이하이면 기초대사 저하라고 합니다.</p>
+												<p>기초대사율이라고 부르며 간단한 측정법은 0.75(1분 맥박수 + 0.74×맥폭)-72입니다.
+													맥폭은 최고혈압과 최저혈압의 차를 말합니다. BMR이 10% 이내이면 정상범위, +10% 이상이면
+													기초대사항진, -10% 이하이면 기초대사 저하라고 합니다.</p>
 											</div>
 										</div>
 									</li>
@@ -166,7 +170,9 @@
 											data-animation="fadeInLeft" data-delay="0">
 											<div class="features-box-content">
 												<h6>BAI</h6>
-												<p>체지방지수(%)라고 부르며 키와 엉덩이둘레로 계산할 수 있습니다. 공식은 (엉덩이둘레(cm)/신장(m)^1.5)-18입니다. 남성의 경우 8%~25% 정상, 여성은 21%~33%가 정상입니다.</p>
+												<p>체지방지수(%)라고 부르며 키와 엉덩이둘레로 계산할 수 있습니다. 공식은
+													(엉덩이둘레(cm)/신장(m)^1.5)-18입니다. 남성의 경우 8%~25% 정상, 여성은 21%~33%가
+													정상입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -177,7 +183,9 @@
 						<div class="col-md-6">
 							<div class="features-image animated out"
 								data-animation="fadeInUp" data-delay="0">
-								<img src="https://img.freepik.com/premium-vector/man-doing-exercises-with-dumbbells-illustration_108231-487.jpg" alt="">
+								<img
+									src="https://img.freepik.com/premium-vector/man-doing-exercises-with-dumbbells-illustration_108231-487.jpg"
+									alt="">
 							</div>
 						</div>
 
@@ -189,7 +197,8 @@
 											data-animation="fadeInRight" data-delay="0">
 											<div class="features-box-content">
 												<h6>WHR</h6>
-												<p>복부지방률이라고 부르며 허리둘레(cm)/엉덩이둘레(cm) 비율로 세계보건기구에서는 남자는 WHR 지수가 0.9이상, 여자는 0.85 이상일 때 복부 비만으로 기준하고 있습니다.</p>
+												<p>복부지방률이라고 부르며 허리둘레(cm)/엉덩이둘레(cm) 비율로 세계보건기구에서는 남자는 WHR
+													지수가 0.9이상, 여자는 0.85 이상일 때 복부 비만으로 기준하고 있습니다.</p>
 											</div>
 										</div>
 									</li>
@@ -198,7 +207,8 @@
 											data-animation="fadeInRight" data-delay="0">
 											<div class="features-box-content">
 												<h6>WHtR</h6>
-												<p>체지방 분포를 측정하는 지표로 허리 둘레(cm)/키(cm)의 비율입니다. 남성은 0.62, 여성은 5.57을 초과하면 비만입니다.</p>
+												<p>체지방 분포를 측정하는 지표로 허리 둘레(cm)/키(cm)의 비율입니다. 남성은 0.62,
+													여성은 5.57을 초과하면 비만입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -207,8 +217,8 @@
 											data-animation="fadeInRight" data-delay="0">
 											<div class="features-box-content">
 												<h6>PIBW</h6>
-												<p>체중대비 백분율입니다. 공식은 남성은 신장(m)×신장(m)×22, 여자는 신장(m)×신장(m)×21입니다.
-												체중대비 백분율이 120% 이상이면 비만입니다.</p>
+												<p>체중대비 백분율입니다. 공식은 남성은 신장(m)×신장(m)×22, 여자는
+													신장(m)×신장(m)×21입니다. 체중대비 백분율이 120% 이상이면 비만입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -221,26 +231,26 @@
 		</section>
 
 
-	<footer>
-		<div id="footer-section" class="text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						<ul class="footer-social-links">
-							<li><a href="#">Facebook</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">instagram</a></li>
-							<li><a href="#">youtube</a></li>
-							<li><a href="#">Pinterest</a></li>
-						</ul>
-						<p class="copyright">
-							Created By <a href="">Physical gallery</a>
-						</p>
+		<footer>
+			<div id="footer-section" class="text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<ul class="footer-social-links">
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">instagram</a></li>
+								<li><a href="#">youtube</a></li>
+								<li><a href="#">Pinterest</a></li>
+							</ul>
+							<p class="copyright">
+								Created By <a href="">Physical gallery</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
 
 
