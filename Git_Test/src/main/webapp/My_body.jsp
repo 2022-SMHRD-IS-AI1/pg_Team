@@ -64,8 +64,7 @@
 <body>
 	<%
 	User_DTO user_info = (User_DTO) session.getAttribute("user_info");
-		String full_name = user_info.getFull_name();
-		System.out.print(full_name);
+	String full_name = user_info.getFull_name();
 	%>
 
 	<!-- Preload the Whole Page -->
@@ -112,36 +111,36 @@
 
 		<!-- Hero
   ================================================== -->
-	<div class = "y_container">
-		<div class = "y_header">
-			<h1>USER 님은 복부 비만 입니다.</h1>
-		</div>
-		<div class = "y_menu">
-			<div class="user_info">
-				<div class="height">
-					<input type="text" placeholder="키">
-				</div>
-				<div class="img">
-					<img src="css/image/userinfo.png">
-					<div class="waist">
-						<input type="text" placeholder="허리둘레">
+		<div class="y_container">
+			<div class="y_header">
+				<h1>USER 님은 복부 비만 입니다.</h1>
+			</div>
+			<div class="y_menu">
+				<div class="user_info">
+					<div class="height">
+						<input type="text" placeholder="키">
 					</div>
-					<div class="hip">
-						<input type="text" placeholder="엉덩이둘레">
-					</div>				
+					<div class="img">
+						<img src="css/image/userinfo.png">
+						<div class="waist">
+							<input type="text" placeholder="허리둘레">
+						</div>
+						<div class="hip">
+							<input type="text" placeholder="엉덩이둘레">
+						</div>
+					</div>
+					<div class="weight">
+						<input type="text" placeholder="몸무게">
+					</div>
 				</div>
-				<div class="weight">
-					<input type="text" placeholder="몸무게">
-				</div>
-			</div>			
+			</div>
+			<div class="y_main">main ~~차트 자리~~</div>
+			<div class="y_top"></div>
+			<div class="y_aside"></div>
+			<div class="y_bottom"></div>
+			<div class="y_footer"></div>
 		</div>
-		<div class = "y_main">main ~~차트 자리~~</div>
-		<div class = "y_top"></div>
-		<div class = "y_aside"></div>
-		<div class = "y_bottom"></div>
-		<div class = "y_footer"></div>
-	</div>
-	
+
 
 
 

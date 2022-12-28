@@ -31,16 +31,26 @@ public class board_Service extends HttpServlet {
 		Board_DTO dto = new Board_DTO(user_info.getId(), b_title, b_content);
 		Board_DAO dao = new Board_DAO();
 
-		int cnt = dao.write(dto);
+		int cnt = 0;
+		int success_code = 0;
 
-		if (cnt > 0) {
-			System.out.println("전송 성공");
-		} else {
-			System.out.println("전송 실패");
+		try {
+			success_code = (int) session.getAttribute("board_success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (success_code != 1) {
+				cnt = dao.write(dto);
+			}
+			if (cnt > 0) {
+				session.setAttribute("board_success", 1);
+				System.out.println("전송 성공");
+			} else {
+				System.out.println("전송 실패");
+			}
 		}
 		String nextPage = "Member_board.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
-		rd.forward(request, response);
+		response.sendRedirect(nextPage);
 
 	}
 

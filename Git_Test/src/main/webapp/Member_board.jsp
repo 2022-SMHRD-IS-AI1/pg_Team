@@ -57,6 +57,7 @@
 				<%
 				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
 				String full_name = user_info.getFull_name();
+				session.removeAttribute("board_success");
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -99,9 +100,6 @@
 					Board_DAO dao = new Board_DAO();
 
 					list = dao.board_reload(0);
-					for (int i = 0; i < list.size(); i++) {
-						System.out.println(list.get(i).getID());
-					}
 					%>
 
 					<%
