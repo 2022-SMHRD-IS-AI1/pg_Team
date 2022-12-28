@@ -75,25 +75,16 @@
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
 		<div class = "board_list_wrap">
-		<form action="#" method="post">
+		<form action="board_Service" method="post">
 			<div class = "board_write">
 				<div class = "y_title">
 					<dl>
 						<dt>제목</dt>
-						<dd> <input type = "text" placeholder="제목 입력"> </dd>
-					</dl>
-				</div>
-				<div class = "info">
-					<dl>
-						<dt>글쓴이</dt>
-						<dd> <input type="text" placeholder="글쓴이 입력"> </dd>
-					</dl><dl>
-						<dt>비밀번호</dt>
-						<dd> <input type="password" placeholder="비밀번호 입력"> </dd>
+						<dd> <input type = "text" name = "b_title" placeholder="제목 입력" required="required"> </dd>
 					</dl>
 				</div>
 				<div class = "cont">
-					<textarea placeholder="내용 입력"></textarea>
+					<textarea name = "b_content" placeholder="내용 입력" required="required"></textarea>
 				</div>
 			</div>
 			</form>

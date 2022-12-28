@@ -74,6 +74,13 @@
 			<strong>게시판</strong>
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
+		<div>
+			<select class = "title_sort">
+				<option>정렬하기</option>
+				<option>오름차순</option>
+				<option>내림차순</option>
+			</select>
+		</div>
 		<div class = "board_list_wrap">
 			<div class = "board_list">
 				<div class = "top">
