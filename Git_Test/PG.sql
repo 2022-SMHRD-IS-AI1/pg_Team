@@ -102,3 +102,16 @@ delete from MEMBER_BOARD where id = 'yunje';
 
 
 
+
+select * from member_board order by b_num DESC;
+
+
+
+
+
+
+
+
+
+
+

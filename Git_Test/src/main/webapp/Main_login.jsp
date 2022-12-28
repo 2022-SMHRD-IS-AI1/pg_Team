@@ -1,4 +1,4 @@
-<%@page import="model.Join_DTO"%>
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -53,8 +53,8 @@
 				</div>
 
 				<%
-				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
-				String full_name = user_info.getFull_name();
+				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
+						String full_name = user_info.getFull_name();
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -124,7 +124,7 @@
 							<div class="col-sm-8 col-sm-offset-2">
 								<h2>What we do?</h2>
 								<hr>
-								<p>키, 체중, 허리둘레, 몸무게를 입력하면 7가지의 비만도 검사를 할 수 있습니다.</p>
+								<p>키, 몸무게, 허리둘레, 엉덩이둘레를 입력하면 7가지의 비만도 검사를 할 수 있습니다.</p>
 							</div>
 						</div>
 					</div>

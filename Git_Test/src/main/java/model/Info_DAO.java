@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import security.SHA256;
 
-public class PG_DAO {
+public class Info_DAO {
 
 	// DB 연결을 위한 객체
 	Connection conn = null;
@@ -50,7 +50,7 @@ public class PG_DAO {
 	}
 
 	// 회원가입 메소드
-	public int join(Join_DTO j_dto) {
+	public int join(User_DTO j_dto) {
 		int row = 0;
 		try {
 			// DB에 연결
@@ -80,8 +80,8 @@ public class PG_DAO {
 	}
 
 	// 로그인 메소드
-	public Join_DTO login(Join_DTO j_dto) {
-		Join_DTO result_dto = new Join_DTO();
+	public User_DTO login(User_DTO j_dto) {
+		User_DTO result_dto = new User_DTO();
 		try {
 			// DB에 연결
 			getConn();
@@ -121,7 +121,7 @@ public class PG_DAO {
 	}
 
 	// 신체정보 모두 가져오는 메소드
-	public ArrayList<Body_DTO> reload(Join_DTO j_dto) {
+	public ArrayList<Body_DTO> reload(User_DTO j_dto) {
 		ArrayList<Body_DTO> user_info = new ArrayList<>();
 		try {
 			// DB에 연결
@@ -161,7 +161,7 @@ public class PG_DAO {
 
 	// 신체정보 업로드 메소드
 	// id, height, mass, waist, hip, (upload는 DB 서버시간 사용 나머지는 계산)
-	public int upload(Join_DTO j_dto, Body_DTO b_dto) {
+	public int upload(User_DTO j_dto, Body_DTO b_dto) {
 		int row = 0;
 		try {
 			// DB에 연결

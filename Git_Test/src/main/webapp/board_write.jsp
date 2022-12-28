@@ -1,6 +1,6 @@
-<%@page import="model.Join_DTO"%>
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,9 +52,8 @@
 				</div>
 
 				<%
-				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
+				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
 				String full_name = user_info.getFull_name();
-				System.out.print(user_info.toString());
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -69,12 +68,12 @@
 			</div>
 		</nav>
 	</header>
-	<div class = "board_wrap">
-		<div class = "board_title">
+	<div class="board_wrap">
+		<div class="board_title">
 			<strong>게시판</strong>
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
-		<div class = "board_list_wrap">
+		<div class="board_list_wrap">
 			<form action="board_Service" method="post">
 				<div class="board_write">
 					<div class="y_title">
@@ -91,7 +90,7 @@
 					</div>
 				</div>
 				<div class="bt_wrap">
-				<input type = "submit" value = "등록">
+					<input type="submit" value="등록">
 					<!-- <a href="Member_board.jsp" class="on">등록</a>  -->
 					<a href="Member_board.jsp">취소</a>
 				</div>
@@ -100,26 +99,26 @@
 	</div>
 
 	<div id="wrapper">
-	<footer>
-		<div id="footer-section" class="text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						<ul class="footer-social-links">
-							<li><a href="#">Facebook</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">instagram</a></li>
-							<li><a href="#">youtube</a></li>
-							<li><a href="#">Pinterest</a></li>
-						</ul>
-						<p class="copyright">
-							Created By <a href="">Physical gallery</a>
-						</p>
+		<footer>
+			<div id="footer-section" class="text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<ul class="footer-social-links">
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">instagram</a></li>
+								<li><a href="#">youtube</a></li>
+								<li><a href="#">Pinterest</a></li>
+							</ul>
+							<p class="copyright">
+								Created By <a href="">Physical gallery</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
 
 

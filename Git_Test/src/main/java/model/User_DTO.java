@@ -1,6 +1,6 @@
 package model;
 
-public class Join_DTO {
+public class User_DTO {
 	// 로그인
 	private String id;
 	private String pw;
@@ -12,14 +12,13 @@ public class Join_DTO {
 	private int b_day;
 	private int sex;
 
-	
 	// 기본 생성자
-	public Join_DTO() {
+	public User_DTO() {
 		super();
 	}
 
 	// 회원가입 생성자
-	public Join_DTO(String id, String pw, String full_name, String email, int b_year, int b_month, int b_day, int sex) {
+	public User_DTO(String id, String pw, String full_name, String email, int b_year, int b_month, int b_day, int sex) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -32,7 +31,7 @@ public class Join_DTO {
 	}
 
 	// 로그인 생성자
-	public Join_DTO(String id, String pw) {
+	public User_DTO(String id, String pw) {
 		super();
 		this.id = id;
 		this.pw = pw;
