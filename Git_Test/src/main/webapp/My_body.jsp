@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 <!-- Template CSS Style -->
-<link rel="stylesheet" href="assets/css/My_body.css">
+<link rel="stylesheet" href="assets/css/My_body.css?">
 
 <!-- Animate CSS  -->
 <link rel="stylesheet" href="assets/css/animate.css">
@@ -112,7 +112,6 @@
 
 		<!-- Hero
   ================================================== -->
-<<<<<<< HEAD
 	<div class = "y_container">
 		<div class = "y_header">
 			<h1>USER 님은 복부 비만 입니다.</h1>
@@ -143,18 +142,7 @@
 		<div class = "y_footer"></div>
 	</div>
 	
-=======
-		<div class="y_container">
-			<div class="y_header"></div>
-			<div class="y_menu"></div>
-			<div class="y_main"></div>
-			<div class="y_top"></div>
-			<div class="y_aside"></div>
-			<div class="y_bottom"></div>
-			<div class="y_footer"></div>
-		</div>
 
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI1/pg_Team.git
 
 
 		<!-- Footer

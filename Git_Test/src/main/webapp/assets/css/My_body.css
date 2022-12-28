@@ -145,10 +145,12 @@ input:focus {
 
 .y_main{
 	grid-area:main;
+	height: 500px;
 }
 
 .y_top{
 	grid-area:top;
+	height: 140px;
 }
 
 .y_aside{
