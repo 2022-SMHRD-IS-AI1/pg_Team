@@ -99,8 +99,11 @@
 					Board_DTO dto = new Board_DTO();
 					ArrayList<Board_DTO> list = new ArrayList<>();
 					Board_DAO dao = new Board_DAO();
-
+					
 					list = dao.board_reload(0);
+					%>
+					<%
+					 
 					%>
 
 					<%
@@ -108,7 +111,7 @@
 					%>
 					<div class="num"><%=list.get(i).getB_num()%></div>
 					<div class="title">
-						<a href="board_view.jsp?b_num="><%=list.get(i).getB_title()%></a>
+						<a href="board_view.jsp?b_num=<%= list.get(i).getB_num() %>"><%=list.get(i).getB_title()%></a>
 					</div>
 					<div class="writer"><%=list.get(i).getID()%></div>
 					<div class="date"><%=list.get(i).getB_date()%></div>

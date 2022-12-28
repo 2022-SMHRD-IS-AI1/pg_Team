@@ -10,7 +10,14 @@ public class Board_DTO {
 	// 기본생성자
 	public Board_DTO() {
 	}
-
+	
+	//게시글 수정 생성자
+	public Board_DTO(int b_num, String b_title, String b_content) {
+		this.b_num = b_num;
+		this.b_title = b_title;
+		this.b_content = b_content;
+	}
+	
 	// 게시글 등록 생성자
 	public Board_DTO(String id, String b_title, String b_content) {
 		this.id = id;

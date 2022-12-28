@@ -96,8 +96,69 @@ public class Board_DAO {
 	}
 
 	// 게시글 수정
-	public void name() {
+	public int update(int b_num, String b_title, String b_content) {
+		try {
+			getConn();
+			String sql = "update member_board set b_title = ?, b_content = ? where b_num = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, b_title);
+			psmt.setString(2, b_content);
+			psmt.setInt(3, b_num);
 
+			cnt = psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	//게시글 보기
+	public Board_DTO getdto(int b_num) {
+		Board_DTO dto = new Board_DTO();
+		try {
+			getConn();
+			String sql = "select * from member_board where b_num = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, b_num);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				int num = rs.getInt(1);
+				String id = rs.getString(2);
+				String date = rs.getString(3);
+				String title = rs.getString(4);
+				String content = rs.getString(5);
+
+				dto = new Board_DTO(num, id, date, title, content);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return dto;
+	}
+	
+	//총 레코드 수 구하기
+	public int getCount() {
+		int count = 0;
+		try {
+			getConn();
+			String sql = "select count(*) from Member_board";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return count;
 	}
 
 }

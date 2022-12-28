@@ -1,4 +1,5 @@
 
+<%@page import="java.io.PrintWriter"%>
 <%@page import="model.Board_DAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Board_DTO"%>
@@ -80,20 +81,27 @@
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
 		<div class="board_view_wrap">
+		<%
+			int b_num = 0;
+			if(request.getParameter("b_num") != null){
+				b_num = Integer.parseInt(request.getParameter("b_num"));
+			}
+			Board_DTO dto = new Board_DAO().getdto(b_num);
+		%>
 			<div class="board_view">
-				<div class="title">글 제목이 들어갑니다.</div>
+				<div class="title"><%= dto.getB_title() %></div>
 				<div class="info">
 					<dl>
 						<dt>번호</dt>
-						<dd><%=  %></dd>
+						<dd><%= dto.getB_num() %></dd>
 					</dl>
 					<dl>
 						<dt>글쓴이</dt>
-						<dd>김ㅇㅇ</dd>
+						<dd><%= dto.getID() %></dd>
 					</dl>
 					<dl>
 						<dt>작성일</dt>
-						<dd>2022-12-27</dd>
+						<dd><%= dto.getB_date() %></dd>
 					</dl>
 					<dl>
 						<dt>조회수</dt>
@@ -101,13 +109,16 @@
 					</dl>
 				</div>
 				<div class="cont">
-					글 내용이 들어갑니다 <br> 글 내용이 들어갑니다 <br> 글 내용이 들어갑니다 <br> 글
-					내용이 들어갑니다 <br> 글 내용이 들어갑니다
+					<%= dto.getB_content() %>
 				</div>
 			</div>
 			<div class="bt_wrap">
-				<a href="Member_board.jsp" class="on">목록</a> <a
-					href="board_edit.jsp">수정</a>
+				<a href="Member_board.jsp" class="on">목록</a> 
+				<%
+					if(user_info.getId().equals(dto.getID())){
+				%>
+				<a href="board_edit.jsp?b_num=<%= b_num%>">수정</a>
+				<%} %>
 			</div>
 		</div>
 	</div>
