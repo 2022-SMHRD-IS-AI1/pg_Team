@@ -114,13 +114,13 @@ img {
 .img > .waist {
 	position: absolute;
 	margin-top: 194px;
-	margin-left: 15%;
+	margin-left: 11%;
 }
 
 .img > .hip {
 	position: absolute;
 	margin-top: 250px;
-	margin-left: 18%;
+	margin-left: 12%;
 }
 
 .user_info > .img > .waist > input {
