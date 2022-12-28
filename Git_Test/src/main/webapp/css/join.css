@@ -71,7 +71,6 @@ button:hover {
   border: 1px solid #d9d6d6;
   color: #383838;
   font-weight: 400;
-  font-family: 'Montserrat', 'Pretendard', sans-serif;
 }
 
 .box::placeholder {

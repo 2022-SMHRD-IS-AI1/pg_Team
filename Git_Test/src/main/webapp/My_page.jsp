@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 <!-- Template CSS Style -->
-<link rel="stylesheet" href="assets/css/My_page.css">
+<link rel="stylesheet" href="assets/css/My_page.css??">
 
 <!-- Animate CSS  -->
 <link rel="stylesheet" href="assets/css/animate.css">
