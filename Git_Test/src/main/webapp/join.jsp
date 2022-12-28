@@ -29,7 +29,7 @@
 			join_str = "비밀번호가 서로 일치하지 않습니다.";
 		}
 	} catch (Exception e) {
-		System.out.println("그 뭐냐 처음 들어와서 회원가입 실패 코드가 아직 없음ㅇㅇ");
+		e.printStackTrace();
 	} finally {
 	}
 	%>
