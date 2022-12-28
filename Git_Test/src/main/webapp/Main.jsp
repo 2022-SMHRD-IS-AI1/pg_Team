@@ -139,7 +139,7 @@
 					<div class="row">
 						<div class="col-sm-6 features-app-content-left animated out"
 							data-animation="fadeInLeft" data-delay="0">
-				 			<div class="section_header">
+							<div class="section_header">
 								<h2>
 									Simple. Intuitive. <span>Powerful.</span>
 								</h2>
@@ -210,8 +210,8 @@
 
 							</ul>
 						</div>
-						
-						
+
+
 
 						<div
 							class="col-sm-5 col-sm-offset-1 text-center img-app-right animated out"

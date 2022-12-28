@@ -1,4 +1,4 @@
-<%@page import="model.Join_DTO"%>
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/Main_login.css">
+<link rel="stylesheet" href="assets/css/Main_login.css?">
 <link rel="stylesheet" href="assets/css/slides.css">
 <link rel="stylesheet" href="assets/css/animate.css">
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -53,8 +53,8 @@
 				</div>
 
 				<%
-				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
-				String full_name = user_info.getFull_name();
+				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
+						String full_name = user_info.getFull_name();
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -124,7 +124,7 @@
 							<div class="col-sm-8 col-sm-offset-2">
 								<h2>What we do?</h2>
 								<hr>
-								<p>키, 체중, 허리둘레, 몸무게를 입력하면 7가지의 비만도 검사를 할 수 있습니다.</p>
+								<p>키, 몸무게, 허리둘레, 엉덩이둘레를 입력하면 7가지의 비만도 검사를 할 수 있습니다.</p>
 							</div>
 						</div>
 					</div>
@@ -138,7 +138,7 @@
 
 											<div class="features-box-content">
 												<h6>BMI</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>체질량지수라고 부르며 자신의 몸무게(kg)/신장(m)×신장(m)로 BMI가 25.0 이상부터는 비만으로 판정합니다.</p>
 											</div>
 										</div>
 									</li>
@@ -147,7 +147,7 @@
 											data-animation="fadeInLeft" data-delay="0">
 											<div class="features-box-content">
 												<h6>RFM</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>상대지방지수라고 부르며 기준 수치는 64입니다. 공식은 64 - (20 × (신장(m)/허리둘레(m)))입니다. 여성의 경우 12를 더한 76 - (20 × (신장(m)/허리둘레(m)))입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -156,7 +156,8 @@
 											data-animation="fadeInLeft" data-delay="0">
 											<div class="features-box-content">
 												<h6>BMR</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>기초대사율이라고 부르며 간단한 측정법은 0.75(1분 맥박수 + 0.74×맥폭)-72입니다. 맥폭은 최고혈압과 최저혈압의 차를 말합니다.
+												BMR이 10% 이내이면 정상범위, +10% 이상이면 기초대사항진, -10% 이하이면 기초대사 저하라고 합니다.</p>
 											</div>
 										</div>
 									</li>
@@ -165,7 +166,7 @@
 											data-animation="fadeInLeft" data-delay="0">
 											<div class="features-box-content">
 												<h6>BAI</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>체지방지수(%)라고 부르며 키와 엉덩이둘레로 계산할 수 있습니다. 공식은 (엉덩이둘레(cm)/신장(m)^1.5)-18입니다. 남성의 경우 8%~25% 정상, 여성은 21%~33%가 정상입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -176,7 +177,7 @@
 						<div class="col-md-6">
 							<div class="features-image animated out"
 								data-animation="fadeInUp" data-delay="0">
-								<img src="assets/images/body.jpg" alt="">
+								<img src="https://img.freepik.com/premium-vector/man-doing-exercises-with-dumbbells-illustration_108231-487.jpg" alt="">
 							</div>
 						</div>
 
@@ -188,7 +189,7 @@
 											data-animation="fadeInRight" data-delay="0">
 											<div class="features-box-content">
 												<h6>WHR</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>복부지방률이라고 부르며 허리둘레(cm)/엉덩이둘레(cm) 비율로 세계보건기구에서는 남자는 WHR 지수가 0.9이상, 여자는 0.85 이상일 때 복부 비만으로 기준하고 있습니다.</p>
 											</div>
 										</div>
 									</li>
@@ -197,7 +198,7 @@
 											data-animation="fadeInRight" data-delay="0">
 											<div class="features-box-content">
 												<h6>WHtR</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>체지방 분포를 측정하는 지표로 허리 둘레(cm)/키(cm)의 비율입니다. 남성은 0.62, 여성은 5.57을 초과하면 비만입니다.</p>
 											</div>
 										</div>
 									</li>
@@ -206,7 +207,8 @@
 											data-animation="fadeInRight" data-delay="0">
 											<div class="features-box-content">
 												<h6>PIBW</h6>
-												<p>어떻게 재는지랑 이런거 써주세요</p>
+												<p>체중대비 백분율입니다. 공식은 남성은 신장(m)×신장(m)×22, 여자는 신장(m)×신장(m)×21입니다.
+												체중대비 백분율이 120% 이상이면 비만입니다.</p>
 											</div>
 										</div>
 									</li>

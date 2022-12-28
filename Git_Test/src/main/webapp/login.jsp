@@ -18,11 +18,11 @@
 				<form action="Login_Service" method="post">
 					<div class="int-area">
 						<input type="text" class="box" name="id" autocomplete="off" required
-						placeholder="USER NAME">
+						placeholder="아이디">
 					</div>
 					<div class="int-area">
 						<input type="password" class="box" name="pw" autocomplete="off" required
-						placeholder="PASSWORD">
+						placeholder="비밀번호">
 					</div>
 					<div class="btn-area">
 						<button id="btn" class="box" type="submit">로그인</button>

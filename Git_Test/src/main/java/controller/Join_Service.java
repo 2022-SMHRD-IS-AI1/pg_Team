@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
-import model.Join_DTO;
-import model.PG_DAO;
+import model.User_DTO;
+import model.Info_DAO;
 import security.SHA256;
 
 @WebServlet("/Join_Service")
@@ -37,7 +37,7 @@ public class Join_Service extends HttpServlet {
 
 		// 보안, DAO 객체 생성
 		SHA256 sha256 = new SHA256();
-		PG_DAO dao = new PG_DAO();
+		Info_DAO dao = new Info_DAO();
 
 		String pw = request.getParameter("pw");
 		String pw_c = request.getParameter("pw_c");
@@ -64,7 +64,7 @@ public class Join_Service extends HttpServlet {
 		int b_month = Integer.valueOf(request.getParameter("b_month"));
 		int b_day = Integer.valueOf(request.getParameter("b_day"));
 		int sex = Integer.valueOf(request.getParameter("sex"));
-		Join_DTO j_dto = new Join_DTO(id, hash_pw, full_name, email, b_year, b_month, b_day, sex);
+		User_DTO j_dto = new User_DTO(id, hash_pw, full_name, email, b_year, b_month, b_day, sex);
 
 		// 회원가입 메소드 실행
 		int row = dao.join(j_dto);

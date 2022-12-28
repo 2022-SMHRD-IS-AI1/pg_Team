@@ -1,4 +1,4 @@
-<%@page import="model.Join_DTO"%>
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,9 +52,9 @@
 				</div>
 
 				<%
-				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
-				String full_name = user_info.getFull_name();
-				System.out.print(user_info.toString());
+				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
+						String full_name = user_info.getFull_name();
+				
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -81,15 +81,6 @@
 					<dl>
 						<dt>제목</dt>
 						<dd> <input type = "text" placeholder="제목 입력"> </dd>
-					</dl>
-				</div>
-				<div class = "info">
-					<dl>
-						<dt>글쓴이</dt>
-						<dd> <input type="text" placeholder="글쓴이 입력"> </dd>
-					</dl><dl>
-						<dt>비밀번호</dt>
-						<dd> <input type="password" placeholder="비밀번호 입력"> </dd>
 					</dl>
 				</div>
 				<div class = "cont">

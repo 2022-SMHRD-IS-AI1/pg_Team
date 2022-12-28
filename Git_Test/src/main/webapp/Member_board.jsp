@@ -1,6 +1,9 @@
-<%@page import="model.Join_DTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Board_DAO"%>
+<%@page import="model.Board_DTO"%>
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,9 +55,9 @@
 				</div>
 
 				<%
-				Join_DTO user_info = (Join_DTO) session.getAttribute("user_info");
+				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
 				String full_name = user_info.getFull_name();
-				System.out.print(user_info.toString());
+				session.removeAttribute("board_success");
 				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
@@ -69,95 +72,87 @@
 			</div>
 		</nav>
 	</header>
-	<div class = "board_wrap">
-		<div class = "board_title">
+	<div class="board_wrap">
+		<div class="board_title">
 			<strong>게시판</strong>
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
-		<div class = "board_list_wrap">
-			<div class = "board_list">
-				<div class = "top">
-					<div class = "num">번호</div>
-					<div class = "title">제목</div>
-					<div class = "writer">글쓴이</div>
-					<div class = "date">작성일</div>
-					<div class = "count">조회</div>
+		<div>
+			<select class="title_sort">
+				<option>정렬하기</option>
+				<option>오름차순</option>
+				<option>내림차순</option>
+			</select>
+		</div>
+		<div class="board_list_wrap">
+			<div class="board_list">
+				<div class="top">
+					<div class="num">번호</div>
+					<div class="title">제목</div>
+					<div class="writer">글쓴이</div>
+					<div class="date">작성일</div>
+					<div class="count">조회</div>
 				</div>
 				<div>
-					<div class = "num">5</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">4</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">3</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">2</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">1</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
+
+					<%
+					Board_DTO dto = new Board_DTO();
+					ArrayList<Board_DTO> list = new ArrayList<>();
+					Board_DAO dao = new Board_DAO();
+
+					list = dao.board_reload(0);
+					%>
+
+					<%
+					for (int i = 0; i < list.size(); i++) {
+					%>
+					<div class="num"><%=list.get(i).getB_num()%></div>
+					<div class="title">
+						<a href="board_view.jsp?b_num="><%=list.get(i).getB_title()%></a>
+					</div>
+					<div class="writer"><%=list.get(i).getID()%></div>
+					<div class="date"><%=list.get(i).getB_date()%></div>
+					<div class="count">33</div>
+
+					<%
+					}
+					%>
 				</div>
 			</div>
-			<div class = "board_page">
-				<a class = "bt first"><<</a>
-				<a class = "bt prev"><</a>
-				<a href = "#" class = "num on">1</a>
-				<a href = "#" class = "num">2</a>
-				<a href = "#" class = "num">3</a>
-				<a href = "#" class = "num">4</a>
-				<a href = "#" class = "num">5</a>
-				<a class = "bt next">></a>
-				<a class = "bt last">>></a>
+			<div class="board_page">
+				<a class="bt first"><<</a> <a class="bt prev"><</a> <a href="#"
+					class="num on">1</a> <a href="#" class="num">2</a> <a href="#"
+					class="num">3</a> <a href="#" class="num">4</a> <a href="#"
+					class="num">5</a> <a class="bt next">></a> <a class="bt last">>></a>
 			</div>
-			<div class = "bt_wrap">
-				<a href="board_write.jsp" class = "on">등록</a>
+			<div class="bt_wrap">
+				<a href="board_write.jsp" class="on">등록</a>
 				<!-- <a href="#">수정</a> -->
 			</div>
 		</div>
 	</div>
 
 	<div id="wrapper">
-	<footer>
-		<div id="footer-section" class="text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						<ul class="footer-social-links">
-							<li><a href="#">Facebook</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">instagram</a></li>
-							<li><a href="#">youtube</a></li>
-							<li><a href="#">Pinterest</a></li>
-						</ul>
-						<p class="copyright">
-							Created By <a href="">Physical gallery</a>
-						</p>
+		<footer>
+			<div id="footer-section" class="text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<ul class="footer-social-links">
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">instagram</a></li>
+								<li><a href="#">youtube</a></li>
+								<li><a href="#">Pinterest</a></li>
+							</ul>
+							<p class="copyright">
+								Created By <a href="">Physical gallery</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
 
 

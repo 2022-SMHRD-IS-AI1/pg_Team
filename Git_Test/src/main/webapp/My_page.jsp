@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 <!-- Template CSS Style -->
-<link rel="stylesheet" href="assets/css/My_page.css">
+<link rel="stylesheet" href="assets/css/My_page.css??">
 
 <!-- Animate CSS  -->
 <link rel="stylesheet" href="assets/css/animate.css">
@@ -88,7 +88,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active"><a href="My_page.jsp">User님 환영합니다.</a></li>
 						<!-- 윤제 로그인하면 아이디로 바껴야 함 -->
-						<li><a href="">내 몸 관리</a></li>
+						<li><a href="My_body.jsp">내 몸 관리</a></li>
 						<li><a href="disease.jsp">비만 관련 질병</a></li>
 						<li><a href="Member_board.jsp">게시판</a></li>
 						<li><a href="Main.jsp">로그아웃</a></li>
