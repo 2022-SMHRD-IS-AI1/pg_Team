@@ -1,0 +1,44 @@
+.y_section input[name="slide"]{
+	display: none
+}
+.y_section .slidewrap{
+	max-width: 600px;
+	margin: 0 auto;
+	/*overflow: hidden;*/
+}
+.y_section .y_slidelist{
+	white-space:nowrap;
+	font-size: 0;
+}
+.y_section .y_slidelist > li{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	transition:all .5s;
+}
+.y_section .y_slidelist > li > a{
+	display: block;
+	position: relative;
+}
+.y_section .y_slidelist > li > a img{
+	width: 50%
+}
+.y_section .y_slidelist label{
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	transform:translateY(-50%);
+	padding: 50px;
+	cursor: pointer;
+}
+.y_section .y_slidelist .y_left{
+	left: 30px;
+	background: url('https://cdn-icons-png.flaticon.com/512/271/271218.png') center center / 100% no-repeat;
+}
+.y_section .y_slidelist .y_right{
+	right: 30px;
+	background: url('https://cdn-icons-png.flaticon.com/512/271/271226.png') center center / 100% no-repeat;
+}
+.y_section [id="slide01"]:checked ~ .y_slidewrap .y_slidelist > li {transform:translateX(0%);}
+.y_section [id="slide02"]:checked ~ .y_slidewrap .y_slidelist > li {transform:translateX(-100%);}
+.y_section [id="slide03"]:checked ~ .y_slidewrap .y_slidelist > li {transform:translateX(-200%);}
