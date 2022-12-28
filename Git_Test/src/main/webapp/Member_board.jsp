@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Board_DAO"%>
+<%@page import="model.Board_DTO"%>
 <%@page import="model.Join_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -91,39 +94,25 @@
 					<div class = "count">조회</div>
 				</div>
 				<div>
-					<div class = "num">5</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
+				<%
+				Board_DTO dto = new Board_DTO();
+				ArrayList<Board_DTO> list = new ArrayList<>(); 
+				Board_DAO dao = new Board_DAO();
+				
+				list = dao.getList();
+				for(int i = 0; i<list.size(); i++){
+					System.out.println(list.get(i).getID());
+				}
+				%>
+				
+				<% for(int i = 0; i<list.size(); i++){ %>
+					<div class = "num"><%=list.get(i).getB_num()%></div>
+					<div class = "title"><a href = "board_view.jsp?b_num="><%=list.get(i).getB_title()%></a></div>
+					<div class = "writer"><%=list.get(i).getID()%></div>
+					<div class = "date"><%=list.get(i).getB_date()%></div>
 					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">4</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">3</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">2</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
-				</div>
-				<div>
-					<div class = "num">1</div>
-					<div class = "title"><a href = "board_view.jsp">제목</a></div>
-					<div class = "writer">김ㅇㅇ</div>
-					<div class = "date">2022-12-27</div>
-					<div class = "count">33</div>
+				
+				<%} %>
 				</div>
 			</div>
 			<div class = "board_page">

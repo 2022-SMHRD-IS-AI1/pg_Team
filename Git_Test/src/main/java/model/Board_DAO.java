@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Board_DAO {
 	
@@ -63,6 +64,35 @@ public class Board_DAO {
 		}
 		return cnt;
 	}
+	
+	ArrayList<Board_DTO> list = new ArrayList<>();
+	
+	public ArrayList<Board_DTO> getList(){
+		try {
+			getConn();
+			String sql = "select * from member_board order by b_num";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				
+				int num = rs.getInt(1);
+				String id = rs.getString(2);
+				String date = rs.getString(3);
+				String title = rs.getString(4);
+				String content = rs.getString(5);
+				
+				Board_DTO dto = new Board_DTO(num, id, date, title, content);
+				
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+
 	
 
 }

@@ -23,11 +23,11 @@ public class board_Service extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		
-		String id = (String)session.getAttribute("user_info");
+		Join_DTO id = (Join_DTO)session.getAttribute("user_info");
 		String b_title = request.getParameter("b_title");
 		String b_content = request.getParameter("b_content");
 		
-		Board_DTO dto = new Board_DTO(id, b_title, b_content);
+		Board_DTO dto = new Board_DTO(id.getId(), b_title, b_content);
 		Board_DAO dao = new Board_DAO();
 		
 		int cnt = dao.write(dto);
