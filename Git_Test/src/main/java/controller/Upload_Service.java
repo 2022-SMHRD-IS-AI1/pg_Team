@@ -25,7 +25,7 @@ public class Upload_Service extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		HttpSession session = request.getSession();
-		User_DTO j_dto = (User_DTO) session.getAttribute("user_info");
+		User_DTO u_dto = (User_DTO) session.getAttribute("user_info");
 
 		// id, height, mass, waist, hip
 		double height = Double.valueOf(request.getParameter("height"));
@@ -35,8 +35,8 @@ public class Upload_Service extends HttpServlet {
 		Info_DAO dao = new Info_DAO();
 		Body_DTO b_dto = new Body_DTO(height, mass, waist, hip);
 
-		int row = dao.upload(j_dto, b_dto);
-		ArrayList<Body_DTO> body_info = dao.reload(j_dto);
+		int row = dao.upload(u_dto, b_dto);
+		ArrayList<Body_DTO> body_info = dao.reload(u_dto);
 		if (row == 1) {
 			// 신체정보가 잘 업로드되면 body_info 세션 수정
 			session.setAttribute("body_info", body_info);

@@ -50,7 +50,7 @@ public class Info_DAO {
 	}
 
 	// 회원가입 메소드
-	public int join(User_DTO j_dto) {
+	public int join(User_DTO u_dto) {
 		int row = 0;
 		try {
 			// DB에 연결
@@ -58,14 +58,14 @@ public class Info_DAO {
 			// SQL문 실행 준비
 			String sql = "INSERT INTO MEMBER_JOIN_INFO VALUES(?,?,?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, j_dto.getId());
-			psmt.setString(2, j_dto.getPw());
-			psmt.setString(3, j_dto.getFull_name());
-			psmt.setString(4, j_dto.getEmail());
-			psmt.setInt(5, j_dto.getB_year());
-			psmt.setInt(6, j_dto.getB_month());
-			psmt.setInt(7, j_dto.getB_day());
-			psmt.setInt(8, j_dto.getSex());
+			psmt.setString(1, u_dto.getId());
+			psmt.setString(2, u_dto.getPw());
+			psmt.setString(3, u_dto.getFull_name());
+			psmt.setString(4, u_dto.getEmail());
+			psmt.setInt(5, u_dto.getB_year());
+			psmt.setInt(6, u_dto.getB_month());
+			psmt.setInt(7, u_dto.getB_day());
+			psmt.setInt(8, u_dto.getSex());
 
 			// 실행
 			// 변화한 행의 개수 리턴
@@ -80,7 +80,7 @@ public class Info_DAO {
 	}
 
 	// 로그인 메소드
-	public User_DTO login(User_DTO j_dto) {
+	public User_DTO login(User_DTO u_dto) {
 		User_DTO result_dto = new User_DTO();
 		try {
 			// DB에 연결
@@ -95,8 +95,8 @@ public class Info_DAO {
 			// hash는 Service에서 다 했다.
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, j_dto.getId());
-			psmt.setString(2, j_dto.getPw());
+			psmt.setString(1, u_dto.getId());
+			psmt.setString(2, u_dto.getPw());
 
 			// 실행
 			// ResultSet 리턴
@@ -121,7 +121,7 @@ public class Info_DAO {
 	}
 
 	// 신체정보 모두 가져오는 메소드
-	public ArrayList<Body_DTO> reload(User_DTO j_dto) {
+	public ArrayList<Body_DTO> reload(User_DTO u_dto) {
 		ArrayList<Body_DTO> user_info = new ArrayList<>();
 		try {
 			// DB에 연결
@@ -131,7 +131,7 @@ public class Info_DAO {
 			String sql = "SELECT * FROM MEMBER_JOIN_INFO J RIGHT OUTER JOIN MEMBER_BODY_INFO B ON J.ID = B.ID WHERE J.ID = ?";
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, j_dto.getId());
+			psmt.setString(1, u_dto.getId());
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
@@ -161,7 +161,7 @@ public class Info_DAO {
 
 	// 신체정보 업로드 메소드
 	// id, height, mass, waist, hip, (upload는 DB 서버시간 사용 나머지는 계산)
-	public int upload(User_DTO j_dto, Body_DTO b_dto) {
+	public int upload(User_DTO u_dto, Body_DTO b_dto) {
 		int row = 0;
 		try {
 			// DB에 연결
@@ -172,7 +172,7 @@ public class Info_DAO {
 			double waist = b_dto.getWaist();
 			double hip = b_dto.getHip();
 			double BMI = mass / Math.pow(height / 100, 2);
-			double RFM = (64 - 20 * (height / waist) + 12 * j_dto.getSex());
+			double RFM = (64 - 20 * (height / waist) + 12 * u_dto.getSex());
 			double BAI = (hip / (height / 100) * Math.sqrt(height));
 			double WHR = waist / hip;
 			double WHtR = waist / height;
@@ -180,7 +180,7 @@ public class Info_DAO {
 			// SQL문 실행 준비
 			String sql = "INSERT INTO MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, j_dto.getId());
+			psmt.setString(1, u_dto.getId());
 			psmt.setDouble(2, height);
 			psmt.setDouble(3, mass);
 			psmt.setDouble(4, waist);
