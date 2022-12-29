@@ -139,13 +139,15 @@
 					</div>
 				</div>
 			</div>
+			
 			<%
 			for (Body_DTO b_dto : body_info) {
 				System.out.println(b_dto.getBAI());
 			}
 			%>
-			
-			<canvas id='line-chart'></canvas>
+			<div style="width: 1000px;  height:500px;">
+			<canvas id='line-chart' ></canvas>
+			</div>
 			<div class="y_top"></div>
 			<div class="y_aside"></div>
 			<div class="y_bottom"></div>

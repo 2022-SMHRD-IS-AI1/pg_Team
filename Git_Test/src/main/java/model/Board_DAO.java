@@ -97,7 +97,40 @@ public class Board_DAO {
 	}
 	
 	//DB에서 게시글 전체 가져오는데 페이징처리한 메서드 구현(메서드 오버로딩)
-	//public ArrayList board_reload()
+	public ArrayList<Board_DTO> board_reload(int startRow, int pageSize) {
+		
+		ArrayList<Board_DTO> list = new ArrayList();
+		try {
+			getConn();
+
+			String sql = "select * from member_board where b_num between ? and ? order by b_num DESC";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, startRow);
+			psmt.setInt(2, pageSize);
+			
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+
+				int num = rs.getInt(1);
+				String id = rs.getString(2);
+				String date = rs.getString(3);
+				String title = rs.getString(4);
+				String content = rs.getString(5);
+				int no = rs.getInt(6);
+
+				Board_DTO dto = new Board_DTO(num, id, date, title, content, no);
+
+				list.add(dto);
+				System.out.println("성공");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			close();
+		}
+		return list;
+	}
 
 	// 게시글 수정
 	public int update(Board_DTO dto) {

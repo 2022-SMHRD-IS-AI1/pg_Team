@@ -60,6 +60,9 @@
 			//게시판 총 글의 수 출력
 			System.out.println(cnt);
 			
+			//ArrayList boardList = null;
+			//boardList = dao.board_reload(startRow, pageSize);
+			
 	%>
 	
 	<div id="preloader">
@@ -121,11 +124,15 @@
 				<div>
 
 					<%
+					
 					Board_DTO dto = new Board_DTO();
 					ArrayList<Board_DTO> list = new ArrayList<>();
 					dao = new Board_DAO();
 					
-					list = dao.board_reload(0);
+					list = dao.board_reload(startRow, pageSize);
+					//list = dao.board_reload(0);
+					
+
 					
 					%>
 
@@ -134,11 +141,11 @@
 					%>
 					<div class="num"><%=list.get(i).getB_num()%></div>
 					<div class="title">
-						<a href="board_view.jsp?b_num=<%= list.get(i).getB_num() %>"><%=list.get(i).getB_title()%></a>
+						<a href="board_view.jsp?b_num=<%= list.get(i).getB_num() %>&pageNum=<%=pageNum%>"><%=list.get(i).getB_title()%></a>
 					</div>
 					<div class="writer"><%=list.get(i).getID()%></div>
 					<div class="date"><%=list.get(i).getB_date()%></div>
-					<div class="count"><%=list.get(i).getB_no() %></div>
+					<div class="count"><%=list.get(i).getB_no()%></div>
 
 					<%
 					}
@@ -155,7 +162,7 @@
 					//페이지 개수처리
 					pageCount = cnt/pageSize + (cnt%pageSize == 0? 0:1);
 					//화면에 고정해 놓을 페이지 이동버튼 개수
-					pageBlock = 3;
+					pageBlock = 4;
 					startPage = ((currentPage-1)/pageBlock)*pageBlock + 1;
 					endPage = startPage + pageBlock -1;
 					if(endPage > pageCount){

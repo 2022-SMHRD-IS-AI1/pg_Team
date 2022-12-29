@@ -119,6 +119,8 @@ delete from MEMBER_BOARD where id = 'yunje';
 
 select * from member_board order by b_num DESC;
 
+select * from member_board where b_num between 1 and 5 order by b_num DESC ;
+
 
 
 
