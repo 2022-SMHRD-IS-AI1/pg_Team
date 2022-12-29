@@ -101,9 +101,7 @@
 					Board_DAO dao = new Board_DAO();
 					
 					list = dao.board_reload(0);
-					%>
-					<%
-					 
+					
 					%>
 
 					<%
@@ -115,7 +113,7 @@
 					</div>
 					<div class="writer"><%=list.get(i).getID()%></div>
 					<div class="date"><%=list.get(i).getB_date()%></div>
-					<div class="count">33</div>
+					<div class="count"><%=list.get(i).getB_no() %></div>
 
 					<%
 					}

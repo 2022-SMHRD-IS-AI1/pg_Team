@@ -51,7 +51,7 @@ public class Board_DAO {
 	public int write(Board_DTO dto) {
 		try {
 			getConn();
-			String sql = "insert into member_board values(MEMBER_BOARD_SEQ.nextval,?,sysdate,?,?)";
+			String sql = "insert into member_board values(MEMBER_BOARD_SEQ.nextval,?,sysdate,?,?,0)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getID());
 			psmt.setString(2, dto.getB_title());
@@ -82,8 +82,9 @@ public class Board_DAO {
 				String date = rs.getString(3);
 				String title = rs.getString(4);
 				String content = rs.getString(5);
+				int no = rs.getInt(6);
 
-				Board_DTO dto = new Board_DTO(num, id, date, title, content);
+				Board_DTO dto = new Board_DTO(num, id, date, title, content, no);
 
 				list.add(dto);
 			}
@@ -129,8 +130,9 @@ public class Board_DAO {
 				String date = rs.getString(3);
 				String title = rs.getString(4);
 				String content = rs.getString(5);
+				int no = rs.getInt(6);
 
-				dto = new Board_DTO(num, id, date, title, content);
+				dto = new Board_DTO(num, id, date, title, content, no);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,6 +140,31 @@ public class Board_DAO {
 			close();
 		}
 		return dto;
+	}
+	
+	//게시글 조회수 기능
+	public void increase(int no) {
+		
+		int result = 0;
+		//Board_DTO dto = new Board_DTO();
+		
+		try {
+			getConn();
+			String sql = "update member_board set b_no = b_no + 1 where b_num = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, no);
+			result = psmt.executeUpdate();
+			if(result == 1) {
+				System.out.println("조회수 증가");
+			}else {
+				System.out.println("실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		//return result;
 	}
 	
 	//총 레코드 수 구하기

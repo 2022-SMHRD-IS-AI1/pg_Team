@@ -6,9 +6,16 @@ public class Board_DTO {
 	private String b_date;
 	private String b_title;
 	private String b_content;
+	private int b_no;
 
 	// 기본생성자
 	public Board_DTO() {
+	}
+	
+	//게시글 조회수 생성자
+	public Board_DTO(int b_num, int b_no) {
+		this.b_num = b_num;
+		this.b_no = b_no;
 	}
 	
 	//게시글 수정 생성자
@@ -26,12 +33,23 @@ public class Board_DTO {
 	}
 
 	//
-	public Board_DTO(int b_num, String id, String b_date, String b_title, String b_content) {
+	public Board_DTO(int b_num, String id, String b_date, String b_title, String b_content, int b_no) {
 		this.b_num = b_num;
 		this.id = id;
 		this.b_date = b_date;
 		this.b_title = b_title;
 		this.b_content = b_content;
+		this.b_no = b_no;
+	}
+	
+	
+
+	public int getB_no() {
+		return b_no;
+	}
+
+	public void setB_no(int b_no) {
+		this.b_no = b_no;
 	}
 
 	public int getB_num() {

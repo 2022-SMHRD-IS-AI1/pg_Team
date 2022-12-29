@@ -83,12 +83,21 @@
 		<div class="board_view_wrap">
 		<%
 			int b_num = 0;
+			
+			Board_DAO dao = new Board_DAO();
 		
 			if(request.getParameter("b_num") != null){
 				b_num = Integer.parseInt(request.getParameter("b_num"));
+			
 			}
 			Board_DTO dto = new Board_DAO().getdto(b_num);
+			
 		%>
+		<%
+		//int no = Integer.parseInt(request.getParameter("b_no"));
+		dao.increase(b_num);
+			
+			 %>
 			<div class="board_view">
 				<div class="title"><%= dto.getB_title() %></div>
 				<div class="info">
@@ -106,7 +115,7 @@
 					</dl>
 					<dl>
 						<dt>조회수</dt>
-						<dd>33</dd>
+						<dd><%= dto.getB_no() %></dd>
 					</dl>
 				</div>
 				<div class="cont">
