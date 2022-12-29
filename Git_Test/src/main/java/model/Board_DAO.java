@@ -97,20 +97,19 @@ public class Board_DAO {
 	}
 	
 	//DB에서 게시글 전체 가져오는데 페이징처리한 메서드 구현(메서드 오버로딩)
-	public ArrayList<Board_DTO> board_reload(int startRow, int pageSize) {
+	public ArrayList board_reload(int getSize, int getend) {
 		
-		ArrayList<Board_DTO> list = new ArrayList();
+		ArrayList list = new ArrayList();
 		try {
 			getConn();
 
-			String sql = "select * from member_board where b_num between ? and ? order by b_num DESC";
+			String sql = "select * from member_board where b_num between ? and ? order by b_num desc";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, startRow);
-			psmt.setInt(2, pageSize);
+			psmt.setInt(1, getSize);
+			psmt.setInt(2, getend);
 			
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-
 				int num = rs.getInt(1);
 				String id = rs.getString(2);
 				String date = rs.getString(3);

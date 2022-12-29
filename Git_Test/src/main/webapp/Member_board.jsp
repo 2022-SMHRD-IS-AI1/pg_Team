@@ -42,6 +42,7 @@
 	//게시판에 글이 있는지 확인
 			Board_DAO dao = new Board_DAO();
 			int cnt = dao.getCount();
+			System.out.println(cnt);
 			
 			//한페이지에 보여줄 수 있는 글 개수 설정
 			int pageSize = 5;
@@ -53,15 +54,19 @@
 			}
 			//시작행 번호 계산
 			int currentPage = Integer.parseInt(pageNum);
+			//가져와야 할 행의 번호
 			int startRow = (currentPage-1)*pageSize + 1;
+			int getend = cnt - ((currentPage-1)*pageSize);
 			//끝행 번호 계산
+			int getSize = getend-4;
 			int endRow = currentPage*pageSize;
 			
 			//게시판 총 글의 수 출력
-			System.out.println(cnt);
+			System.out.println(getend);
+			System.out.println(getSize);
 			
-			//ArrayList boardList = null;
-			//boardList = dao.board_reload(startRow, pageSize);
+			ArrayList boardList = null;
+			boardList = dao.board_reload(getSize, getend);
 			
 	%>
 	
@@ -106,12 +111,6 @@
 			<strong>게시판</strong>
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
-		<div>
-			<select class="title_sort">
-				<option>최신순</option>
-				<option>조회순</option>
-			</select>
-		</div>
 		<div class="board_list_wrap">
 			<div class="board_list">
 				<div class="top">
@@ -125,11 +124,11 @@
 
 					<%
 					
-					Board_DTO dto = new Board_DTO();
-					ArrayList<Board_DTO> list = new ArrayList<>();
-					dao = new Board_DAO();
+					//Board_DTO dto = new Board_DTO();
+					//ArrayList<Board_DTO> list = new ArrayList<>();
+					//dao = new Board_DAO();
 					
-					list = dao.board_reload(startRow, pageSize);
+					//list = dao.board_reload(startRow, pageSize);
 					//list = dao.board_reload(0);
 					
 
@@ -137,15 +136,16 @@
 					%>
 
 					<%
-					for (int i = 0; i < list.size(); i++) {
+					for (int i = 0; i < boardList.size(); i++) {
+						Board_DTO dto = (Board_DTO)boardList.get(i);
 					%>
-					<div class="num"><%=list.get(i).getB_num()%></div>
+					<div class="num"><%=dto.getB_num()%></div>
 					<div class="title">
-						<a href="board_view.jsp?b_num=<%= list.get(i).getB_num() %>&pageNum=<%=pageNum%>"><%=list.get(i).getB_title()%></a>
+						<a href="board_view.jsp?b_num=<%= dto.getB_num() %>&pageNum=<%=pageNum%>"><%=dto.getB_title()%></a>
 					</div>
-					<div class="writer"><%=list.get(i).getID()%></div>
-					<div class="date"><%=list.get(i).getB_date()%></div>
-					<div class="count"><%=list.get(i).getB_no()%></div>
+					<div class="writer"><%=dto.getID()%></div>
+					<div class="date"><%=dto.getB_date()%></div>
+					<div class="count"><%=dto.getB_no()%></div>
 
 					<%
 					}
