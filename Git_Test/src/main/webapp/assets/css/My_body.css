@@ -91,12 +91,11 @@
 	justify-items: center;
 	align-items: center;
 }
-.y_header{
-	grid-area:header;
-}
-.y_menu{
-	grid-area:menu;
-	float: left;
+
+.y_menu {
+    grid-area: menu;
+    float: left;
+    margin-top: 80px;
 }
 
 img {

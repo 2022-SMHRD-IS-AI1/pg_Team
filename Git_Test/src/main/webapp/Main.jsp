@@ -17,7 +17,7 @@
 	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/Main.css">
+<link rel="stylesheet" href="assets/css/Main.css?">
 <link rel="stylesheet" href="assets/css/animate.css">
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/et-line-font/style.css">
@@ -131,7 +131,7 @@
 			</div>
 		</section>
 		<section>
-			<div class="sep-section"></div>
+			
 		</section>
 		<section>
 			<div id="features-app-section-2" class="pad-sec">
@@ -141,74 +141,12 @@
 							data-animation="fadeInLeft" data-delay="0">
 							<div class="section_header">
 								<h2>
-									Simple. Intuitive. <span>Powerful.</span>
+									대한민국 연도별 비만율
 								</h2>
 							</div>
-							<p>
-								Lorem ipsum <span>dolor</span> sit amet, consectetur adipisicing
-								elit.Sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua.
-							</p>
-
-							<ul class="features-app-list">
-
-								<li>
-									<div class="feature-app-box animated out"
-										data-animation="fadeInLeft" data-delay="0">
-										<div class="app-feature-icon pull-left">
-											<span class="pe-7s-graph"></span>
-										</div>
-										<div class="feature-app-box-content">
-											<h6>Beautiful, modern design</h6>
-											<p>Mauris vehicula tortor id augue rutrum consequat ac at
-												massa. Interdum et malesuada fames ac ante ipsum primis.</p>
-										</div>
-									</div>
-								</li>
-
-								<li>
-									<div class="feature-app-box animated out"
-										data-animation="fadeInLeft" data-delay="0">
-										<div class="app-feature-icon pull-left">
-											<span class="pe-7s-config"></span>
-										</div>
-										<div class="feature-app-box-content">
-											<h6>Easy to set up</h6>
-											<p>Phasellus consequat facilisis volutpat ma faucibus
-												odio vitae semper. Ae volutpat lobortis.</p>
-										</div>
-									</div>
-								</li>
-
-								<li>
-									<div class="feature-app-box animated out"
-										data-animation="fadeInLeft" data-delay="0">
-										<div class="app-feature-icon pull-left">
-											<span class="pe-7s-refresh-2"></span>
-										</div>
-										<div class="feature-app-box-content">
-											<h6>Stunning flexibility</h6>
-											<p>Phasellus consequat facilisis volutpat ma faucibus
-												odio vitae semper. Ae volutpat lobortis.</p>
-										</div>
-									</div>
-								</li>
-
-								<li>
-									<div class="feature-app-box animated out"
-										data-animation="fadeInLeft" data-delay="0">
-										<div class="app-feature-icon pull-left">
-											<span class="pe-7s-lock"></span>
-										</div>
-										<div class="feature-app-box-content">
-											<h6>Reliable and Secure Platform</h6>
-											<p>Phasellus consequat facilisis volutpat ma faucibus
-												odio vitae semper. Ae volutpat lobortis.</p>
-										</div>
-									</div>
-								</li>
-
-							</ul>
+							<div id="line_explane">
+								<p>만 19세 이상 인구 중 체질량지수(BMI, kg/m²)가 25 이상인 인구의 비율입니다. 2015년 33.2%에서 34% 내외의 비슷한 수준을 유지하였으나, 2020년 38.3%로 전년보다 4.5%p 증가하였다.</p>
+							</div>
 						</div>
 
 
@@ -217,7 +155,7 @@
 							class="col-sm-5 col-sm-offset-1 text-center img-app-right animated out"
 							data-animation="fadeInRight" data-delay="0">
 							<figure>
-								<iframe src="chart_ex/pie_chart.html" frameborder="0"
+								<iframe src="chart_ex/bar_chart.html?" frameborder="0"
 									style="width: 650px; height: 600px"></iframe>
 							</figure>
 						</div>
