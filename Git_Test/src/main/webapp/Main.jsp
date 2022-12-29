@@ -141,12 +141,17 @@
 							data-animation="fadeInLeft" data-delay="0">
 							<div class="section_header">
 								<h2>
-									대한민국 연도별 비만율
+									연도별 성별 및 전체 비만율
 								</h2>
 							</div>
 							<div id="line_explane">
 								<p>만 19세 이상 인구 중 체질량지수(BMI, kg/m²)가 25 이상인 인구의 비율입니다. 2015년 33.2%에서 34% 내외의 비슷한 수준을 유지하였으나, 2020년 38.3%로 전년보다 4.5%p 증가하였다.</p>
+								<br>
+								<p>한국에서는 키와 몸무게의 비를 의미하는 체질량지수 25 이상을 비만으로 규정하지만, 국제적으로는 체질량지수 30을 초과할 때 비만으로 분류한다. 국제 기준에 따라 주요 국가들의 비만율을 살펴보면, 2019년 기준 남자는 미국 43.5%, 캐나다 26.7%, 호주 31.5%, 영국 27.0%, 독일 18.1%, 프랑스 13.5% 등이다. 한국은 6.2%로 서구 선진국들에 비해 매우 낮은 편이다. 여자의 경우도 한국은 5.5%로 서구 국가들보다 크게 낮다. 그러나 서구식 생활방식이 확산되면 비만율이 높아질 가능성이 크다.</p>
+								
+					
 							</div>
+							
 						</div>
 
 
@@ -168,19 +173,30 @@
 			<div class="sep-section"></div>
 		</section>
 		<section>
-			<div id="screenshots-section" class="pad-sec">
+			<div id="creative-section-1" class="pad-sec">
 				<div class="container">
-					<iframe src="chart_ex/bar_chart.html" frameborder="0"
-						style="width: 1000px; height: 600px"></iframe>
-					<div class="title-section text-center animated out"
-						data-animation="fadeInUp" data-delay="0">
-						<div class="row">
-							<div class="col-sm-8 col-sm-offset-2">
-								<h2>Screenshots gallery</h2>
-								<hr>
-								<p>Seamlessly restore client-focused potentialities rather
-									than functional strategic theme areas.</p>
+					<div class="row">
+
+						<div class="col-sm-7 img-creative-left text-center animated out"
+							data-animation="fadeInLeft" data-delay="0">
+							<figure>
+								<iframe id="bar_chart3" src="chart_ex/bar_chart3.html"
+									frameborder="0" style="width: 650px; height: 600px"></iframe>
+							</figure>
+						</div>
+
+						<div class="col-sm-5 creative-content-right animated out"
+							data-animation="fadeInRight" data-delay="0">
+							<div class="section_header" id="header_section">
+								<h2>연도별 성별 및 전체 복부비만 유병률</h2>
 							</div>
+							<div id=line_explane>
+								<p>대사증후군 위험인자 중 가장 중요하다고 평가되는 복부비만 유병률은 최근 꾸준히 증가했다.
+								2012년 22.6% → 2018년 26.5%로 늘었고, 2016년은 28.5%로 분석 기간 중 가장 최고점에 도달했다.</p>
+								<br>
+								<p>성별에 따른 복부비만 유병률 차이를 고려하면 전체 유병률 증가는 남성에서의 증가가 기인한 것으로 평가된다.</p>
+							</div>
+							<div class="view-more"></div>
 						</div>
 					</div>
 				</div>
