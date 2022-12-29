@@ -15,6 +15,7 @@
 <%-- 박서연이 추가함 --%>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="./chart.js"></script>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -143,8 +144,8 @@
 				System.out.println(b_dto.getBAI());
 			}
 			%>
-
-			<div class="y_main">~~~메인~~~</div>
+			
+			<canvas id='line-chart'></canvas>
 			<div class="y_top"></div>
 			<div class="y_aside"></div>
 			<div class="y_bottom"></div>
@@ -216,6 +217,22 @@
 	<script src="assets/js/jquery.gmaps.js"></script>
 	<script src="assets/js/main.js"></script>
 
+	<script type="text/javascript">
+		var mychart = $("#line-chart");
+		var myLineChart = new Chart(mychart, {
+			type : "line",
+			data : {
+				labels : [ "서연", "세빈", "성용", "윤제", "건우" ],
+				datasets : [ {
+					label : "피지컬 갤러리1",
+					data : [ 9, 10, 8, 9, 10 ]
+				}, {
+					label : "피지컬 갤러리2",
+					data : [ 5, 3, 2, 4, 1 ]
+				} ]
+			}
+		});
+	</script>
 
 
 </body>
