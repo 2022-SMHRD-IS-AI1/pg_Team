@@ -36,6 +36,32 @@
 </head>
 <body>
 
+	<!-- 페이징 처리 -->
+	
+	<%
+	//게시판에 글이 있는지 확인
+			Board_DAO dao = new Board_DAO();
+			int cnt = dao.getCount();
+			
+			//한페이지에 보여줄 수 있는 글 개수 설정
+			int pageSize = 5;
+			//내가 몇페이지에 있는지 확인
+			String pageNum = request.getParameter("pageNum");
+			//페이지 정보가 없으면 내가 보는 페이지가 1페이지 이다.
+			if(pageNum == null){
+				pageNum = "1";
+			}
+			//시작행 번호 계산
+			int currentPage = Integer.parseInt(pageNum);
+			int startRow = (currentPage-1)*pageSize + 1;
+			//끝행 번호 계산
+			int endRow = currentPage*pageSize;
+			
+			//게시판 총 글의 수 출력
+			System.out.println(cnt);
+			
+	%>
+	
 	<div id="preloader">
 		<div id="loading-animation">&nbsp;</div>
 	</div>
@@ -97,7 +123,7 @@
 					<%
 					Board_DTO dto = new Board_DTO();
 					ArrayList<Board_DTO> list = new ArrayList<>();
-					Board_DAO dao = new Board_DAO();
+					dao = new Board_DAO();
 					
 					list = dao.board_reload(0);
 					
@@ -120,10 +146,40 @@
 				</div>
 			</div>
 			<div class="board_page">
-				<a class="bt first"><<</a> <a class="bt prev"><</a> <a href="#"
-					class="num on">1</a> <a href="#" class="num">2</a> <a href="#"
-					class="num">3</a> <a href="#" class="num">4</a> <a href="#"
-					class="num">5</a> <a class="bt next">></a> <a class="bt last">>></a>
+			<%
+				int pageBlock = 0;
+				int startPage = 0;
+				int endPage = 0;
+				int pageCount = 0;
+				if(cnt != 0){
+					//페이지 개수처리
+					pageCount = cnt/pageSize + (cnt%pageSize == 0? 0:1);
+					//화면에 고정해 놓을 페이지 이동버튼 개수
+					pageBlock = 3;
+					startPage = ((currentPage-1)/pageBlock)*pageBlock + 1;
+					endPage = startPage + pageBlock -1;
+					if(endPage > pageCount){
+						endPage = pageCount;
+					}
+				}
+			%>
+				<!-- <a class="bt first"><<</a> --> 
+				<%
+				if(startPage > pageBlock){
+				%>
+				<a href = "Member_board.jsp?pageNum=<%=startPage-pageBlock%>" class="bt prev"><</a> 
+				<%} %>
+				<%
+				for(int i = startPage; i<=endPage; i++){
+				%>
+				<a href="Member_board.jsp?pageNum=<%=i %>" class="num on"><%=i %></a> 
+				<%} %>
+				<%
+				if(endPage < pageCount){
+				%>
+				<a href = "Member_board.jsp?pageNum=<%= startPage+pageBlock%>"class="bt next">></a> 
+				<%} %>
+				<!-- <a class="bt last">>></a> -->
 			</div>
 			<div class="bt_wrap">
 				<a href="board_write.jsp" class="on">글쓰기</a>

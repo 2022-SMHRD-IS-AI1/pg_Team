@@ -95,6 +95,9 @@ public class Board_DAO {
 		}
 		return list;
 	}
+	
+	//DB에서 게시글 전체 가져오는데 페이징처리한 메서드 구현(메서드 오버로딩)
+	//public ArrayList board_reload()
 
 	// 게시글 수정
 	public int update(Board_DTO dto) {
@@ -178,6 +181,7 @@ public class Board_DAO {
 			
 			if(rs.next()) {
 				count = rs.getInt(1);
+				System.out.println("게시글 확인");
 			}
 			
 		} catch (Exception e) {
