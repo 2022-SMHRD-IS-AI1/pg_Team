@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Body_DTO;
 import model.User_DTO;
+import security.ARIA;
 import model.Info_DAO;
 
 @WebServlet("/Upload_Service")
@@ -24,6 +25,7 @@ public class Upload_Service extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 
+
 		HttpSession session = request.getSession();
 		User_DTO u_dto = (User_DTO) session.getAttribute("user_info");
 
@@ -32,6 +34,7 @@ public class Upload_Service extends HttpServlet {
 		double mass = Double.valueOf(request.getParameter("mass"));
 		double waist = Double.valueOf(request.getParameter("waist"));
 		double hip = Double.valueOf(request.getParameter("hip"));
+
 		Info_DAO dao = new Info_DAO();
 		Body_DTO b_dto = new Body_DTO(height, mass, waist, hip);
 

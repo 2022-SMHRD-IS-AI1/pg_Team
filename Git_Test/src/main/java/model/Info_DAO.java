@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import security.ARIA;
 import security.SHA256;
 
 public class Info_DAO {
@@ -137,16 +138,31 @@ public class Info_DAO {
 			while (rs.next()) {
 				Body_DTO b_dto = new Body_DTO();
 
-				b_dto.setHeight(rs.getDouble("HEIGHT"));
-				b_dto.setMass(rs.getDouble("MASS"));
-				b_dto.setWaist(rs.getDouble("WAIST"));
-				b_dto.setHip(rs.getDouble("HIP"));
+				// 복호키
+				String key = "SMHRD_pg";
+				ARIA aria = new ARIA(key);
+
+				// 개인정보 복호화
+				String height = aria.Decrypt(rs.getString("HEIGHT"));
+				String mass = aria.Decrypt(rs.getString("MASS"));
+				String waist = aria.Decrypt(rs.getString("WAIST"));
+				String hip = aria.Decrypt(rs.getString("HIP"));
+				String bmi = aria.Decrypt(rs.getString("BMI"));
+				String rfm = aria.Decrypt(rs.getString("RFM"));
+				String bai = aria.Decrypt(rs.getString("BAI"));
+				String whr = aria.Decrypt(rs.getString("WHR"));
+				String whtr = aria.Decrypt(rs.getString("WHTR"));
+
+				b_dto.setHeight(Double.valueOf(height));
+				b_dto.setMass(Double.valueOf(mass));
+				b_dto.setWaist(Double.valueOf(waist));
+				b_dto.setHip(Double.valueOf(hip));
 				b_dto.setUpload(rs.getString("UPLOAD"));
-				b_dto.setBMI(rs.getDouble("BMI"));
-				b_dto.setRFM(rs.getDouble("RFM"));
-				b_dto.setBAI(rs.getDouble("BAI"));
-				b_dto.setWHR(rs.getDouble("WHR"));
-				b_dto.setWHTR(rs.getDouble("WHTR"));
+				b_dto.setBMI(Double.valueOf(bmi));
+				b_dto.setRFM(Double.valueOf(rfm));
+				b_dto.setBAI(Double.valueOf(bai));
+				b_dto.setWHR(Double.valueOf(whr));
+				b_dto.setWHTR(Double.valueOf(whtr));
 
 				user_info.add(b_dto);
 			}
@@ -167,29 +183,44 @@ public class Info_DAO {
 			// DB에 연결
 			getConn();
 
-			double height = b_dto.getHeight();
-			double mass = b_dto.getMass();
-			double waist = b_dto.getWaist();
-			double hip = b_dto.getHip();
+			double height = Double.valueOf(b_dto.getHeight());
+			double mass = Double.valueOf(b_dto.getMass());
+			double waist = Double.valueOf(b_dto.getWaist());
+			double hip = Double.valueOf(b_dto.getHip());
 			double BMI = mass / Math.pow(height / 100, 2);
 			double RFM = (64 - 20 * (height / waist) + 12 * u_dto.getSex());
 			double BAI = (hip / (height / 100) * Math.sqrt(height));
 			double WHR = waist / hip;
 			double WHtR = waist / height;
 
+			// 암호키 설정
+			String key = "SMHRD_pg";
+			ARIA aria = new ARIA(key);
+
+			// 개인정보 암호화
+			String height_ = aria.Encrypt(String.valueOf(height));
+			String mass_ = aria.Encrypt(String.valueOf(mass));
+			String waist_ = aria.Encrypt(String.valueOf(waist));
+			String hip_ = aria.Encrypt(String.valueOf(hip));
+			String BMI_ = aria.Encrypt(String.valueOf(BMI));
+			String RFM_ = aria.Encrypt(String.valueOf(RFM));
+			String BAI_ = aria.Encrypt(String.valueOf(BAI));
+			String WHR_ = aria.Encrypt(String.valueOf(WHR));
+			String WHtR_ = aria.Encrypt(String.valueOf(WHtR));
+
 			// SQL문 실행 준비
 			String sql = "INSERT INTO MEMBER_BODY_INFO(ID , HEIGHT , MASS, WAIST, HIP, BMI , RFM , BAI , WHR , WHTR) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, u_dto.getId());
-			psmt.setDouble(2, height);
-			psmt.setDouble(3, mass);
-			psmt.setDouble(4, waist);
-			psmt.setDouble(5, hip);
-			psmt.setDouble(6, BMI);
-			psmt.setDouble(7, RFM);
-			psmt.setDouble(8, BAI);
-			psmt.setDouble(9, WHR);
-			psmt.setDouble(10, WHtR);
+			psmt.setString(2, height_);
+			psmt.setString(3, mass_);
+			psmt.setString(4, waist_);
+			psmt.setString(5, hip_);
+			psmt.setString(6, BMI_);
+			psmt.setString(7, RFM_);
+			psmt.setString(8, BAI_);
+			psmt.setString(9, WHR_);
+			psmt.setString(10, WHtR_);
 
 			// 실행
 			// 변화한 행의 개수 리턴
