@@ -96,14 +96,14 @@ public class Board_DAO {
 	}
 
 	// 게시글 수정
-	public int update(int b_num, String b_title, String b_content) {
+	public int update(Board_DTO dto) {
 		try {
 			getConn();
 			String sql = "update member_board set b_title = ?, b_content = ? where b_num = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, b_title);
-			psmt.setString(2, b_content);
-			psmt.setInt(3, b_num);
+			psmt.setString(1, dto.getB_title());
+			psmt.setString(2, dto.getB_content());
+			psmt.setInt(3, dto.getB_num());
 
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {

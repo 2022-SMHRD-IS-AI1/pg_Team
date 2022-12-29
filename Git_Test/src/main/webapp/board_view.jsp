@@ -83,6 +83,7 @@
 		<div class="board_view_wrap">
 		<%
 			int b_num = 0;
+		
 			if(request.getParameter("b_num") != null){
 				b_num = Integer.parseInt(request.getParameter("b_num"));
 			}

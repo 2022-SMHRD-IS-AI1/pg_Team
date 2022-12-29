@@ -77,14 +77,13 @@
 			b_num = Integer.parseInt(request.getParameter("b_num"));
 		}
 		Board_DTO dto = new Board_DAO().getdto(b_num);
-
 		%>
 		<div class="board_title">
 			<strong>게시판</strong>
 			<p>자신만의 다이어트 스킬을 자랑해보세요.</p>
 		</div>
 		<div class="board_list_wrap">
-			<form action="update_action.jsp" method="post">
+			<form action="Update_Service?b_num=<%=b_num %>" method="post">
 				<div class="board_write">
 					<div class="y_title">
 						<dl>
@@ -100,7 +99,7 @@
 				</div>
 			<div class="bt_wrap">
 				<input type = "submit" value = "수정 완료">
-				<!-- <a class="on">수정완료</a> --> 
+				<!-- <a class="on" href="Update_Servic?b_num=<%= b_num%>">수정완료</a>  -->
 				<a href="Member_board.jsp">취소</a>
 			</div>
 			</form>
