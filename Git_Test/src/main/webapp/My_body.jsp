@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 <!-- Template CSS Style -->
-<link rel="stylesheet" href="assets/css/My_body.css?">
+<link rel="stylesheet" href="assets/css/My_body.css??">
 
 <!-- Animate CSS  -->
 <link rel="stylesheet" href="assets/css/animate.css">
@@ -113,9 +113,6 @@
 		<!-- Hero
   ================================================== -->
 		<div class="y_container">
-			<div class="y_header">
-				<h1>USER 님은 복부 비만 입니다.</h1>
-			</div>
 			<div class="y_menu">
 				<div class="user_info">
 					<div class="height">
