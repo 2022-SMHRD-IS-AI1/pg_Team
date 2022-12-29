@@ -79,9 +79,8 @@
 		</div>
 		<div>
 			<select class="title_sort">
-				<option>정렬하기</option>
-				<option>오름차순</option>
-				<option>내림차순</option>
+				<option>최신순</option>
+				<option>조회순</option>
 			</select>
 		</div>
 		<div class="board_list_wrap">
@@ -127,7 +126,7 @@
 					class="num">5</a> <a class="bt next">></a> <a class="bt last">>></a>
 			</div>
 			<div class="bt_wrap">
-				<a href="board_write.jsp" class="on">등록</a>
+				<a href="board_write.jsp" class="on">글쓰기</a>
 				<!-- <a href="#">수정</a> -->
 			</div>
 		</div>

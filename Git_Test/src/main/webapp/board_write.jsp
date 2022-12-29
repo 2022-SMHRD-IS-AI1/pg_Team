@@ -90,7 +90,7 @@
 					</div>
 				</div>
 				<div class="bt_wrap">
-					<input type="submit" value="등록">
+					<input type="submit" class = "board_input" value = "등록">
 					<!-- <a href="Member_board.jsp" class="on">등록</a>  -->
 					<a href="Member_board.jsp">취소</a>
 				</div>

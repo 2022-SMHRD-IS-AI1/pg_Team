@@ -98,7 +98,7 @@
 					</div>
 				</div>
 			<div class="bt_wrap">
-				<input type = "submit" value = "수정 완료">
+				<input type = "submit" value = "수정 완료" class = board_input_2>
 				<!-- <a class="on" href="Update_Servic?b_num=<%= b_num%>">수정완료</a>  -->
 				<a href="Member_board.jsp">취소</a>
 			</div>
