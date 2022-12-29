@@ -65,7 +65,7 @@
 						<!-- 윤제 로그인하면 아이디로 바껴야 함 -->
 						<li><a href="My_body.jsp">내 몸 관리</a></li>
 						<li><a href="disease.jsp">비만 관련 질병</a></li>
-						<li class="active"><a href="Member_borde.jsp">게시판</a></li>
+						<li class="active"><a href="Member_board.jsp">게시판</a></li>
 						<li><a href="Main.jsp">로그아웃</a></li>
 					</ul>
 				</div>
