@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Body_DTO"%>
 <%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -10,6 +12,9 @@
 <html lang="en">
 <head>
 
+<%-- 박서연이 추가함 --%>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,6 +70,7 @@
 <body>
 	<%
 	User_DTO user_info = (User_DTO) session.getAttribute("user_info");
+	ArrayList<Body_DTO> body_info = (ArrayList<Body_DTO>) session.getAttribute("body_info");
 	String full_name = user_info.getFull_name();
 	%>
 
@@ -132,8 +138,13 @@
 					</div>
 				</div>
 			</div>
+			<%
+			for (Body_DTO b_dto : body_info) {
+				System.out.println(b_dto.getBAI());
+			}
+			%>
 
-			<div class="y_main">main ~~차트 자리~~</div>
+			<div class="y_main">~~~메인~~~</div>
 			<div class="y_top"></div>
 			<div class="y_aside"></div>
 			<div class="y_bottom"></div>
@@ -204,6 +215,8 @@
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="assets/js/jquery.gmaps.js"></script>
 	<script src="assets/js/main.js"></script>
+
+
 
 </body>
 </html>
