@@ -1,3 +1,4 @@
+<%@page import="model.User_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -57,9 +58,14 @@
 					<a class="navbar-brand" id=physical href="Main_login.jsp">Physical
 						gallery</a>
 				</div>
+				<%
+				User_DTO user_info = (User_DTO) session.getAttribute("user_info");
+				String full_name = user_info.getFull_name();
+				session.removeAttribute("board_success");
+				%>
 				<div class="collapse navbar-collapse" id="navigation-nav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="My_page.jsp">User님 환영합니다.</a></li>
+						<li><a href="My_page.jsp"><%=full_name%>님 환영합니다.</a></li>
 						<li><a href="My_body.jsp">내 몸 관리</a></li>
 						<li class="active"><a href="disease.jsp">비만 관련 질병</a></li>
 						<li><a href="Member_board.jsp">게시판</a></li>
