@@ -42,32 +42,35 @@ public class Join_Service extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String pw_c = request.getParameter("pw_c");
 		int fail_code = 0;
+		int row = 0;
 
 		// pw, pw_c가 다르면 돌아가라 애송이
 		if (!pw.equals(pw_c)) {
 			// 실패코드 1 : 입력한 pw와 확인 pw가 서로 다르다.
 			session.setAttribute("fail_code", 1);
 			fail_code = 1;
-		}
+		} else {
+			// 패스워드가 일치할 경우 실행
 
-		// pw 해시화
-		String hash_pw = "";
-		try {
-			hash_pw = sha256.encrypt(pw);
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
-		String id = request.getParameter("id");
-		String full_name = request.getParameter("full_name");
-		String email = request.getParameter("email");
-		int b_year = Integer.valueOf(request.getParameter("b_year"));
-		int b_month = Integer.valueOf(request.getParameter("b_month"));
-		int b_day = Integer.valueOf(request.getParameter("b_day"));
-		int sex = Integer.valueOf(request.getParameter("sex"));
-		User_DTO j_dto = new User_DTO(id, hash_pw, full_name, email, b_year, b_month, b_day, sex);
+			// pw 해시화
+			String hash_pw = "";
+			try {
+				hash_pw = sha256.encrypt(pw);
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			}
+			String id = request.getParameter("id");
+			String full_name = request.getParameter("full_name");
+			String email = request.getParameter("email");
+			int b_year = Integer.valueOf(request.getParameter("b_year"));
+			int b_month = Integer.valueOf(request.getParameter("b_month"));
+			int b_day = Integer.valueOf(request.getParameter("b_day"));
+			int sex = Integer.valueOf(request.getParameter("sex"));
+			User_DTO j_dto = new User_DTO(id, hash_pw, full_name, email, b_year, b_month, b_day, sex);
 
-		// 회원가입 메소드 실행
-		int row = dao.join(j_dto);
+			// 회원가입 메소드 실행
+			row = dao.join(j_dto);
+		}
 
 		// ID 중복확인
 
