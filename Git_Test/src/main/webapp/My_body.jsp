@@ -120,6 +120,7 @@
 		<!-- Hero
   ================================================== -->
 		<div class="y_container">
+
 			<div class="y_menu">
 				<div class="user_info">
 					<div class="height">
@@ -139,21 +140,34 @@
 					</div>
 				</div>
 			</div>
-			
+
+
 			<%
 			for (Body_DTO b_dto : body_info) {
 				System.out.println(b_dto.getBAI());
 			}
 			%>
-			<div class="chart" style="width: 1000px;  height:500px;">
-				<canvas id='line-chart' ></canvas>
+			<div class="chart">
+				<section>
+				<object data="chart_ex/My_Body_History.jsp" style="width: 1500px; height: 550px; margin-left: 100px;" type="text/html">
+						<a href="chart_ex/My_Body_History.jsp" ></a>
+					</object>
+				</section>
 			</div>
-			<div class="y_top"></div>
+			<div class="y_top">
+				<section>
+					<object data="chart_ex/BMI.jsp" style="width: 500px; height: 500px;" type="text/html" title="WHR">
+						<a href="chart_ex/BMI.jsp" ></a>
+					</object>
+					<object data="chart_ex/Rader_chart.jsp" style="width: 500px; height: 500px;" type="text/html">
+						<a href="chart_ex/Rader_chart.jsp" ></a>
+					</object>
+				</section>
+			</div>
 			<div class="y_aside"></div>
 			<div class="y_bottom"></div>
 			<div class="y_footer"></div>
 		</div>
-
 
 
 
@@ -164,7 +178,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-sm-offset-2">
-							
+
 							<p class="copyright">
 								Created By <a href="">Physical gallery</a>
 							</p>
@@ -212,23 +226,6 @@
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="assets/js/jquery.gmaps.js"></script>
 	<script src="assets/js/main.js"></script>
-
-	<script type="text/javascript">
-		var mychart = $("#line-chart");
-		var myLineChart = new Chart(mychart, {
-			type : "line",
-			data : {
-				labels : [ "서연", "세빈", "성용", "윤제", "건우" ],
-				datasets : [ {
-					label : "피지컬 갤러리1",
-					data : [ 9, 10, 8, 9, 10 ]
-				}, {
-					label : "피지컬 갤러리2",
-					data : [ 5, 3, 2, 4, 1 ]
-				} ]
-			}
-		});
-	</script>
 
 
 </body>

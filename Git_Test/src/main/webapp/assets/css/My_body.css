@@ -156,7 +156,7 @@ input:focus {
 
 .y_top{
 	grid-area:top;
-	height: 140px;
+	height: 500px;
 }
 
 .y_aside{
