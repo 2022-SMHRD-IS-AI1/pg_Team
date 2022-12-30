@@ -164,7 +164,7 @@ body {
 }
 
 a {
-  color: #fc6e51;
+  color: #737272;
   -webkit-transition: all .25s ease-in-out;
      -moz-transition: all .25s ease-in-out;
       -ms-transition: all .25s ease-in-out;
@@ -176,6 +176,7 @@ a {
 
 a:hover, a:focus {
   text-decoration: none;
+  color: #fc6e51
 }
 
 img {
