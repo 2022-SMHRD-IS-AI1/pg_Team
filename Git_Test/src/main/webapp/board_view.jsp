@@ -123,7 +123,7 @@
 				</div>
 			</div>
 			<div class="bt_wrap">
-				<a href="Member_board.jsp" class="on">목록</a> 
+				<a href="Member_board.jsp>" class="on">목록</a> 
 				<%
 					if(user_info.getId().equals(dto.getID())){
 				%>
