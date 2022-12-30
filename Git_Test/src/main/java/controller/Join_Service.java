@@ -50,6 +50,7 @@ public class Join_Service extends HttpServlet {
 			session.setAttribute("fail_code", 1);
 			fail_code = 1;
 		} else {
+			// 패스워드가 일치할 경우 실행
 
 			// pw 해시화
 			String hash_pw = "";
