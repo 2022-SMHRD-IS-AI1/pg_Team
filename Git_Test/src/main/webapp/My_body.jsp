@@ -119,55 +119,88 @@
 
 		<!-- Hero
   ================================================== -->
-		<div class="y_container">
-
-			<div class="y_menu">
-				<div class="user_info">
-					<div class="height">
-						<input type="text" placeholder="신장">
-					</div>
-					<div class="img">
-						<img src="css/image/userinfo.png">
-						<div class="waist">
-							<input type="text" placeholder="허리둘레">
-						</div>
-						<div class="hip">
-							<input type="text" placeholder="엉덩이둘레">
-						</div>
-					</div>
-					<div class="weight">
-						<input type="text" placeholder="체중">
-					</div>
+	<%
+		for (Body_DTO b_dto : body_info) {
+			System.out.println(b_dto.getBAI());
+		}
+	%>
+	<!--a태그 누르면 이동하는거 -->
+<div class = "scroll-container">
+	<div class = b_info>
+		<div class = "body_info">
+		<div>
+			<a href = "#BMI">BMI</a>
+			<div class = "my_res">
+				<h2>29.8%</h2>
+				<div class = "compare">
+					<div class = "good">▼BMI가 3% 감소했어요</div>
 				</div>
 			</div>
-
-
-			<%
-			for (Body_DTO b_dto : body_info) {
-				System.out.println(b_dto.getBAI());
-			}
-			%>
-			<div class="chart">
-				<section>
-				<object data="chart_ex/My_Body_History.jsp" style="width: 1500px; height: 550px; margin-left: 100px;" type="text/html">
-						<a href="chart_ex/My_Body_History.jsp" ></a>
-					</object>
-				</section>
-			</div>
-			<div class="y_top">
-				<section>
-					<object data="chart_ex/BMI.jsp" style="width: 500px; height: 500px;" type="text/html" title="WHR">
-						<a href="chart_ex/BMI.jsp" ></a>
-					</object>
-					<object data="chart_ex/Rader_chart.jsp" style="width: 500px; height: 500px;" type="text/html">
-						<a href="chart_ex/Rader_chart.jsp" ></a>
-					</object>
-				</section>
-			</div>
-			<div class="y_aside"></div>
-			<div class="y_bottom"></div>
-			<div class="y_footer"></div>
 		</div>
+		</div>
+		<div class = "body_info" id = "info_bad">
+			<a href = "#">몸무게</a>
+			<div class = "my_res">
+				<h2>76.8kg</h2>
+				<div class = "compare">
+				<div class = "bad">▲몸무게가 1kg 증가했어요</div>
+				</div>
+			</div>
+		</div>
+		<div class = "body_info">
+			<a href = "#">허리둘레</a>
+			<div class = "my_res">
+				<h2>88.7cm</h2>
+				<div class = "compare">
+				<div class = "good">▼허리둘레가 1cm 감소했어요</div>
+				</div>
+			</div>
+		</div>
+		<div class = "body_info">
+			<a href = "#">엉덩이 둘레</a>
+			<div class = "my_res">
+				<h2>103.9cm</h2>
+				<div class = "compare">
+				<div class = "good">▼엉덩이 둘레가 2cm 감소했어요</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 총평 -->
+	<div class = "all_rating">
+		<div class = "bmi_rating">
+		<div class = "tool_tip">
+			※ <span class = "tip_text"> BMI 결과 지표를 나타냅니다. </span>
+		</div>
+			<iframe src="chart_ex/gauge-grade.html" frameborder="0" style="width: 800px; height: 500px"></iframe>
+		</div>
+		<div class = "radar">
+		<div class = "tool_tip">
+			※ <span class="tip_text"> 키를 기준으로 한 표준 결과값과<br> 사용자의 결과값을 비교합니다. </span>
+		</div>
+			<iframe src="chart_ex/radar.html" frameborder="0" style="width: 800px; height: 500px"></iframe>
+		</div>
+	</div>
+	
+	<!-- 계속 입력한 사용자 신체 정보 -->
+	<div class = "get_body">
+		<div class = "get_info">
+		<div class = "info_title">내 신체 정보</div>
+		<iframe src="chart_ex/bar-y-category-stack.html" frameborder="0" style="width: 1300px; height: 600px"></iframe>
+		</div>
+	</div>
+	<!-- 계속 입력한 사용자 정보를 바탕으로 나온 값 -->
+	<div class = "get_res" style="margin-top:152px; margin-bottom: 135px;">
+	<div id = "BMI" class="get_bmi">
+	<div class = "bmi_title">내 비만도 정보</div>
+		<iframe src="chart_ex/line_chart.html" frameborder="0" style="width: 1300px; height: 600px"></iframe>
+	</div>
+	</div>
+	
+</div>
+	
+	
+			
 
 
 

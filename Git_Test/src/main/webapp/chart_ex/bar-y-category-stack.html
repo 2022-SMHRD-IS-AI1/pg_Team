@@ -1,5 +1,6 @@
 <!--
-	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-stack
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=bar-y-category-stack&code=PYBwLglsB2AEC8sDeAoWszGAG0iAXMmuhgE4QDmFApqYQOQCGAHhAM70A0x6L7ACsAjQwtQqhIkA9FNgBVNtVh82GYGUo1SanHh4kwATxDUGbABaMAJsADu9WDNj0L1uw8aqr1AGaMArrgA3LAAxoxwjNhs6gBGSvTYwtQOwNouljb2-gC-xDnc6NjUNNBW4gXEFOTlRJLFPmAMAMwApFz65BTmTc4ALO2FJLHAYJgAti2D-qEwYIzCADKM8diEYKT-1PlDzACCrGzi-kYmDABuUVv0O8SGB-zHkqemzuGiFGmGHZJWjPOEADa9AATAAGEEggC0YIAbDCAIxcUEQ6FggDsMNhyPBkJhAA4oQikZxnLi0QBOIlgrhk1HUokAVlpKLxxKhIOZpNZ0IR0OaNIAurd0IpyNQjrBAfoJJJYNBGONXvRACULsAAwgBZH5yl4MWKMUg6yRseahADWDEw82wxpI2BW1DWdTlovMdnWm22rsqruo4xAljYjxdrp8wFC_klLloEAlNx9Q1-_0YQIR6PRADpmqT0_jMyDc-j8UWs4XYOms4yi_mcxX0RThZJfSRZZIFUqGIAOrsALN2AGJrYABpADidvQeucBqNSZIpsYFqtoyiY9gDtWT1dsAsHrIW306Bbkn9gc8IbbcvDkejYrjHH3sEPJD-AKl-Ip2dJ-NhmdhpIpYMzClSWLAtgKzPpPwAktYH_JsSEfc90A7ZVAAnVwAazsADRbAAgOjVtRncdjGVKcVznBdnGtZd8NXR1nUQ2d3VsT090Te9jyDM973QS8ozMWN43vR90GfVNX3zct8UZTMET_ADf1gfEEUAyDQPk5oPxgsE4IPGc6OQhhAEnRwBLZsAF3HYGw3CVwnehiKo0jLXIpdbSotcnQ3V1t0Y3dvTlQTYDY09JToriIx45wb34ljXWEtMwTU6sKzBACgIStTpJgyTywpPp1IpMtcwhTM-i0h9iGFHIgiAA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
 -->
 <!DOCTYPE html>
 <html lang="en" style="height: 100%">
@@ -40,20 +41,22 @@
     var option;
 
     option = {
-  title: {
-    //text: 'Stacked Line'
-  },
   tooltip: {
-    trigger: 'axis'
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
   },
-  legend: {
-    data: ['BMI', 'RFM', 'BAI', 'WHR', 'WHtR']
-  },
+  legend: {},
   grid: {
     left: '3%',
     right: '4%',
     bottom: '3%',
     containLabel: true
+  },
+  xAxis: {
+    type: 'value'
   },
   tooltip: {
       trigger: 'axis',
@@ -72,43 +75,58 @@
         saveAsImage: { show: true }
       }
     },
-  xAxis: {
-    type: 'category',
-    boundaryGap: false,
-    data: ['22-06-01', '22-07-06', '22-08-11', '22-09-10', '22-10-15', '22-11-25', '23-12-30']
-  },
   yAxis: {
-    type: 'value'
+    type: 'category',
+    data: ['2022-06-01','2022-07-06','2022-08-11', '2022-09-10', '2022-10-15', '2022-11-25', '2022-12-30']
   },
   series: [
     {
-      name: 'BMI',
-      type: 'line',
-      data: [25.8, 26.6, 27.4, 26.8, 26.7, 26, 24.7]
+      name: '키 CM',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: true
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [177.3, 178.2, 178, 177.2, 177.5, 178.3, 179]
     },
     {
-      name: 'RFM',
-      type: 'line',
-
-      data: [20, 21.3, 22.6, 21.6, 21.4, 20.3, 17.9]
+      name: '몸무게 KG',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: true
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [89.3, 86.6, 90.9, 78.2, 77.4, 80.8, 90]
     },
     {
-      name: 'BAI',
-      type: 'line',
-
-      data: [15.28, 16.12, 15.70, 14.96, 14.63, 14.96, 14.90]
+      name: '허리둘레 CM',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: true
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [88.2, 85.1, 90.6, 81.9, 80.2, 83.3, 90]
     },
     {
-      name: 'WHR',
-      type: 'line',
-
-      data: [0.85, 0.84, 0.88, 0.83, 0.8, 0.78, 0.76]
-    },
-    {
-      name: 'WHtR',
-      type: 'line',
- 
-      data: [1.26, 1.28, 1.32, 1.22, 1.17, 1.11, 1.06]
+      name: '엉덩이 둘레 CM',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: true
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [103.5, 100.9, 103.1, 95.2, 94.3, 97.2, 102.4]
     }
   ]
 };

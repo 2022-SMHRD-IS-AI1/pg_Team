@@ -65,6 +65,124 @@
 /* =Common Styles */
 /***********************************************************************************************/
 /*윤제 수정*/
+.b_info{
+	text-align: center;
+}
+.tool_tip{
+	display:inline-block;
+	margin:10px;
+	font-size: 30px;
+	color: red;
+}
+.tool_tip:hover .tip_text{
+	display: block;
+}
+.tip_text{
+	display: none;
+	position: absolute;
+	max-width: 300px;
+  	border: 1px solid;
+  	border-radius: 5px;
+  	padding: 5px;
+  	font-size: 15px;
+  	color: black;
+  	background: #fff;
+}
+.scroll-container{
+	 scroll-behavior: smooth;
+}
+.get_body, .get_res{
+	clear:both;
+	margin:auto;
+	width: 1600px;
+	height: 600px;
+	margin-bottom:10px;
+	text-align: center;
+}
+.all_rating{
+	text-align: center;
+	width: 1600;
+	height: 600px;
+}
+.bmi_rating, .radar{
+	display: inline-block;
+	box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	margin-top: 30px;
+	
+}
+/*.get_res{
+	margin:auto;
+	background:#fff;
+	width:1600;
+	height:600px;
+	text-align:center;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}*/
+.get_info, .get_bmi{
+	text-align:center;
+	margin:auto;
+	margin-top:0px;
+	margin-bottom: 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+.get_info .info_title, .bmi_title{
+	font-size: 30px;
+	padding: 30px;
+}
+#info_bad{
+	background: #fff;
+	border: 3px solid #ff0000;
+}
+.compare{
+	text-align: right;
+	padding-top: 30px;
+	padding-right:10px;
+}
+.good{
+	color: #0022ff;
+	
+}
+.bad{
+	color: #ff0000;
+}
+.my_res{
+	text-align: center;
+}
+.my_res h2{
+	margin:0px;
+	margin-top: 20px;
+	color: #000;
+}
+.body_info{
+	/*background:#ffaf9e;*/
+	background:#fff;
+	text-align:left;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 300px;
+	height: 150px;
+	border: 3px solid #0022ff;
+	display: inline-block;
+	border-radius: 10px;
+	margin: 10px;
+	margin-top: 40px;
+	box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+.body_info:hover{
+	transform: scale(1.5);
+  	transition-duration: 0.5s;
+}
+.body_info a{
+	font-family:'Raleway', sans-serif;
+	font-size: 20px;
+	color: #000;
+}
 .ob_info{
 	font-size: 20px;
 }

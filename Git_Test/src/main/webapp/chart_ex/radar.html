@@ -1,5 +1,6 @@
 <!--
-	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=line-stack
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=radar&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQBCAhgM4QDGsASrQCa0BOsAwgAseYSkQC-AGiK4A5jmgcCqYrC5haBANqVAqBOBBgcoTYlQDUDgSrHACeOUAuuKnpunHkqLoA9G9j0hIfMaYQ3Ey4hq6wEArMtGDA3Fph6Eiw0LQAtn40ALIAkoawqbSkBADMAAywkgnIyWkZrABimXkFRbBlFfYq1SnpVNQAgrlGLSXllV3dtVQA6gASrM2FBACMAHQArB1VST0Zc2ALw0uwAEwVYbbo41443BA49PEqyl27fQCuHHJgsABu9F5fJFoDJQhMwABPXxURxcbhgrpqDSwTRVRJo4i_WhYd5-TQnE5GE6lIzLADsRlKqwAnJTVgAWMnWToTdBvYz6USsrbcl7crE4vEndZE-mk6mrE4ADjpUpFsDWJwAbMyMWypsZzFYMWIqpdiLr0LYxABuIA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
 -->
 <!DOCTYPE html>
 <html lang="en" style="height: 100%">
@@ -41,19 +42,10 @@
 
     option = {
   title: {
-    //text: 'Stacked Line'
-  },
-  tooltip: {
-    trigger: 'axis'
+    text: ''
   },
   legend: {
-    data: ['BMI', 'RFM', 'BAI', 'WHR', 'WHtR']
-  },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
+    data: ['정상', '사용자']
   },
   tooltip: {
       trigger: 'axis',
@@ -72,43 +64,30 @@
         saveAsImage: { show: true }
       }
     },
-  xAxis: {
-    type: 'category',
-    boundaryGap: false,
-    data: ['22-06-01', '22-07-06', '22-08-11', '22-09-10', '22-10-15', '22-11-25', '23-12-30']
-  },
-  yAxis: {
-    type: 'value'
+  radar: {
+    // shape: 'circle',
+    indicator: [
+      { name: 'BMI', max: 30 },
+      { name: 'RFM', max: 30 },
+      { name: 'BAI', max: 30 },
+      { name: 'WHR', max: 1.5 },
+      { name: 'WHtR', max: 2 }
+    ]
   },
   series: [
     {
-      name: 'BMI',
-      type: 'line',
-      data: [25.8, 26.6, 27.4, 26.8, 26.7, 26, 24.7]
-    },
-    {
-      name: 'RFM',
-      type: 'line',
-
-      data: [20, 21.3, 22.6, 21.6, 21.4, 20.3, 17.9]
-    },
-    {
-      name: 'BAI',
-      type: 'line',
-
-      data: [15.28, 16.12, 15.70, 14.96, 14.63, 14.96, 14.90]
-    },
-    {
-      name: 'WHR',
-      type: 'line',
-
-      data: [0.85, 0.84, 0.88, 0.83, 0.8, 0.78, 0.76]
-    },
-    {
-      name: 'WHtR',
-      type: 'line',
- 
-      data: [1.26, 1.28, 1.32, 1.22, 1.17, 1.11, 1.06]
+      name: 'Budget vs spending',
+      type: 'radar',
+      data: [
+        {
+          value: [22, 20, 17, 0.9, 0.47],
+          name: '정상'
+        },
+        {
+          value: [25, 24, 19.28, 0.85, 1.26],
+          name: '사용자'
+        }
+      ]
     }
   ]
 };
