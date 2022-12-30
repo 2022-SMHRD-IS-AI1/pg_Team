@@ -154,7 +154,7 @@
 					</object>
 				</section>
 			</div>
-			<div class="y_top">
+			<div class="y_top" style="height: 700px">
 				<section>
 					<object data="chart_ex/BMI.jsp" style="width: 500px; height: 500px;" type="text/html" title="WHR">
 						<a href="chart_ex/BMI.jsp" ></a>
