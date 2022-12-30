@@ -114,6 +114,8 @@ a{
 	
 }
 .board_page a{
+	padding: 7px;
+	font-size : 1.4rem;
 	display: inline-block;
 	width: 32px;
 	height: 32px;

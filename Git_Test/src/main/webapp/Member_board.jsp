@@ -179,7 +179,11 @@
 				<%
 				for(int i = startPage; i<=endPage; i++){
 				%>
+				<%if(i == currentPage){ %>
 				<a href="Member_board.jsp?pageNum=<%=i %>" class="num on"><%=i %></a> 
+				<%}else{  %>
+					<a href="Member_board.jsp?pageNum=<%=i %>" id = "other_num"><%=i %></a>
+				<% }%>
 				<%} %>
 				<%
 				if(endPage < pageCount){
