@@ -123,7 +123,9 @@ select * from member_board where b_num between 21 and 16 order by b_num DESC ;
 
 
 
-
+SELECT *
+FROM MEMBER_JOIN_INFO
+WHERE ID = '아무거나' or 1=1; -- AND PW = ?";
 
 
 
