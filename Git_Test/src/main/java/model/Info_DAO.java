@@ -1,5 +1,6 @@
 package model;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ public class Info_DAO {
 	// DB 연결을 위한 객체
 	Connection conn = null;
 	PreparedStatement psmt = null;
+	// Statement smt = null;
 	ResultSet rs = null;
 	String name = null;
 

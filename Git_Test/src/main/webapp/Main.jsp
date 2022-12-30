@@ -66,11 +66,9 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-8 col-sm-offset-2">
-
 								<div class="hero-text">
 									<div class="herolider">
 										<ul class="caption-slides">
-
 											<li class="caption">
 												<h1>어디한번 살을 빼볼까나?</h1>
 												<div class="div-line"></div>
@@ -148,14 +146,8 @@
 								<p>만 19세 이상 인구 중 체질량지수(BMI, kg/m²)가 25 이상인 인구의 비율입니다. 2015년 33.2%에서 34% 내외의 비슷한 수준을 유지하였으나, 2020년 38.3%로 전년보다 4.5%p 증가하였다.</p>
 								<br>
 								<p>한국에서는 키와 몸무게의 비를 의미하는 체질량지수 25 이상을 비만으로 규정하지만, 국제적으로는 체질량지수 30을 초과할 때 비만으로 분류한다. 국제 기준에 따라 주요 국가들의 비만율을 살펴보면, 2019년 기준 남자는 미국 43.5%, 캐나다 26.7%, 호주 31.5%, 영국 27.0%, 독일 18.1%, 프랑스 13.5% 등이다. 한국은 6.2%로 서구 선진국들에 비해 매우 낮은 편이다. 여자의 경우도 한국은 5.5%로 서구 국가들보다 크게 낮다. 그러나 서구식 생활방식이 확산되면 비만율이 높아질 가능성이 크다.</p>
-								
-					
 							</div>
-							
 						</div>
-
-
-
 						<div
 							class="col-sm-5 col-sm-offset-1 text-center img-app-right animated out"
 							data-animation="fadeInRight" data-delay="0">
