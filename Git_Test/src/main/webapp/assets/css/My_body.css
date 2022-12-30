@@ -81,7 +81,9 @@
 	padding-left: 5px
 }
 
-
+input {
+	width: 80px;
+}
 
 .y_container > div{
 	background-color: rgba(0,0,0,0);
@@ -96,12 +98,17 @@
     grid-area: menu;
     float: left;
     margin-top: 80px;
+    margin-left: 50px;
 }
 
 img {
 	max-width: 100%;
 	background-size: cover;
 	float: left;
+}
+
+.height, .weight {
+	margin-left: 60px;
 }
 
 .user_info > .height > input {
@@ -113,7 +120,7 @@ img {
 .img > .waist {
 	position: absolute;
 	margin-top: 194px;
-	margin-left: 11%;
+	margin-left: 12%;
 }
 
 .img > .hip {
@@ -168,7 +175,9 @@ input:focus {
 	grid-area:footer;
 }
 
-
+.chart > canvas{
+	margin-left: 200px;
+}
 
 
 

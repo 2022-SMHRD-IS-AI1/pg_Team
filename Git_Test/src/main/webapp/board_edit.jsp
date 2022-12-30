@@ -112,13 +112,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-sm-offset-2">
-							<ul class="footer-social-links">
-								<li><a href="#">Facebook</a></li>
-								<li><a href="#">Twitter</a></li>
-								<li><a href="#">instagram</a></li>
-								<li><a href="#">youtube</a></li>
-								<li><a href="#">Pinterest</a></li>
-							</ul>
+							
 							<p class="copyright">
 								Created By <a href="">Physical gallery</a>
 							</p>
