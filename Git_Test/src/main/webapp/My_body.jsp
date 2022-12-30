@@ -123,7 +123,7 @@
 			<div class="y_menu">
 				<div class="user_info">
 					<div class="height">
-						<input type="text" placeholder="키">
+						<input type="text" placeholder="신장">
 					</div>
 					<div class="img">
 						<img src="css/image/userinfo.png">
@@ -135,7 +135,7 @@
 						</div>
 					</div>
 					<div class="weight">
-						<input type="text" placeholder="몸무게">
+						<input type="text" placeholder="체중">
 					</div>
 				</div>
 			</div>
