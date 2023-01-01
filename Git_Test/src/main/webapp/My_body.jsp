@@ -181,6 +181,14 @@
 			<iframe src="chart_ex/radar.html" frameborder="0" style="width: 800px; height: 500px"></iframe>
 		</div>
 	</div>
+	<div class = "all_rating">
+		<div class = "bmi_rating">
+			<iframe src="chart_ex/gauge-grade_BAI.html" frameborder="0" style="width: 800px; height: 500px"></iframe>
+		</div>
+		<div class = "radar">
+			<iframe src="chart_ex/gauge-grade_WHtR.html" frameborder="0" style="width: 800px; height: 500px"></iframe>
+		</div>
+	</div>
 	
 	<!-- 계속 입력한 사용자 신체 정보 -->
 	<div class = "get_body">
@@ -193,6 +201,9 @@
 	<div class = "get_res" style="margin-top:152px; margin-bottom: 135px;">
 	<div id = "BMI" class="get_bmi">
 	<div class = "bmi_title">내 비만도 정보</div>
+	<div class = "tool_tip">
+			※ <span class="tip_text"> WHR이 0.9 초과 시 복부비만에 해당합니다.</span>
+		</div>
 		<iframe src="chart_ex/line_chart.html" frameborder="0" style="width: 1300px; height: 600px"></iframe>
 	</div>
 	</div>
