@@ -84,7 +84,7 @@
 											<li class="caption">
 												<h1>BMI를 한번 기록해보세요!</h1>
 												<div class="div-line"></div>
-												<p class="hero">BMI &amp; fuck</p>
+												<p class="hero">BMI &amp; RMF</p>
 											</li>
 
 										</ul>
